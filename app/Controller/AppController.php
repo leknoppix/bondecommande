@@ -32,28 +32,21 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
-	public $components = array
+		public $components = array
 		(
 			'Session',
 			'DebugKit.Toolbar',
-			'Auth'
+			'Auth' => array(
+                        'loginRedirect' => array('controller' => 'pages', 'action' => 'home'),
+                        'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
+                        'authorize' => array('Controller')
+                )
 		);
 		function beforeFilter()
 		{
-			$this->Auth->loginAction = array(
-					'controller'=>'users',
-					'action'=>'login',
-					'acces'=>false,
-					'admin'=>false
-				);
-			if(!isset($this->request->params['prefix']))
-			{
-				$this->Auth->allow();
-			}
-			else
-			{
-				
-			}
+			$this->Auth->allow('login');
 		}
-
+		public function isAuthorized($user) {  
+                return true;
+        }
 }

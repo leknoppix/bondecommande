@@ -47,15 +47,6 @@ class PagesController extends AppController {
  */
 	public function home() {
 		$s = $this->Session->read('Auth');
-		if(!isset($s['User']['id']))
-		{
-			$this->redirect(
-				array(
-					'controller'=>'users',
-					'action'=>'logout'
-					)
-				);
-		}
 		$user= $s['User'];
 		$this->set('user',$user);
 	}

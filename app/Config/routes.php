@@ -25,13 +25,14 @@
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
 	Router::connect('/', array('controller' => 'users', 'action' => 'login', 'home'));
+	Router::connect('/backoffice',array('controller' => 'pages', 'action' => 'home'));
+
 /**
  * ...and connect the rest of 'Pages' controller's URLs.
  */
 	Router::connect('/backoffice/utilisateurs/*', array('controller' => 'users'));
 	Router::connect('/clients/*', array('controller' => 'customers'));
 	Router::connect('/bondecommande/*', array('controller' => 'orderforms'));
-	Router::connect('/backoffice',array('controller' => 'pages', 'action' => 'home', 'home'));
 	Router::connect('/backoffice/logout',array('controller' => 'users', 'action' => 'logout'));
 /**
  * Load all plugin routes. See the CakePlugin documentation on

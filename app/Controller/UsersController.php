@@ -92,13 +92,13 @@ class UsersController extends AppController {
 
 
 	/**
-	 * admin_edit method
+	 * edit method
 	 *
 	 * @throws NotFoundException
 	 * @param string $id
 	 * @return void
 	 */
-	public function admin_edit($id = null) {
+	public function edit($id = null) {
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
 		}
@@ -127,7 +127,7 @@ class UsersController extends AppController {
 	 * @param string $id
 	 * @return void
 	 */
-	public function admin_profile() {
+	public function profile() {
 		$s = $this->Session->read('Auth');
 		$id=$s['User']['id'];
 		if (!$this->User->exists($id)) {

@@ -6,8 +6,7 @@
 				'Mon profil',
 				array(
 						'controller'=>'users',
-						'action'=>'profile',
-						'admin'=>true
+						'action'=>'profile'
 					)
 				); ?></li>
 		<li>Actions

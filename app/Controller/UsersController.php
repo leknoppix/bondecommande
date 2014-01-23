@@ -133,27 +133,42 @@ class UsersController extends AppController {
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
 		}
-		$options = array(
-			'conditions' => 
-				array(
-					'User.' . $this->User->primaryKey => $id
-				),
-			'fields' =>
-				array(
-					'name',
-					'nom',
-					'username',
-					'prenom',
-					'mail',
-					'telephone_fixe',
-					'telephone_mobile',
-					'adresse_postale',
-					'code_postal',
-					'ville',
-					'signature'
-				)
-		);
-		$this->request->data = $this->User->find('first', $options);
+		if ($this->request->is(array('post', 'put'))) {
+			$d=$this->request->data;
+			debug($d);
+			if($d['User']['password']!="")
+			{
+				unset($d['User']['password']);
+			}
+			if ($this->User->save($d)) {
+				$this->Session->setFlash(__('The user has been saved.'));
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+			}
+		} else {
+			$options = array(
+				'conditions' => 
+					array(
+						'User.' . $this->User->primaryKey => $id
+					),
+				'fields' =>
+					array(
+						'name',
+						'nom',
+						'username',
+						'prenom',
+						'mail',
+						'telephone_fixe',
+						'telephone_mobile',
+						'adresse_postale',
+						'code_postal',
+						'ville',
+						'signature'
+					)
+			);
+			$this->request->data = $this->User->find('first', $options);
+		}
 	}
 /**
  * delete method

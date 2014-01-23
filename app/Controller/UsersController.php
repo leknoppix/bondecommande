@@ -128,15 +128,10 @@ class UsersController extends AppController {
 	 * @return void
 	 */
 	public function profile() {
-		$s = $this->Session->read('Auth');
-		$id=$s['User']['id'];
-		if (!$this->User->exists($id)) {
-			throw new NotFoundException(__('Invalid user'));
-		}
 		if ($this->request->is(array('post', 'put'))) {
 			$d=$this->request->data;
 			debug($d);
-			if($d['User']['password']!="")
+			if(!empty($d['User']['password']))
 			{
 				unset($d['User']['password']);
 			}
@@ -147,6 +142,8 @@ class UsersController extends AppController {
 				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
 			}
 		} else {
+					$s = $this->Session->read('Auth');
+		$id=$s['User']['id'];
 			$options = array(
 				'conditions' => 
 					array(
@@ -154,6 +151,7 @@ class UsersController extends AppController {
 					),
 				'fields' =>
 					array(
+						'id',
 						'name',
 						'nom',
 						'username',

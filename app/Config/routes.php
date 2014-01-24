@@ -30,9 +30,9 @@
 /**
  * ...and connect the rest of 'Pages' controller's URLs.
  */
-	Router::connect('/backoffice/utilisateurs/*', array('controller' => 'users'));
-	Router::connect('/backoffice/clients/*', array('controller' => 'customers'));
-	Router::connect('/backoffice/bondecommande/*', array('controller' => 'orderforms'));
+	Router::connect('/backoffice/utilisateurs/:action/*', array('controller' => 'users'));
+	Router::connect('/backoffice/clients/:action/*', array('controller' => 'customers'));
+	Router::connect('/backoffice/bondecommande/:action/*', array('controller' => 'orderforms'));
 	Router::connect('/backoffice/logout',array('controller' => 'users', 'action' => 'logout'));
 /**
  * Load all plugin routes. See the CakePlugin documentation on

@@ -8,12 +8,6 @@ App::uses('AppController', 'Controller');
  */
 class UsersController extends AppController {
 
-/**
- * Components
- *
- * @var array
- */
-	public $components = array('Paginator');
 
 /**
  * index method
@@ -21,8 +15,15 @@ class UsersController extends AppController {
  * @return void
  */
 	public function index() {
+		$s = $this->Session->read('Auth');
+		$id=$s['User']['id'];
 		$this->User->recursive = 0;
-		$this->set('users', $this->Paginator->paginate());
+		$users=$this->User->find('all',
+			array(
+				'conditions' => array('User.id !='=>$id)
+				)
+			);
+		$this->set('users', $users);
 	}
 /**
  * logout method
@@ -53,20 +54,6 @@ class UsersController extends AppController {
 	public function logout() {
 		$this->redirect($this->Auth->logout());
 	}
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function view($id = null) {
-		if (!$this->User->exists($id)) {
-			throw new NotFoundException(__('Invalid user'));
-		}
-		$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
-		$this->set('user', $this->User->find('first', $options));
-	}
 
 /**
  * add method
@@ -77,10 +64,6 @@ class UsersController extends AppController {
 		if ($this->request->is('post')) {
 			$this->User->create();
 			$d=$this->request->data;
-			if(!empty($d['User']['password']))
-			{
-				$d['User']['password']=Security::hash($d['User']['password'],null,true);
-			}
 			if ($this->User->save($d)) {
 				$this->Session->setFlash(__('The user has been saved.'));
 				return $this->redirect(array('action' => 'index'));
@@ -104,10 +87,6 @@ class UsersController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			$d=$this->request->data;
-			if(!empty($d['User']['password']))
-			{
-				$d['User']['password']=Security::hash($d['User']['password'],null,true);
-			}
 			if ($this->User->save($d)) {
 				$this->Session->setFlash(__('The user has been saved.'));
 				return $this->redirect(array('action' => 'index'));
@@ -115,8 +94,13 @@ class UsersController extends AppController {
 				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
 			}
 		} else {
-			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
-			$this->request->data = $this->User->find('first', $options);
+			$users=$this->User->find('first',
+			array(
+				'conditions' => array('User.id '=>$id)
+				)
+			);
+			$this->request->data=$users;
+			$this->set('users', $users);
 		}
 	}
 

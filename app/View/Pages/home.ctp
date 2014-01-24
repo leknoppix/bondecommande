@@ -12,7 +12,7 @@
 		<li>Actions
 			<ul>
 				<li>Gestion des bons de commande</li>
-				<li>Gestion des membres</li>
+				<li><?php echo $this->Html->link('Gestion des membres',array('controller'=>'users','action'=>'index')); ?></li>
 				<li>Gestion des services</li>
 				<li>Gestion des fournisseurs</li>
 			</ul>

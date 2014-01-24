@@ -22,8 +22,8 @@
 		</div>
 		<div class="password">
 	<?php
-		echo $this->Form->input('passwordmodif',array('label'=>'Votre nouveau mot de passe','required'=>false));
-		echo $this->Form->input('confirm_password',array('label'=>'Veuillez à nouveau indiquer votre mot de passe'));
+		echo $this->Form->input('passwordmodif',array('type'=>'password','label'=>'Votre nouveau mot de passe','required'=>false));
+		echo $this->Form->input('confirm_password',array('type'=>'password','label'=>'Veuillez à nouveau indiquer votre mot de passe'));
 	?>
 		</div>
 		<div class="adressage">

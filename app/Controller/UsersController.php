@@ -121,29 +121,23 @@ class UsersController extends AppController {
 	}
 
 	/**
-	 * admin_profile method
+	 * profile method
 	 *
-	 * @throws NotFoundException
-	 * @param string $id
 	 * @return void
+	 *
 	 */
 	public function profile() {
 		if ($this->request->is(array('post', 'put'))) {
 			$d=$this->request->data;
-			debug($d);
-			if(!empty($d['User']['password']))
-			{
-				unset($d['User']['password']);
-			}
 			if ($this->User->save($d)) {
 				$this->Session->setFlash(__('The user has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect('/backoffice');
 			} else {
 				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
 			}
 		} else {
-					$s = $this->Session->read('Auth');
-		$id=$s['User']['id'];
+			$s = $this->Session->read('Auth');
+			$id=$s['User']['id'];
 			$options = array(
 				'conditions' => 
 					array(
@@ -152,7 +146,6 @@ class UsersController extends AppController {
 				'fields' =>
 					array(
 						'id',
-						'name',
 						'nom',
 						'username',
 						'prenom',

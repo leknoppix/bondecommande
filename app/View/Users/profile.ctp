@@ -22,7 +22,7 @@
 		</div>
 		<div class="password">
 	<?php
-		echo $this->Form->input('password',array('label'=>'Votre nouveau mot de passe','required'=>false));
+		echo $this->Form->input('passwordmodif',array('label'=>'Votre nouveau mot de passe','required'=>false));
 		echo $this->Form->input('confirm_password',array('label'=>'Veuillez à nouveau indiquer votre mot de passe'));
 	?>
 		</div>

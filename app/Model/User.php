@@ -65,6 +65,12 @@ class User extends AppModel {
         		'message' => 'Please re-enter your password twice so that the values match' 
             ),
 		),
+		'passwordmodif' => array(
+			'identicalFieldValues' => array( 
+        		'rule' => array('identicalFieldValues', 'confirm_password' ), 
+        		'message' => 'Please re-enter your password twice so that the values match' 
+            ),
+		),
 		'mail' => array(
 			'email' => array(
 				'rule' => array('email'),
@@ -144,7 +150,14 @@ class User extends AppModel {
 			),
 		),
 	);
-
+	public function beforeSave($options = array())
+	{
+	    if(!empty($this->data['User']['passwordmodif']))
+	    {
+	    	$this->data['User']['password']=Security::hash($this->data['User']['passwordmodif'],null,true);
+	    }
+	    return true;
+	}
 	function identicalFieldValues( $field=array(), $compare_field=null )  
     { 
         foreach( $field as $key => $value ){ 

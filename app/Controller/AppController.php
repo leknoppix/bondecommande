@@ -46,7 +46,8 @@ class AppController extends Controller {
 		{
 			$this->Auth->allow('login');
 		}
-		public function isAuthorized($user) {  
+		public function isAuthorized($user) {
+				$this->layout="admin";  
                 return true;
         }
 }

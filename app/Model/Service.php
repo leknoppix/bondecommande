@@ -40,4 +40,12 @@ class Service extends AppModel {
 			),
 		),
 	);
+	public function beforeSave($options = array())
+	{
+	    if(!empty($this->data['Service']['name']))
+	    {
+	    	$this->data['Service']['slug'] = strtolower(Inflector::slug($this->data['Service']['name'],'-'));
+	    }
+	    return true;
+	}
 }

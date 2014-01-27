@@ -22,22 +22,8 @@ class ServicesController extends AppController {
  */
 	public function index() {
 		$this->Service->recursive = 0;
-		$this->set('services', $this->Paginator->paginate());
-	}
-
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function view($id = null) {
-		if (!$this->Service->exists($id)) {
-			throw new NotFoundException(__('Invalid service'));
-		}
-		$options = array('conditions' => array('Service.' . $this->Service->primaryKey => $id));
-		$this->set('service', $this->Service->find('first', $options));
+		$services=$this->Service->find('all');
+		$this->set('services', $services);
 	}
 
 /**
@@ -48,7 +34,9 @@ class ServicesController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Service->create();
-			if ($this->Service->save($this->request->data)) {
+			$d=$this->request->data;
+			$d['Services']['slug']=$d['Services']['name'];
+			if ($this->Service->save($d)) {
 				$this->Session->setFlash(__('The service has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {

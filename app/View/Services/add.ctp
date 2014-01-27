@@ -1,13 +1,12 @@
 <div class="services form">
 <?php echo $this->Form->create('Service'); ?>
 	<fieldset>
-		<legend><?php echo __('Add Service'); ?></legend>
+		<legend>Ajouter un nouveau service</legend>
 	<?php
 		echo $this->Form->input('name');
-		echo $this->Form->input('slug');
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+<?php echo $this->Form->end('Ajouter ce service'); ?>
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>

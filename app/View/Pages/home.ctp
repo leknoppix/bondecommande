@@ -14,7 +14,7 @@
 				<li>Gestion des bons de commande</li>
 				<li><?php echo $this->Html->link('Gestion des membres',array('controller'=>'users','action'=>'index')); ?></li>
 				<li><?php echo $this->Html->link('Gestion des services',array('controller'=>'services','action'=>'index')); ?></li>
-				<li>Gestion des fournisseurs</li>
+				<li><?php echo $this->Html->link('Gestion des fournisseurs',array('controller'=>'customers','action'=>'index')); ?></li>
 			</ul>
 		</li>
 		<li><?php echo $this->Html->link('Se deconnecter',array('controller'=>'users','action'=>'logout')); ?></li>
@@ -26,12 +26,12 @@
 		<p>Gestion des bons de commande</p>
 	</div>
 	<div class="item">
-		<p>Gestion des membres</p>
+		<p><?php echo $this->Html->link('Gestion des membres',array('controller'=>'users','action'=>'index')); ?></p>
 	</div>
 	<div class="item">
-		<p>Gestion des services</p>
+		<p><?php echo $this->Html->link('Gestion des services',array('controller'=>'services','action'=>'index')); ?></p>
 	</div>
 	<div class="item">
-		<p>Gestion des fournisseurs</p>
+		<p><?php echo $this->Html->link('Gestion des fournisseurs',array('controller'=>'customers','action'=>'index')); ?></p>
 	</div>
 </div>

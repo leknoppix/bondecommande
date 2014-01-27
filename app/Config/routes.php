@@ -32,7 +32,7 @@
  */
 	Router::connect('/backoffice/utilisateurs/:action/*', array('controller' => 'users'));
 	Router::connect('/backoffice/services/:action/*', array('controller' => 'services'));
-	Router::connect('/backoffice/clients/:action/*', array('controller' => 'customers'));
+	Router::connect('/backoffice/fournisseurs/:action/*', array('controller' => 'customers'));
 	Router::connect('/backoffice/bondecommande/:action/*', array('controller' => 'orderforms'));
 	Router::connect('/backoffice/logout',array('controller' => 'users', 'action' => 'logout'));
 /**

@@ -38,7 +38,7 @@
 		<div class="mail">
 	<?php
 		echo $this->Form->input('mail',array('label'=>'Votre adresse mail'));
-		echo $this->Form->input('signature',array('label'=>'Signature pour accompagner vos mails'));
+		echo $this->Form->input('signature',array('label'=>'Signature pour accompagner vos mails','class'=>"cleditorMain"));
 	?>
 		</div>
 	</div>

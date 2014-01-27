@@ -2,13 +2,6 @@
 <nav>
 	<ul>
 		<li>Bonjour, <?php echo $user['nom'].' '.$user['prenom']; ?></li>
-		<li><?php echo $this->Html->link(
-				'Mon profil',
-				array(
-						'controller'=>'users',
-						'action'=>'profile'
-					)
-				); ?></li>
 		<li>Actions
 			<ul>
 				<li>Gestion des bons de commande</li>
@@ -17,7 +10,6 @@
 				<li><?php echo $this->Html->link('Gestion des fournisseurs',array('controller'=>'customers','action'=>'index')); ?></li>
 			</ul>
 		</li>
-		<li><?php echo $this->Html->link('Se deconnecter',array('controller'=>'users','action'=>'logout')); ?></li>
 	</ul>
 </nav>
 <hr />

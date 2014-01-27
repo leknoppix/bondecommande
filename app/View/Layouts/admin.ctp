@@ -34,7 +34,8 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		echo $this->Html->css(
 			array('bootstrap-cerulean.css',
 				"bootstrap-responsive.css",
-				"charisma-app.css")
+				"charisma-app.css",
+				"jquery.cleditor.css")
 			);
 	?>
 	<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -99,7 +100,8 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			"js/bootstrap-modal.js",
 			"bootstrap-dropdown.js",
 			"bootstrap-scrollspy.js",
-			"bootstrap-tab.js"
+			"bootstrap-tab.js",
+			"jquery.cleditor.min.js"
 		)
 	);
 	?>

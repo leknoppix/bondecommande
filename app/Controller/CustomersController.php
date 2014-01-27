@@ -22,22 +22,8 @@ class CustomersController extends AppController {
  */
 	public function index() {
 		$this->Customer->recursive = 0;
-		$this->set('customers', $this->Paginator->paginate());
-	}
-
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function view($id = null) {
-		if (!$this->Customer->exists($id)) {
-			throw new NotFoundException(__('Invalid customer'));
-		}
-		$options = array('conditions' => array('Customer.' . $this->Customer->primaryKey => $id));
-		$this->set('customer', $this->Customer->find('first', $options));
+		$customers=$this->Customer->find('all');
+		$this->set('customers', $customers);
 	}
 
 /**

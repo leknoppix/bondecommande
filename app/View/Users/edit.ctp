@@ -1,8 +1,17 @@
+<?php echo $this->Html->addCrumb('Gestion des membres', array('controller'=>'users','action'=>'index')); ?>
 <?php echo $this->Html->addCrumb('Modifier un utilisateur', array('controller'=>'users','action'=>'edit')); ?>
 <div class="box-header well" data-original-title>
 	<h2><i class="icon-user"></i> <?php echo __('Modifier un utilisateur'); ?></h2>
 </div>	
 <div class="box-content">
+<div class="span4">
+<?php echo $this->Html->link('<i class="icon-home icon-white"></i> Retour à la page principale', '/',array('escape'=>false,'class'=>"btn btn-success")); ?>
+</div>
+<div class="span4"></div>
+<div class="span4">
+<?php echo $this->Html->link('<i class="icon-circle-arrow-left icon-white"></i> Retour à la page précédente', array('action' => 'index'),array('escape'=>false,'class'=>"btn btn-success")); ?>
+</div>
+<hr/>
 	<?php echo $this->Form->create('User',
 					array(
 						'class' => 'form-horizontal',

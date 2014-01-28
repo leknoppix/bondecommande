@@ -1,8 +1,17 @@
+<?php echo $this->Html->addCrumb('Gestion des membres', array('controller'=>'users','action'=>'index')); ?>
 <?php echo $this->Html->addCrumb('Ajouter un utilisateur', array('controller'=>'users','action'=>'edit')); ?>
 <div class="box-header well" data-original-title>
 	<h2><i class="icon-user"></i> <?php echo __('Ajouter un utilisateur'); ?></h2>
 </div>	
 <div class="box-content">
+<div class="span4">
+<?php echo $this->Html->link('<i class="icon-home icon-white"></i> Retour à la page principale', '/',array('escape'=>false,'class'=>"btn btn-success")); ?>
+</div>
+<div class="span4"></div>
+<div class="span4">
+<?php echo $this->Html->link('<i class="icon-circle-arrow-left icon-white"></i> Retour à la page précédente', array('action' => 'index'),array('escape'=>false,'class'=>"btn btn-success")); ?>
+</div>
+<hr/>
 	<?php echo $this->Form->create('User',
 					array(
 						'class' => 'form-horizontal',
@@ -40,13 +49,8 @@
 							?>
 						</div>
 						<div class="tab-pane" id="password">
-							<div class="alert alert-error">
-								<strong>
-									N'utilisez cette partie du formulaire que si vous souhaitez modifier le mot de passe.
-								</strong>
-							</div>
 							<?php
-								echo $this->Form->input('passwordmodif',array('type'=>'password','label'=>'Le nouveau mot de passe','required'=>false,'class'=>"span8"));
+								echo $this->Form->input('passwordmodif',array('type'=>'password','label'=>'Le nouveau mot de passe','class'=>"span8"));
 								echo $this->Form->input('confirm_password',array('type'=>'password','label'=>'Veuillez à nouveau indiquer le mot de passe','class'=>"span8"));
 							?>
 						</div>

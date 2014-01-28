@@ -90,7 +90,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			</div>
 			<div id="content" class="span9">
 				<div class="breadcrumb">
-					<?php echo $this->Html->getCrumbs(' <span class="divider">/</span> ', 'Accueil'); ?><span class="divider">/</span>
+					<?php echo $this->Html->getCrumbs(' <span class="divider">/</span> ', 'Accueil'); ?>
 				</div>
 				<?php echo $this->Session->flash(); ?>
 				<div class="row-fluid sortable">	

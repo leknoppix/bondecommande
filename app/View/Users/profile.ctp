@@ -3,6 +3,13 @@
 	<h2><i class="icon-user"></i> <?php echo __('Mon profil'); ?></h2>
 </div>	
 <div class="box-content">
+<div class="span4">
+<?php echo $this->Html->link('<i class="icon-home icon-white"></i> Retour à la page principale', '/',array('escape'=>false,'class'=>"btn btn-success")); ?>
+</div>
+<div class="span4"></div>
+<div class="span4">
+</div>
+<hr/>
 	<?php echo $this->Form->create('User',
 					array(
 						'class' => 'form-horizontal',

@@ -31,6 +31,10 @@ class UsersController extends AppController {
  * @return void
  */
 	public function login() {
+		if($this->Session->read('Auth'))
+		{
+			$this->redirect('/backoffice');
+		}
 		if ($this->request->is('post'))
 		{
 			if($this->Auth->login())
@@ -68,7 +72,7 @@ class UsersController extends AppController {
 				$this->Session->setFlash(__('The user has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The user could not be saved. Please, try again.','notif',array('type'=>'error')));
 			}
 		}
 	}
@@ -114,10 +118,10 @@ class UsersController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			$d=$this->request->data;
 			if ($this->User->save($d)) {
-				$this->Session->setFlash(__('The user has been saved.'));
+				$this->Session->setFlash(__('The user has been saved.'),'notif',array('type'=>'success'));
 				return $this->redirect('/backoffice');
 			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The user could not be saved. Please, try again.'),'notif',array('type'=>'error'));
 			}
 		} else {
 			$s = $this->Session->read('Auth');

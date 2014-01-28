@@ -29,7 +29,6 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<?php
 		echo $this->Html->meta('icon');
-		echo $this->Html->css('cake.generic');
 		echo $this->fetch('meta');
 		echo $this->Html->css(
 			array('bootstrap-cerulean.css',
@@ -47,39 +46,61 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<div id="container">
 		<div id="content">
 				<div class="navbar">
-		<div class="navbar-inner">
-			<div class="container-fluid">
-				<!-- theme selector ends -->
-				
-				<!-- user dropdown starts -->
-				<div class="btn-group pull-right" >
-					<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-						<i class="icon-user"></i><span class="hidden-phone"> <?php echo $user['nom'].' '.$user['prenom']; ?></span>
-						<span class="caret"></span>
-					</a>
-					<ul class="dropdown-menu">
+					<div class="navbar-inner">
+						<div class="container-fluid">
+							<!-- theme selector ends -->
+							<a class="btn btn-navbar" data-toggle="collapse" data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</a>
+							<?php echo $this->Html->link('Bon de commande','/backoffice',array('class'=>"brand")); ?>
+							<!-- user dropdown starts -->
+							<div class="btn-group pull-right" >
+							<?php echo $this->element('menu'); ?>
+							</div>
+							<!-- user dropdown ends -->
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+	<hr />
+	<div class="container-fluid">
+		<div class="row-fluid" >		
+			<!-- left menu starts -->
+			<div class="span3 main-menu-span">
+				<div class="well nav-collapse sidebar-nav">
+					<ul class="nav nav-tabs nav-stacked main-menu">
+						<li class="nav-header hidden-tablet">MENU</li>
 						<li>
-							<?php echo $this->Html->link(
-								'Mon profil',
-								array(
-										'controller'=>'users',
-										'action'=>'profile'
-									)
-								); 
-							?>
+							<a class="ajax-link" href="index.html"><i class="icon-home"></i><span class="hidden-tablet"> Gestion des bons de commande</span></a>
 						</li>
-						<li class="divider"></li>
-						<li><?php echo $this->Html->link('Se deconnecter',array('controller'=>'users','action'=>'logout')); ?></li>
+						<li>
+							<?php echo $this->Html->link('<i class="icon-user"></i>&nbsp;<span class="hidden-tablet">Gestion des membres</span>',array('controller'=>'users','action'=>'index'),array('escape'=>false,'class'=>'ajax-link')); ?>
+						</li>
+						<li>
+							<?php echo $this->Html->link('<i class="icon-user"></i>&nbsp;<span class="hidden-tablet">Gestion des services</span>',array('controller'=>'services','action'=>'index'),array('escape'=>false,'class'=>'ajax-link')); ?>
+						</li>
+						<li>
+							<?php echo $this->Html->link('<i class="icon-user"></i>&nbsp;<span class="hidden-tablet">Gestion des fournisseurs</span>',array('controller'=>'customers','action'=>'index'),array('escape'=>false,'class'=>'ajax-link')); ?>
+						</li>
 					</ul>
 				</div>
-				<!-- user dropdown ends -->
+			</div>
+			<div id="content" class="span9">
+				<div class="breadcrumb">
+					<?php echo $this->Html->getCrumbs(' <span class="divider">/</span> ', 'Accueil'); ?><span class="divider">/</span>
+				</div>
+				<?php echo $this->Session->flash(); ?>
+				<div class="row-fluid sortable">	
+					<div class="box span12">
+						<?php echo $this->fetch('content'); ?>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-			<?php echo $this->Session->flash(); ?>
-
-			<?php echo $this->fetch('content'); ?>
-		</div>
 		<div id="footer">
 			<?php echo $this->Html->link(
 					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
@@ -97,11 +118,12 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			"jquery-ui-1.8.21.custom.min.js",
 			"bootstrap-transition.js",
 			"bootstrap-alert.js",
-			"js/bootstrap-modal.js",
+			"bootstrap-modal.js",
 			"bootstrap-dropdown.js",
 			"bootstrap-scrollspy.js",
 			"bootstrap-tab.js",
-			"jquery.cleditor.min.js"
+			"jquery.cleditor.min.js",
+			"main.js"
 		)
 	);
 	?>

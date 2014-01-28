@@ -46,8 +46,5 @@ class PagesController extends AppController {
  *	or MissingViewException in debug mode.
  */
 	public function home() {
-		$s = $this->Session->read('Auth');
-		$user= $s['User'];
-		$this->set('user',$user);
 	}
 }

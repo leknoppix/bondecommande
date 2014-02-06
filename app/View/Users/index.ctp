@@ -8,7 +8,7 @@
 </div>
 <div class="span4"></div>
 <div class="span4">
-<?php echo $this->Html->link('<i class="icon-plus icon-white"></i> Ajouter un utilisateur', array('action' => 'add'),array('escape'=>false,'class'=>"btn btn-success")); ?>
+<?php echo $this->Html->link('<i class="icon-plus icon-white"></i> Ajouter un nouvel utilisateur', array('action' => 'add'),array('escape'=>false,'class'=>"btn btn-success")); ?>
 </div>
 <hr/>
 	<table class="table table-striped table-bordered bootstrap-datatable datatable">

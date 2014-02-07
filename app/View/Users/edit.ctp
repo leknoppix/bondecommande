@@ -1,5 +1,5 @@
 <?php echo $this->Html->addCrumb('Gestion des membres', array('controller'=>'users','action'=>'index')); ?>
-<?php echo $this->Html->addCrumb('Modifier un utilisateur', array('controller'=>'users','action'=>'edit')); ?>
+<?php echo $this->Html->addCrumb('Modifier un utilisateur', array('controller'=>'users','action'=>'edit',$this->request->pass[0]))); ?>
 <div class="box-header well" data-original-title>
 	<h2><i class="icon-user"></i> <?php echo __('Modifier un utilisateur'); ?></h2>
 </div>	

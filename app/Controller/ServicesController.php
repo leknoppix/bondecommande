@@ -37,10 +37,10 @@ class ServicesController extends AppController {
 			$d=$this->request->data;
 			$d['Services']['slug']=$d['Services']['name'];
 			if ($this->Service->save($d)) {
-				$this->Session->setFlash(__('The service has been saved.'));
+				$this->Session->setFlash(__('The service has been saved.'),'notif',array('type'=>'success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The service could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The service could not be saved. Please, try again.'),'notif',array('type'=>'error'));
 			}
 		}
 	}
@@ -58,10 +58,10 @@ class ServicesController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Service->save($this->request->data)) {
-				$this->Session->setFlash(__('The service has been saved.'));
+				$this->Session->setFlash(__('The service has been saved.'),'notif',array('type'=>'success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The service could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The service could not be saved. Please, try again.'),'notif',array('type'=>'error'));
 			}
 		} else {
 			$options = array('conditions' => array('Service.' . $this->Service->primaryKey => $id));
@@ -83,9 +83,9 @@ class ServicesController extends AppController {
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Service->delete()) {
-			$this->Session->setFlash(__('The service has been deleted.'));
+			$this->Session->setFlash(__('The service has been deleted.'),'notif',array('type'=>'success'));
 		} else {
-			$this->Session->setFlash(__('The service could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('The service could not be deleted. Please, try again.'),'notif',array('type'=>'error'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}}

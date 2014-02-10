@@ -35,10 +35,10 @@ class CustomersController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Customer->create();
 			if ($this->Customer->save($this->request->data)) {
-				$this->Session->setFlash(__('The customer has been saved.'));
+				$this->Session->setFlash(__('The customer has been saved.'),'notif',array('type'=>'success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The customer could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The customer could not be saved. Please, try again.'),'notif',array('type'=>'error'));
 			}
 		}
 	}
@@ -56,10 +56,10 @@ class CustomersController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Customer->save($this->request->data)) {
-				$this->Session->setFlash(__('The customer has been saved.'));
+				$this->Session->setFlash(__('The customer has been saved.'),'notif',array('type'=>'success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The customer could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The customer could not be saved. Please, try again.'),'notif',array('type'=>'error'));
 			}
 		} else {
 			$options = array('conditions' => array('Customer.' . $this->Customer->primaryKey => $id));
@@ -81,9 +81,9 @@ class CustomersController extends AppController {
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Customer->delete()) {
-			$this->Session->setFlash(__('The customer has been deleted.'));
+			$this->Session->setFlash(__('The customer has been deleted.'),'notif',array('type'=>'success'));
 		} else {
-			$this->Session->setFlash(__('The customer could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('The customer could not be deleted. Please, try again.'),'notif',array('type'=>'error'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}}

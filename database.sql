@@ -19,7 +19,9 @@ SET time_zone = "+00:00";
 --
 -- Base de données: `bondecommande`
 --
-
+-- Login pour l'application
+-- login admin
+-- mot de passe admin
 -- --------------------------------------------------------
 
 --
@@ -150,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `nom`, `prenom`, `username`, `password`, `mail`, `telephone_fixe`, `telephone_mobile`, `adresse_postale`, `code_postal`, `ville`, `signature`) VALUES
-(1, 'Administrateur', 'admin', 'admin', 'admin', 'f14362cd37c3bc78f6ebb0d78547557fa924fb82', 'pascal@mirandais.fr', '0000000000', '0000000000', 'ah', '0000', 'ah', 'coucou');
+(1, 'Administrateur', 'admin', 'admin', 'admin', 'f14362cd37c3bc78f6ebb0d78547557fa924fb82', 'admin@admin.fr', '0000000000', '0000000000', 'ah', '0000', 'ah', 'coucou');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

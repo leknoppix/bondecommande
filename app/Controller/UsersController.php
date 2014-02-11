@@ -65,7 +65,7 @@ class UsersController extends AppController {
  * @return void
  */
 	public function add() {
-		if ($this->request->is('post')) {
+		if ($this->request->is(array('post', 'put'))) {
 			$this->User->create();
 			$d=$this->request->data;
 			if ($this->User->save($d)) {

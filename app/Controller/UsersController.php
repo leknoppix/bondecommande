@@ -31,7 +31,8 @@ class UsersController extends AppController {
  * @return void
  */
 	public function login() {
-		if($this->Session->read('Auth'))
+		$user=$this->Session->read('Auth');
+		if(isset($user['User']))
 		{
 			$this->redirect('/backoffice');
 		}
@@ -45,7 +46,6 @@ class UsersController extends AppController {
 			else
 			{
 				$this->Session->setFlash('Utilisateur ou mot de passe erroné','notif',array('type'=>'error'));
-				//$this->redirect('/');
 				$this->redirect('/');
 			}
 		}

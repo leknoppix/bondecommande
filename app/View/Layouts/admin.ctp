@@ -74,16 +74,16 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 					<ul class="nav nav-tabs nav-stacked main-menu">
 						<li class="nav-header hidden-tablet">MENU</li>
 						<li>
-							<a class="ajax-link" href="index.html"><i class="icon-home"></i><span class="hidden-tablet"> Gestion des bons de commande</span></a>
+							<a class="ajax-link" href="index.html"><i class="icon-barcode"></i><span class="hidden-tablet"> Gestion des bons de commande</span></a>
 						</li>
 						<li>
 							<?php echo $this->Html->link('<i class="icon-user"></i>&nbsp;<span class="hidden-tablet">Gestion des membres</span>',array('controller'=>'users','action'=>'index'),array('escape'=>false,'class'=>'ajax-link')); ?>
 						</li>
 						<li>
-							<?php echo $this->Html->link('<i class="icon-user"></i>&nbsp;<span class="hidden-tablet">Gestion des services</span>',array('controller'=>'services','action'=>'index'),array('escape'=>false,'class'=>'ajax-link')); ?>
+							<?php echo $this->Html->link('<i class="icon-wrench"></i>&nbsp;<span class="hidden-tablet">Gestion des services</span>',array('controller'=>'services','action'=>'index'),array('escape'=>false,'class'=>'ajax-link')); ?>
 						</li>
 						<li>
-							<?php echo $this->Html->link('<i class="icon-user"></i>&nbsp;<span class="hidden-tablet">Gestion des fournisseurs</span>',array('controller'=>'customers','action'=>'index'),array('escape'=>false,'class'=>'ajax-link')); ?>
+							<?php echo $this->Html->link('<i class="icon-camera"></i>&nbsp;<span class="hidden-tablet">Gestion des fournisseurs</span>',array('controller'=>'customers','action'=>'index'),array('escape'=>false,'class'=>'ajax-link')); ?>
 						</li>
 					</ul>
 				</div>
@@ -110,6 +110,10 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			?>
 		</div>
 	</div>
+	<hr />
+	<footer>
+			<p class="pull-left">&copy; <a href="http://site.fr" target="_blank">Site internet</a> <?php echo date('Y'); ?></p>
+	</footer>
 	<?php echo $this->element('sql_dump'); ?>
 	<?php echo $this->fetch('script'); ?>
 	<?php echo $this->Html->script(

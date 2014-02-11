@@ -1,6 +1,6 @@
 <?php echo $this->Html->addCrumb('Gestion des services', array('controller'=>'services','action'=>'index')); ?>
 <div class="box-header well" data-original-title>
-	<h2><i class="icon-user"></i> <?php echo __('Gestion des services'); ?></h2>
+	<h2><i class="icon-wrench"></i> <?php echo __('Gestion des services'); ?></h2>
 </div>	
 <div class="box-content">
 <div class="span4">

@@ -1,7 +1,7 @@
 <?php echo $this->Html->addCrumb('Gestion des fournisseurs', array('controller'=>'customers','action'=>'index')); ?>
 <?php echo $this->Html->addCrumb('Ajouter un fournisseur', array('controller'=>'customers','action'=>'add')); ?>
 <div class="box-header well" data-original-title>
-	<h2><i class="icon-user"></i> <?php echo __('Ajouter un fournisseur'); ?></h2>
+	<h2><i class="icon-camera"></i> <?php echo __('Ajouter un fournisseur'); ?></h2>
 </div>	
 <div class="box-content">
 <div class="span4">

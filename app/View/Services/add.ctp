@@ -1,7 +1,7 @@
 <?php echo $this->Html->addCrumb('Gestion des services', array('controller'=>'services','action'=>'index')); ?>
 <?php echo $this->Html->addCrumb('Ajouter un nouveau service', array('controller'=>'services','action'=>'edit')); ?>
 <div class="box-header well" data-original-title>
-	<h2><i class="icon-user"></i> <?php echo __('Ajouter un nouveau service'); ?></h2>
+	<h2><i class="icon-wrench"></i> <?php echo __('Ajouter un nouveau service'); ?></h2>
 </div>	
 <div class="box-content">
 <div class="span4">

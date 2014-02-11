@@ -74,7 +74,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 					<ul class="nav nav-tabs nav-stacked main-menu">
 						<li class="nav-header hidden-tablet">MENU</li>
 						<li>
-							<a class="ajax-link" href="index.html"><i class="icon-barcode"></i><span class="hidden-tablet"> Gestion des bons de commande</span></a>
+							<?php echo $this->Html->link('<i class="icon-barcode"></i>&nbsp;<span class="hidden-tablet">Gestion des bons de commande</span>',array('controller'=>'orderforms','action'=>'index'),array('escape'=>false,'class'=>'ajax-link')); ?>
 						</li>
 						<li>
 							<?php echo $this->Html->link('<i class="icon-user"></i>&nbsp;<span class="hidden-tablet">Gestion des membres</span>',array('controller'=>'users','action'=>'index'),array('escape'=>false,'class'=>'ajax-link')); ?>

@@ -1,4 +1,4 @@
-<?php echo $this->Html->addCrumb('Gestion des fournisseurs', array('controller'=>'customers','action'=>'index')); ?>
+<?php echo $this->Html->addCrumb(__('Gestion des fournisseurs'), array('controller'=>'customers','action'=>'index')); ?>
 <div class="box-header well" data-original-title>
 	<h2><i class="icon-camera"></i> <?php echo __('Gestion des fournisseurs'); ?></h2>
 </div>	
@@ -14,10 +14,10 @@
 	<table class="table table-striped table-bordered bootstrap-datatable datatable">
 	<thead>
 		<tr>
-			<th>NOM DU FOURNISSEUR</th>
-			<th>VILLE</th>
-			<th>EDITION</th>
-			<th>SUPPRESSION</th>
+			<th><?php echo __('Nom du fournisseur'); ?></th>
+			<th><?php echo __('Ville'); ?></th>
+			<th><?php echo __('Edition'); ?></th>
+			<th><?php echo __('Suppression'); ?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -26,10 +26,10 @@
 		<td><?php echo $customer['Customer']['name']; ?></td>
 		<td><?php echo $customer['Customer']['city']; ?></td>
 		<td>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $customer['Customer']['id'])); ?>
+			<?php echo $this->Html->link('<i class="icon-edit icon-white"></i> '.__('Edition'), array('action' => 'edit', $customer['Customer']['id']),array('escape'=>false,'class'=>"btn btn-info")); ?>
 		</td>
 		<td>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $customer['Customer']['id']), null, __('Are you sure you want to delete # %s?', $customer['Customer']['id'])); ?>
+			<?php echo $this->Form->postLink('<i class="icon-trash icon-white"></i> '.__('Suppression'), array('action' => 'delete', $customer['Customer']['id']), array('escape'=>false,'class'=>"btn btn-danger"), __('Êtes-vous sûr de supprimer l\'entrée n° # %s?', $customer['Customer']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

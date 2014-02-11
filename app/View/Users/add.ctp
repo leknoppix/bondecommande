@@ -28,9 +28,6 @@
 						)
 					); ?>
 				<fieldset>
-				<?php
-					echo $this->Form->input('id');
-				?>
 					<ul class="nav nav-tabs" id="myTab">
 						<li><a href="#identite">Son identité</a></li>
 						<li><a href="#password">Mot de passe</a></li>

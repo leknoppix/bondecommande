@@ -69,10 +69,10 @@ class UsersController extends AppController {
 			$this->User->create();
 			$d=$this->request->data;
 			if ($this->User->save($d)) {
-				$this->Session->setFlash(__('The user has been saved.'),'notif',array('type'=>'success'));
+				$this->Session->setFlash(__('L\'utilisateur a été ajouté.'),'notif',array('type'=>'success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.'),'notif',array('type'=>'error'));
+				$this->Session->setFlash(__('Une erreur est survenu. Merci de vérifier les informations et de valider à nouveau.'),'notif',array('type'=>'error'));
 			}
 		}
 	}
@@ -87,15 +87,15 @@ class UsersController extends AppController {
 	 */
 	public function edit($id = null) {
 		if (!$this->User->exists($id)) {
-			throw new NotFoundException(__('Invalid user'));
+			throw new NotFoundException(__('L\'utilisateur n\'existe pas '));
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			$d=$this->request->data;
 			if ($this->User->save($d)) {
-				$this->Session->setFlash(__('The user has been saved.'),'notif',array('type'=>'success'));
+				$this->Session->setFlash(__('L\'utilisateur a été modifié.'),'notif',array('type'=>'success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.'),'notif',array('type'=>'error'));
+				$this->Session->setFlash(__('Une erreur est survenu. Merci de vérifier les informations et de valider à nouveau.'),'notif',array('type'=>'error'));
 			}
 		} else {
 			$users=$this->User->find('first',
@@ -118,10 +118,10 @@ class UsersController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			$d=$this->request->data;
 			if ($this->User->save($d)) {
-				$this->Session->setFlash(__('The user has been saved.'),'notif',array('type'=>'success'));
+				$this->Session->setFlash(__('L\'utilisateur a été modifié.'),'notif',array('type'=>'success'));
 				return $this->redirect('/backoffice');
 			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.'),'notif',array('type'=>'error'));
+				$this->Session->setFlash(__('Une erreur est survenu. Merci de vérifier les informations et de valider à nouveau.'),'notif',array('type'=>'error'));
 			}
 		} else {
 			$s = $this->Session->read('Auth');
@@ -159,13 +159,13 @@ class UsersController extends AppController {
 	public function delete($id = null) {
 		$this->User->id = $id;
 		if (!$this->User->exists()) {
-			throw new NotFoundException(__('Invalid user'));
+			throw new NotFoundException(__('Cet utilisateur n\'existe pas'));
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->User->delete()) {
-			$this->Session->setFlash(__('The user has been deleted.'),'notif',array('type'=>'success'));
+			$this->Session->setFlash(__('L\'utilisateur a été supprimé.'),'notif',array('type'=>'success'));
 		} else {
-			$this->Session->setFlash(__('The user could not be deleted. Please, try again.'),'notif',array('type'=>'error'));
+			$this->Session->setFlash(__('Une erreur est survenu. Merci de vérifier les informations et de valider à nouveau.'),'notif',array('type'=>'error'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

@@ -37,10 +37,10 @@ class ServicesController extends AppController {
 			$d=$this->request->data;
 			$d['Services']['slug']=$d['Services']['name'];
 			if ($this->Service->save($d)) {
-				$this->Session->setFlash(__('The service has been saved.'),'notif',array('type'=>'success'));
+				$this->Session->setFlash(__('Le service a été ajouté.'),'notif',array('type'=>'success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The service could not be saved. Please, try again.'),'notif',array('type'=>'error'));
+				$this->Session->setFlash(__('Une erreur est survenu. Merci de vérifier les informations et de valider à nouveau.'),'notif',array('type'=>'error'));
 			}
 		}
 	}
@@ -54,14 +54,14 @@ class ServicesController extends AppController {
  */
 	public function edit($id = null) {
 		if (!$this->Service->exists($id)) {
-			throw new NotFoundException(__('Invalid service'));
+			throw new NotFoundException(__('Le service n\'existe pas'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Service->save($this->request->data)) {
-				$this->Session->setFlash(__('The service has been saved.'),'notif',array('type'=>'success'));
+				$this->Session->setFlash(__('Le service a été modifié.'),'notif',array('type'=>'success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The service could not be saved. Please, try again.'),'notif',array('type'=>'error'));
+				$this->Session->setFlash(__('Une erreur est survenu. Merci de vérifier les informations et de valider à nouveau.'),'notif',array('type'=>'error'));
 			}
 		} else {
 			$options = array('conditions' => array('Service.' . $this->Service->primaryKey => $id));
@@ -79,13 +79,13 @@ class ServicesController extends AppController {
 	public function delete($id = null) {
 		$this->Service->id = $id;
 		if (!$this->Service->exists()) {
-			throw new NotFoundException(__('Invalid service'));
+			throw new NotFoundException(__('Le service n\'existe pas'));
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Service->delete()) {
-			$this->Session->setFlash(__('The service has been deleted.'),'notif',array('type'=>'success'));
+			$this->Session->setFlash(__('Le service a été correctement supprimé.'),'notif',array('type'=>'success'));
 		} else {
-			$this->Session->setFlash(__('The service could not be deleted. Please, try again.'),'notif',array('type'=>'error'));
+			$this->Session->setFlash(__('Une erreur est survenu. Merci de vérifier les informations et de valider à nouveau.'),'notif',array('type'=>'error'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}}

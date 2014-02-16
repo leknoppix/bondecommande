@@ -55,11 +55,22 @@ class OrderformsController extends AppController {
 				$this->Session->setFlash(__('The orderform could not be saved. Please, try again.'));
 			}
 		}
+		/* appel de la table     pour récupérer l'id du bon de commande suivant */
+		$this->loadModel('Numberorder');
+		$numbers=$this->Numberorder->find(
+				'first',
+				array(
+					'fields'=>array('year','num'),
+					'conditions'=>array(
+						'year'=>date('Y')
+					)
+				)
+			);
 		$users = $this->Orderform->User->find('list');
 		$customers = $this->Orderform->Customer->find('list');
 		$services = $this->Orderform->Service->find('list');
 		$products = $this->Orderform->Product->find('list');
-		$this->set(compact('users', 'customers', 'services', 'products'));
+		$this->set(compact('users', 'customers', 'services', 'products','numbers'));
 	}
 
 /**
@@ -110,4 +121,5 @@ class OrderformsController extends AppController {
 			$this->Session->setFlash(__('The orderform could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
-	}}
+	}
+}

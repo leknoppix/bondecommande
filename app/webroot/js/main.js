@@ -14,4 +14,5 @@
           "bold italic underline strikethrough subscript superscript | " +
           " | alignleft center alignright justify | undo redo | ",  
 	});
+
 })(jQuery);

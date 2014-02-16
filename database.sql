@@ -53,6 +53,7 @@ CREATE TABLE IF NOT EXISTS `customers` (
 
 CREATE TABLE IF NOT EXISTS `orderforms` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
+  `numorder` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
   `user_id` int(255) NOT NULL,
   `customer_id` int(255) NOT NULL,
   `date` date NOT NULL,
@@ -153,6 +154,30 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `name`, `nom`, `prenom`, `username`, `password`, `mail`, `telephone_fixe`, `telephone_mobile`, `adresse_postale`, `code_postal`, `ville`, `signature`) VALUES
 (1, 'Administrateur', 'admin', 'admin', 'admin', 'f14362cd37c3bc78f6ebb0d78547557fa924fb82', 'admin@admin.fr', '0000000000', '0000000000', 'ah', '0000', 'ah', 'coucou');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `numberorders`
+--
+
+CREATE TABLE IF NOT EXISTS `numberorders` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `year` int(4) NOT NULL,
+  `num` int(6) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+--
+-- Contenu de la table `numberorders`
+--
+
+INSERT INTO  `numberorders` (`id` , `year` , `num` ) VALUES
+(NULL ,  '2014',  '000000' );
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

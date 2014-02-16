@@ -1,31 +1,86 @@
-<div class="orderforms form">
-<?php echo $this->Form->create('Orderform'); ?>
-	<fieldset>
-		<legend><?php echo __('Add Orderform'); ?></legend>
-	<?php
-		echo $this->Form->input('user_id');
-		echo $this->Form->input('customer_id');
-		echo $this->Form->input('date');
-		echo $this->Form->input('name');
-		echo $this->Form->input('service_id');
-		echo $this->Form->input('etat');
-		echo $this->Form->input('Product');
-	?>
+<?php echo $this->Html->addCrumb(__('Gestion des bons de commande'), array('controller'=>'services','action'=>'index')); ?>
+<?php echo $this->Html->addCrumb(__('Ajouter un bon de commande'), array('controller'=>'services','action'=>'add')); ?>
+<div class="box-header well" data-original-title>
+	<h2><i class="icon-barcode"></i> <?php echo __('Ajouter un bon de commande'); ?></h2>
+</div>	
+<div class="box-content">
+<div class="span4">
+<?php echo $this->Html->link('<i class="icon-home icon-white"></i> Retour à la page principale', '/',array('escape'=>false,'class'=>"btn btn-success")); ?>
+</div>
+<div class="span4"></div>
+<div class="span4">
+<?php echo $this->Html->link('<i class="icon-circle-arrow-left icon-white"></i> Retour à la page précédente', array('action' => 'index'),array('escape'=>false,'class'=>"btn btn-success")); ?>
+</div>
+<hr/>
+<?php 
+				echo $this->Form->create('Openform',
+					array(
+						'class' => 'form-horizontal',
+						'inputDefaults' => 
+							array(
+						        'format' => array('before', 'label', 'between', 'input', 'error', 'after'),
+						        'div' => array('class' => 'control-group'),
+						        'label' => array('class' => 'control-label'),
+						        'between' => '<div class="controls">',
+						        'after' => '</div>',
+						        'error' => array('attributes' => array('wrap' => 'span', 'class' => 'help-inline')
+						        ),
+					    	)
+						)
+				); 
+			?>	<fieldset>
+			<ul class="nav nav-tabs" id="myTab">
+				<li><a href="#internal"><?php echo __('Information interne'); ?></a></li>
+				<li><a href="#customers"><?php echo __('Information fournisseur'); ?></a></li>
+				<li><a href="#adressage"><?php echo __('Information fournitures'); ?></a></li>
+			</ul>
+			<div id="myTabContent" class="tab-content">
+				<div class="tab-pane active" id="internal">
+						<?php
+							//on indique le numéro provisoire du bon de commande
+							echo $this->Form->input('numbers.newnum',
+								array(
+									'label'=>__('Numéro du bon de commande provisoire'),
+									'class'=>"span8",
+									'readonly'=>true,
+									'value'=>$numbers['Numberorder']['newnum']
+								)
+							);
+						?>
+						<?php 
+							echo $this->Form->input('name',
+								array(
+									'label'=>__('Nom du bon de commande'),
+									'class'=>"span8"
+								)
+							);
+						?>
+						<?php
+							echo $this->Form->input('date',
+								array(
+									'label'=>__('Date de la demande'),
+									'class'=>"span8 datepicker",
+									'value'=>date('d-m-Y')
+								)
+							);
+						?>
+						<?php 
+							echo $this->Form->input('service_id',
+								array(
+									'label'=>__('Nom du service demandant'),
+									'class'=>"span8"
+								)
+							);
+						?>
+				</div>
+				<div class="tab-pane" id="customers">
+					<?php
+						echo $this->Form->input('customer_id');
+						echo $this->Form->input('date');
+						echo $this->Form->input('etat');
+					?>
+				</div>
+			</div>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Orderforms'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Customers'), array('controller' => 'customers', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Customer'), array('controller' => 'customers', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Services'), array('controller' => 'services', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Service'), array('controller' => 'services', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Products'), array('controller' => 'products', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Product'), array('controller' => 'products', 'action' => 'add')); ?> </li>
-	</ul>
 </div>

@@ -74,6 +74,7 @@
 						?>
 				</div>
 				<div class="tab-pane" id="customers">
+<<<<<<< HEAD
 					<table border="0" class="span12" cellspaccing="0" cellspadding="0">
 						<tr>
 							<td class=""><?php
@@ -86,6 +87,13 @@
 							<td>Ajouter fournisseur</td>
 						</tr>
 					</table>
+=======
+					<?php
+						echo $this->Form->input('customer_id');
+						echo $this->Form->input('date');
+						echo $this->Form->input('etat');
+					?>
+>>>>>>> c09a4ec018e966581170affb95964dcab7e4dcb0
 				</div>
 			</div>
 	</fieldset>

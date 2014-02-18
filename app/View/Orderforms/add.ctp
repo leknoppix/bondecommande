@@ -74,11 +74,18 @@
 						?>
 				</div>
 				<div class="tab-pane" id="customers">
-					<?php
-						echo $this->Form->input('customer_id');
-						echo $this->Form->input('date');
-						echo $this->Form->input('etat');
-					?>
+					<table border="0" class="span12" cellspaccing="0" cellspadding="0">
+						<tr>
+							<td class=""><?php
+								echo $this->Form->input('customer_id',array(
+										'label'=>__('Nom du fournisseur'),
+										'class'=>"span8"
+									)
+								);
+							?></td>
+							<td>Ajouter fournisseur</td>
+						</tr>
+					</table>
 				</div>
 			</div>
 	</fieldset>

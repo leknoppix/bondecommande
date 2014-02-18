@@ -31,10 +31,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		echo $this->Html->meta('icon');
 		echo $this->fetch('meta');
 		echo $this->Html->css(
-			array('bootstrap-cerulean.css',
-				"bootstrap-responsive.css",
-				"charisma-app.css",
-				"jquery.cleditor.css")
+			array('style')
 			);
 	?>
 	<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -44,72 +41,38 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 </head>
 <body>
 	<div id="container">
-		<div id="content">
-				<div class="navbar">
-					<div class="navbar-inner">
-						<div class="container-fluid">
-							<!-- theme selector ends -->
-							<a class="btn btn-navbar" data-toggle="collapse" data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</a>
-							<?php echo $this->Html->link('Bon de commande','/backoffice',array('class'=>"brand")); ?>
-							<!-- user dropdown starts -->
-							<div class="btn-group pull-right" >
-							<?php echo $this->element('menu'); ?>
-							</div>
-							<!-- user dropdown ends -->
+		<header>
+			<?php echo $this->element('menu'); ?>
+		</header>
+		<div id="sidebar">	
+				<ul>
+					<li>
+						<?php echo $this->Html->link('<i class="icon-barcode"></i>&nbsp;<span class="hidden-tablet">Gestion des bons de commande</span>',array('controller'=>'orderforms','action'=>'index'),array('escape'=>false,'class'=>'ajax-link')); ?>
+					</li>
+					<li>
+						<?php echo $this->Html->link('<i class="icon-user"></i>&nbsp;<span class="hidden-tablet">Gestion des membres</span>',array('controller'=>'users','action'=>'index'),array('escape'=>false,'class'=>'ajax-link')); ?>
+					</li>
+					<li>
+						<?php echo $this->Html->link('<i class="icon-wrench"></i>&nbsp;<span class="hidden-tablet">Gestion des services</span>',array('controller'=>'services','action'=>'index'),array('escape'=>false,'class'=>'ajax-link')); ?>
+					</li>
+					<li>
+						<?php echo $this->Html->link('<i class="icon-camera"></i>&nbsp;<span class="hidden-tablet">Gestion des fournisseurs</span>',array('controller'=>'customers','action'=>'index'),array('escape'=>false,'class'=>'ajax-link')); ?>
+					</li>
+				</ul>
+		</div>
+			<div id="content">
+						<div class="breadcrumb">
+							<?php echo $this->Html->getCrumbs(' <span class="divider">/</span> ', 'Accueil'); ?>
 						</div>
-					</div>
-				</div>
-		</div>
-	</div>
-	<hr />
-	<div class="container-fluid">
-		<div class="row-fluid" >		
-			<!-- left menu starts -->
-			<div class="span3 main-menu-span">
-				<div class="well nav-collapse sidebar-nav">
-					<ul class="nav nav-tabs nav-stacked main-menu">
-						<li class="nav-header hidden-tablet">MENU</li>
-						<li>
-							<?php echo $this->Html->link('<i class="icon-barcode"></i>&nbsp;<span class="hidden-tablet">Gestion des bons de commande</span>',array('controller'=>'orderforms','action'=>'index'),array('escape'=>false,'class'=>'ajax-link')); ?>
-						</li>
-						<li>
-							<?php echo $this->Html->link('<i class="icon-user"></i>&nbsp;<span class="hidden-tablet">Gestion des membres</span>',array('controller'=>'users','action'=>'index'),array('escape'=>false,'class'=>'ajax-link')); ?>
-						</li>
-						<li>
-							<?php echo $this->Html->link('<i class="icon-wrench"></i>&nbsp;<span class="hidden-tablet">Gestion des services</span>',array('controller'=>'services','action'=>'index'),array('escape'=>false,'class'=>'ajax-link')); ?>
-						</li>
-						<li>
-							<?php echo $this->Html->link('<i class="icon-camera"></i>&nbsp;<span class="hidden-tablet">Gestion des fournisseurs</span>',array('controller'=>'customers','action'=>'index'),array('escape'=>false,'class'=>'ajax-link')); ?>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div id="content" class="span9">
-				<div class="breadcrumb">
-					<?php echo $this->Html->getCrumbs(' <span class="divider">/</span> ', 'Accueil'); ?>
-				</div>
-				<?php echo $this->Session->flash(); ?>
-				<div class="row-fluid sortable">	
-					<div class="box span12">
-						<?php echo $this->fetch('content'); ?>
-					</div>
-				</div>
+						<div class="bloc">
+						    <div class="content">
+						        <?php echo $this->Session->flash(); ?>
+						        <?php echo $this->fetch('content'); ?>
+						        <div class="cb"></div>
+						    </div>
+						</div> 
 			</div>
 		</div>
-	</div>
-		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
-		</div>
-	</div>
 	<hr />
 	<footer>
 			<p class="pull-left">&copy; <a href="http://site.fr" target="_blank">Site internet</a> <?php echo date('Y'); ?></p>
@@ -118,16 +81,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<?php echo $this->fetch('script'); ?>
 	<?php echo $this->Html->script(
 		array(
-			"jquery-1.7.2.min.js",
-			"jquery-ui-1.8.21.custom.min.js",
-			"bootstrap-transition.js",
-			"bootstrap-alert.js",
-			"bootstrap-modal.js",
-			"bootstrap-dropdown.js",
-			"bootstrap-scrollspy.js",
-			"bootstrap-tab.js",
-			"jquery.cleditor.min.js",
-			"main.js"
+			"jquery.min.js"
 		)
 	);
 	?>

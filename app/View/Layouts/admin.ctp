@@ -47,22 +47,22 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		<div id="sidebar">	
 				<ul>
 					<li>
-						<?php echo $this->Html->link('<i class="icon-barcode"></i>&nbsp;<span class="hidden-tablet">Gestion des bons de commande</span>',array('controller'=>'orderforms','action'=>'index'),array('escape'=>false,'class'=>'ajax-link')); ?>
+						<?php echo $this->Html->link('<i class="icon-white icon-barcode"></i>&nbsp;<span class="hidden-tablet">Gestion des bons de commande</span>',array('controller'=>'orderforms','action'=>'index'),array('escape'=>false,'class'=>'ajax-link')); ?>
 					</li>
 					<li>
-						<?php echo $this->Html->link('<i class="icon-user"></i>&nbsp;<span class="hidden-tablet">Gestion des membres</span>',array('controller'=>'users','action'=>'index'),array('escape'=>false,'class'=>'ajax-link')); ?>
+						<?php echo $this->Html->link('<i class="icon-white icon-user"></i>&nbsp;<span class="hidden-tablet">Gestion des membres</span>',array('controller'=>'users','action'=>'index'),array('escape'=>false,'class'=>'ajax-link')); ?>
 					</li>
 					<li>
-						<?php echo $this->Html->link('<i class="icon-wrench"></i>&nbsp;<span class="hidden-tablet">Gestion des services</span>',array('controller'=>'services','action'=>'index'),array('escape'=>false,'class'=>'ajax-link')); ?>
+						<?php echo $this->Html->link('<i class="icon-white icon-wrench"></i>&nbsp;<span class="hidden-tablet">Gestion des services</span>',array('controller'=>'services','action'=>'index'),array('escape'=>false,'class'=>'ajax-link')); ?>
 					</li>
 					<li>
-						<?php echo $this->Html->link('<i class="icon-camera"></i>&nbsp;<span class="hidden-tablet">Gestion des fournisseurs</span>',array('controller'=>'customers','action'=>'index'),array('escape'=>false,'class'=>'ajax-link')); ?>
+						<?php echo $this->Html->link('<i class="icon-white icon-camera"></i>&nbsp;<span class="hidden-tablet">Gestion des fournisseurs</span>',array('controller'=>'customers','action'=>'index'),array('escape'=>false,'class'=>'ajax-link')); ?>
 					</li>
 				</ul>
 		</div>
 			<div id="content">
 						<div class="breadcrumb">
-							<?php echo $this->Html->getCrumbs(' <span class="divider">/</span> ', 'Accueil'); ?>
+							<?php echo $this->Html->getCrumbs('&nbsp;&nbsp;<span class="divider">/</span>&nbsp;&nbsp;', 'Accueil'); ?>
 						</div>
 						<div class="bloc">
 						    <div class="content">
@@ -73,10 +73,6 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 						</div> 
 			</div>
 		</div>
-	<hr />
-	<footer>
-			<p class="pull-left">&copy; <a href="http://site.fr" target="_blank">Site internet</a> <?php echo date('Y'); ?></p>
-	</footer>
 	<?php echo $this->element('sql_dump'); ?>
 	<?php echo $this->fetch('script'); ?>
 	<?php echo $this->Html->script(

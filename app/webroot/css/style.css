@@ -978,7 +978,7 @@ header a {
 
 /* système de notification*/
 /* line 173, ../sass/style.scss */
-.alert, .success, .error, .info, .warning, .btn-primary, .btn-info, .btn-danger {
+.alert, .success, .error, .info, .warning, .btn-info, .btn-danger, .btn-primary {
   display: block;
   font-size: 12pt;
   color: white;
@@ -997,7 +997,7 @@ header a {
   box-shadow: 0 1px 1px black;
 }
 /* line 185, ../sass/style.scss */
-.alert span.close, .success span.close, .error span.close, .info span.close, .warning span.close, .btn-primary span.close, .btn-info span.close, .btn-danger span.close {
+.alert span.close, .success span.close, .error span.close, .info span.close, .warning span.close, .btn-info span.close, .btn-danger span.close, .btn-primary span.close {
   float: right;
   cursor: pointer;
 }
@@ -1026,29 +1026,23 @@ header a {
   background-color: #faa732;
 }
 
-/* line 207, ../sass/style.scss */
-.btn-primary {
-  border-color: #3a3a3a;
-  background-color: #428bca;
-}
-
 /* customisation bouton */
-/* line 212, ../sass/style.scss */
+/* line 208, ../sass/style.scss */
 table {
   width: 100%;
 }
 
-/* line 216, ../sass/style.scss */
+/* line 212, ../sass/style.scss */
 table.customers {
   margin-top: 15px;
   margin-bottom: 15px;
   border: 1px solid black;
 }
-/* line 221, ../sass/style.scss */
+/* line 217, ../sass/style.scss */
 table.customers th, table.customers td {
   border: 1px solid black;
 }
-/* line 225, ../sass/style.scss */
+/* line 221, ../sass/style.scss */
 table.customers th {
   text-align: center;
   font-weight: bold;
@@ -1057,13 +1051,13 @@ table.customers th {
   line-height: 25px;
   color: black;
 }
-/* line 234, ../sass/style.scss */
+/* line 230, ../sass/style.scss */
 table.customers td.texte {
   text-align: left;
   padding-left: 15px;
 }
 
-/* line 240, ../sass/style.scss */
+/* line 236, ../sass/style.scss */
 .btn, .btn-info, .btn-danger {
   font-size: 12pt;
   color: white;
@@ -1077,16 +1071,22 @@ table.customers td.texte {
   border-radius: 5px;
 }
 
-/* line 249, ../sass/style.scss */
+/* line 245, ../sass/style.scss */
 .btn-info {
   border-color: #3f3f3f;
   background-color: #49afcd;
 }
 
-/* line 254, ../sass/style.scss */
+/* line 250, ../sass/style.scss */
 .btn-danger {
   border-color: #5c4d37;
   background-color: #faa732;
+}
+
+/* line 255, ../sass/style.scss */
+.btn-primary {
+  border-color: #3a3a3a;
+  background-color: #428bca;
 }
 
 /* line 259, ../sass/style.scss */
@@ -1152,7 +1152,7 @@ ul.tabs li a {
   font-size: 13pt;
   padding-left: 15px;
 }
-/* line 311, ../sass/style.scss */
+/* line 312, ../sass/style.scss */
 .customers input {
   float: right;
   font-weight: bold;
@@ -1170,7 +1170,7 @@ ul.tabs li a {
   -moz-box-shadow: 0 1px 1px black;
   box-shadow: 0 1px 1px black;
 }
-/* line 322, ../sass/style.scss */
+/* line 324, ../sass/style.scss */
 .customers textarea {
   float: right;
   font-weight: bold;
@@ -1187,4 +1187,15 @@ ul.tabs li a {
   -webkit-box-shadow: 0 1px 1px black;
   -moz-box-shadow: 0 1px 1px black;
   box-shadow: 0 1px 1px black;
+}
+
+/* line 337, ../sass/style.scss */
+.btn-primary.submit {
+  margin: 0;
+  padding: 0;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  height: 25px;
+  line-height: 25px;
+  width: 100%;
 }

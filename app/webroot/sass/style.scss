@@ -4,10 +4,11 @@
 //variable
 $urlfond:'../img/fond.jpg';
 
-$success:#d6ffd6;
-$error:#ffd9d9;
-$info:#00FFFF;
-$warning:#FF7F00;
+$success:#5BB75B;
+$error:#DA4F49;
+$info:#49AFCD;
+$warning:#FAA732;
+
 //fonction
 @function borderColor($color)
 {
@@ -129,24 +130,25 @@ header{
 	position: relative;
 	.breadcrumb
 	{
-		background-color:grey;
-		height: 20px;
-		line-height: 20px;
+		background-color:#F5F5F5;
+		height: 50px;
+		line-height: 50px;
 		padding-left:25px;
-		color:white;
-		@include border-radius(5px);
+		@include border-radius(10px);
 		a
 		{
 			text-decoration: none;
 			font-weight: bold;
-			color:white;
+			color:#6D6D6D;
 		}
 	}
 	.bloc
 	{
-		margin: 20px 0px 0px;
+		margin-top: 20px;
+		margin-bottom: 20px;
 		background-color: #FFFFFF;
 		overflow: hidden;
+		@include border-radius(15px);
 		@include box-shadow(0px 5px 10px #AFAEAE);
 		.title
 		{
@@ -169,6 +171,9 @@ header{
 /* système de notification*/
 .alert {
 	display: block;
+	font-size: 12pt;
+	color: white;
+	font-weight: bold;
 	padding: 10px;
 	margin:auto;
 	margin:10px;
@@ -198,14 +203,126 @@ header{
 	@include mborderColor($warning);
 }
 /* customisation bouton */
+table
+{
+	width: 100%;
+}
+table.customers
+{
+	margin-top: 15px;
+	margin-bottom: 15px;
+	border:1px solid black;
+	th,td
+	{
+		border:1px solid black;
+	}
+	th
+	{
+		text-align: center;
+		font-weight: bold;
+		font-size: 13pt;
+		height: 25px;
+		line-height: 25px;
+		color:black;
+	}
+	td
+	{
+		text-align: left;
+		padding-left: 15px;
+	}
+}
+.btn
+{
+	font-size: 12pt;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	@include border-radius(5px);
+}
 .btn-info
 {
+	@extend .btn;
 	@include mborderColor($info);
 }
-a.btn-info{
-		text-decoration: none;
+.btn-danger
+{
+	@extend .btn;
+	@include mborderColor($warning);
 }
 .cb
 {
 	clear: both;
+}
+//tabs
+ul.tabs {
+float:left;
+list-style:none;
+height:32px;
+width:100%;
+border-radius:8px 0 -50px 0;
+margin:0;
+padding:0;
+}
+ 
+ul.tabs li {
+float:left;
+height:31px;
+line-height:31px;
+border:1px solid #999;
+overflow:hidden;
+position:relative;
+background:#e0e0e0;
+@include border-radius(8px 8px 0px 0px);
+margin:0 5px -1px 0;
+padding:0;
+}
+ 
+ul.tabs li a {
+text-decoration:none;
+color:#000;
+display:block;
+font-size:1.2em;
+border:1px solid #fff;
+outline:none;
+@include border-radius(8px 8px 0px 0px);
+padding:0 20px;
+}
+.customers
+{
+	.input
+	{
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	label
+	{
+		width:250px;
+		height: 25px;
+		line-height:25px;
+		font-size: 13pt;
+		padding-left: 15px;
+	}
+	input {
+		float: right;
+		font-weight: bold;
+		border:0px solid;
+		width:350px;
+		height: 25px;
+		padding:3px;
+		background: url($urlfond);
+		@include border-radius(5px);
+		@include box-shadow(0 1px 1px #000);
+	}
+	textarea {
+		float: right;
+		font-weight: bold;
+		border:0px solid;
+		width:350px;
+		height: 100px;
+		padding:3px;
+		background: url($urlfond);
+		@include border-radius(5px);
+		@include box-shadow(0 1px 1px #000);
+	}
 }

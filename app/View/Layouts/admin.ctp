@@ -64,9 +64,9 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 						<div class="breadcrumb">
 							<?php echo $this->Html->getCrumbs('&nbsp;&nbsp;<span class="divider">/</span>&nbsp;&nbsp;', 'Accueil'); ?>
 						</div>
+						<?php echo $this->Session->flash(); ?>
 						<div class="bloc">
 						    <div class="content">
-						        <?php echo $this->Session->flash(); ?>
 						        <?php echo $this->fetch('content'); ?>
 						        <div class="cb"></div>
 						    </div>
@@ -77,7 +77,9 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<?php echo $this->fetch('script'); ?>
 	<?php echo $this->Html->script(
 		array(
-			"jquery.min.js"
+			"jquery.min.js",
+			"jquery-ui.js",
+			"main.js"
 		)
 	);
 	?>

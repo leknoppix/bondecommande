@@ -61,16 +61,16 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 				</ul>
 		</div>
 			<div id="content">
-						<div class="breadcrumb">
-							<?php echo $this->Html->getCrumbs('&nbsp;&nbsp;<span class="divider">/</span>&nbsp;&nbsp;', 'Accueil'); ?>
-						</div>
-						<?php echo $this->Session->flash(); ?>
-						<div class="bloc">
-						    <div class="content">
-						        <?php echo $this->fetch('content'); ?>
-						        <div class="cb"></div>
-						    </div>
-						</div> 
+				<?php echo $this->Session->flash(); ?>
+				<div class="breadcrumb">
+					<?php echo $this->Html->getCrumbs('&nbsp;&nbsp;<span class="divider">/</span>&nbsp;&nbsp;', 'Accueil'); ?>
+				</div>
+				<div class="bloc">
+					<div class="content">
+						<?php echo $this->fetch('content'); ?>
+						<div class="cb"></div>
+					</div>
+				</div> 
 			</div>
 		</div>
 	<?php echo $this->element('sql_dump'); ?>

@@ -42,10 +42,10 @@
 		</div>
 		<div class="tab-pane" id="correspondance">
 			<?php
-				echo $this->Form->input('tel',array('label'=>'Téléphone','required'=>false,'class'=>"span8"));
-				echo $this->Form->input('fax',array('label'=>'Fax','required'=>false,'class'=>"span8"));
-				echo $this->Form->input('mail',array('label'=>'Adresse mail','required'=>false,'class'=>"span8"));
-				echo $this->Form->input('siteinternet',array('label'=>'Site internet','required'=>false,'class'=>"span8"));
+				echo $this->Form->input('tel',array('label'=>'Téléphone','required'=>false));
+				echo $this->Form->input('fax',array('label'=>'Fax','required'=>false));
+				echo $this->Form->input('mail',array('label'=>'Adresse mail','required'=>false));
+				echo $this->Form->input('siteinternet',array('label'=>'Site internet','required'=>false));
 			?>
 		</div>
 	</div>

@@ -44,7 +44,9 @@
         <?php echo $this->fetch('script'); ?>
         <?php echo $this->Html->script(
             array(
-                "jquery.min.js"
+                "jquery.min.js",
+                "jquery-ui.js",
+                "main.js"
             )
         );
         ?>

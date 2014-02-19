@@ -8,6 +8,7 @@ $success:#5BB75B;
 $error:#DA4F49;
 $info:#49AFCD;
 $warning:#FAA732;
+$primary:#428BCA;
 
 //fonction
 @function borderColor($color)
@@ -202,6 +203,10 @@ header{
 {
 	@include mborderColor($warning);
 }
+.btn-primary
+{
+	@include mborderColor($primary);
+}
 /* customisation bouton */
 table
 {
@@ -225,7 +230,7 @@ table.customers
 		line-height: 25px;
 		color:black;
 	}
-	td
+	td.texte
 	{
 		text-align: left;
 		padding-left: 15px;

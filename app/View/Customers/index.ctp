@@ -29,8 +29,8 @@
 		<tbody>
 			<?php foreach ($customers as $customer): ?>
 			<tr>
-				<td><?php echo $customer['Customer']['name']; ?></td>
-				<td><?php echo $customer['Customer']['city']; ?></td>
+				<td class="texte"><?php echo $customer['Customer']['name']; ?></td>
+				<td class="texte"><?php echo $customer['Customer']['city']; ?></td>
 				<td>
 					<?php echo $this->Html->link('<i class="icon-white icon-edit"></i> '.__('Edition'), array('action' => 'edit', $customer['Customer']['id']),array('escape'=>false,'class'=>"btn btn-info")); ?>
 				</td>

@@ -1,17 +1,20 @@
 <?php echo $this->Html->addCrumb(__('Gestion des membres'), array('controller'=>'users','action'=>'index')); ?>
-<div class="box-header well" data-original-title>
-	<h2><i class="icon-user"></i> <?php echo __('Gestion des utilisateurs'); ?></h2>
+<div class="title">
+	<h2><i class="icon-white icon-user"></i>&nbsp;&nbsp;<?php echo __('Gestion des utilisateurs'); ?></h2>
 </div>	
-<div class="box-content">
-<div class="span4">
-<?php echo $this->Html->link('<i class="icon-home icon-white"></i> '.__('Retour à la page principale'), '/',array('escape'=>false,'class'=>"btn btn-success")); ?>
-</div>
-<div class="span4"></div>
-<div class="span4">
-<?php echo $this->Html->link('<i class="icon-plus icon-white"></i> '.__('Ajouter un nouvel utilisateur'), array('action' => 'add'),array('escape'=>false,'class'=>"btn btn-success")); ?>
-</div>
-<hr/>
-	<table class="table table-striped table-bordered bootstrap-datatable datatable">
+<div class="action">
+	<table>
+		<tr>
+			<td>
+				<?php echo $this->Html->link('<i class="icon-home icon-white"></i> '.__('Retour à la page principale'), '/',array('escape'=>false,'class'=>"btn btn-info")); ?>
+			</td>
+			<td>
+				<?php echo $this->Html->link('<i class="icon-plus icon-white"></i> '.__('Ajouter un nouvel utilisateur'), array('action' => 'add'),array('escape'=>false,'class'=>"btn btn-info")); ?>
+			</td>
+		</tr>
+	</table>
+	<div class="cb"></div>
+	<table class="users">
 	<thead>
 		<tr>
 				<th><?php echo __('Nom'); ?></th>
@@ -27,17 +30,17 @@
 	<tbody>
 		<?php foreach ($users as $user): ?>
 		<tr>
-			<td><?php echo h($user['User']['nom']); ?>&nbsp;</td>
-			<td><?php echo h($user['User']['prenom']); ?>&nbsp;</td>
-			<td><?php echo h($user['User']['username']); ?>&nbsp;</td>
-			<td><?php echo h($user['User']['mail']); ?>&nbsp;</td>
-			<td><?php echo h($user['User']['telephone_fixe']); ?>&nbsp;</td>
-			<td><?php echo h($user['User']['telephone_mobile']); ?>&nbsp;</td>
+			<td class="texte"><?php echo h($user['User']['nom']); ?>&nbsp;</td>
+			<td class="texte"><?php echo h($user['User']['prenom']); ?>&nbsp;</td>
+			<td class="texte"><?php echo h($user['User']['username']); ?>&nbsp;</td>
+			<td class="texte"><?php echo h($user['User']['mail']); ?>&nbsp;</td>
+			<td class="texte"><?php echo h($user['User']['telephone_fixe']); ?>&nbsp;</td>
+			<td class="texte"><?php echo h($user['User']['telephone_mobile']); ?>&nbsp;</td>
 			<td>
-				<?php echo $this->Html->link('<i class="icon-edit icon-white"></i>'.__('Edition'), array('action' => 'edit', $user['User']['id']),array('escape'=>false,'class'=>"btn btn-info")); ?>
+				<?php echo $this->Html->link('<i class="icon-edit icon-white"></i>&nbsp;&nbsp;'.__('Edition'), array('action' => 'edit', $user['User']['id']),array('escape'=>false,'class'=>"btn btn-info")); ?>
 			</td>
 			<td>
-				<?php echo $this->Form->postLink('<i class="icon-trash icon-white"></i>'.__('Suppression'), array('action' => 'delete', $user['User']['id']), array('escape'=>false,'class'=>"btn btn-danger"), __('Êtes-vous sûr de supprimer l\'entrée n° # %s?', $user['User']['name'])); ?>
+				<?php echo $this->Form->postLink('<i class="icon-trash icon-white"></i>&nbsp;&nbsp;'.__('Suppression'), array('action' => 'delete', $user['User']['id']), array('escape'=>false,'class'=>"btn btn-danger"), __('Êtes-vous sûr de supprimer l\'entrée %s?', $user['User']['nom'].' '.$user['User']['prenom'])); ?>
 			</td>
 		</tr>
 		<?php endforeach; ?>

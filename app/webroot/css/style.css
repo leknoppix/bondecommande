@@ -1033,17 +1033,17 @@ table {
 }
 
 /* line 212, ../sass/style.scss */
-table.customers {
+table.customers, table.users, table.services {
   margin-top: 15px;
   margin-bottom: 15px;
   border: 1px solid black;
 }
 /* line 217, ../sass/style.scss */
-table.customers th, table.customers td {
+table.customers th, table.customers td, table.users th, table.users td, table.services th, table.services td {
   border: 1px solid black;
 }
 /* line 221, ../sass/style.scss */
-table.customers th {
+table.customers th, table.users th, table.services th {
   text-align: center;
   font-weight: bold;
   font-size: 13pt;
@@ -1052,7 +1052,7 @@ table.customers th {
   color: black;
 }
 /* line 230, ../sass/style.scss */
-table.customers td.texte {
+table.customers td.texte, table.users td.texte, table.services td.texte {
   text-align: left;
   padding-left: 15px;
 }
@@ -1140,12 +1140,12 @@ ul.tabs li a {
 }
 
 /* line 299, ../sass/style.scss */
-.customers .input {
+.customers .input, .users .input, .services .input {
   padding-top: 10px;
   padding-bottom: 10px;
 }
 /* line 304, ../sass/style.scss */
-.customers label {
+.customers label, .users label, .services label {
   width: 250px;
   height: 25px;
   line-height: 25px;
@@ -1153,7 +1153,7 @@ ul.tabs li a {
   padding-left: 15px;
 }
 /* line 312, ../sass/style.scss */
-.customers input {
+.customers input, .users input, .services input {
   float: right;
   font-weight: bold;
   border: 0px solid;
@@ -1171,7 +1171,7 @@ ul.tabs li a {
   box-shadow: 0 1px 1px black;
 }
 /* line 324, ../sass/style.scss */
-.customers textarea {
+.customers textarea, .users textarea, .services textarea {
   float: right;
   font-weight: bold;
   border: 0px solid;

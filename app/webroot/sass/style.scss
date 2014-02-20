@@ -208,7 +208,7 @@ table
 {
 	width: 100%;
 }
-table.customers
+table.customers,table.users,table.services
 {
 	margin-top: 15px;
 	margin-bottom: 15px;
@@ -293,7 +293,7 @@ outline:none;
 @include border-radius(8px 8px 0px 0px);
 padding:0 20px;
 }
-.customers
+.customers,.users,.services
 {
 	.input
 	{

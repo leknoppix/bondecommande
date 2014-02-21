@@ -5,5 +5,5 @@ $(function() {
 	$('.alert .close').click(function(e)
 	{
 		$(".alert").remove();
-	})
+	});
 });

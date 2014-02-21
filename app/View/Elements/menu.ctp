@@ -8,15 +8,15 @@
 	</a>
 	&nbsp;
 	&nbsp;
-	Bonjour,
+	<?php echo __('Bonjour'); ?>,
 	<?php echo $user['nom'].' '.$user['prenom']; ?>&nbsp;&nbsp;|&nbsp;&nbsp;
 	<?php echo $this->Html->link(
-		'Mon profil',
+		__('Mon profil'),
 		array(
 				'controller'=>'users',
 				'action'=>'profile'
 		)
 	); 
 	?>&nbsp;&nbsp;|&nbsp;&nbsp; 
-	<?php echo $this->Html->link('Se deconnecter',array('controller'=>'users','action'=>'logout')); ?></li>
+	<?php echo $this->Html->link('<i class="icon-lock icon-white"></i>&nbsp;&nbsp;'.__('Se deconnecter'),array('controller'=>'users','action'=>'logout'),array('escape'=>false)); ?></li>
 </div>

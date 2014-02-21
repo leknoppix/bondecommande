@@ -41,39 +41,15 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<![endif]-->
 </head>
 <body>
-	<div id="container">
-		<header>
-			<?php echo $this->element('menu'); ?>
-		</header>
-		<div id="sidebar">	
-				<ul>
-					<li>
-						<?php echo $this->Html->link('<i class="icon-white icon-barcode"></i>&nbsp;&nbsp;<span class="hidden-tablet">'.__('Gestion des bons de commande').'</span>',array('controller'=>'orderforms','action'=>'index'),array('escape'=>false,'class'=>'ajax-link')); ?>
-					</li>
-					<li>
-						<?php echo $this->Html->link('<i class="icon-white icon-user"></i>&nbsp;&nbsp;<span class="hidden-tablet">'.__('Gestion des membres').'</span>',array('controller'=>'users','action'=>'index'),array('escape'=>false,'class'=>'ajax-link')); ?>
-					</li>
-					<li>
-						<?php echo $this->Html->link('<i class="icon-white icon-wrench"></i>&nbsp;&nbsp;<span class="hidden-tablet">'.__('Gestion des services').'</span>',array('controller'=>'services','action'=>'index'),array('escape'=>false,'class'=>'ajax-link')); ?>
-					</li>
-					<li>
-						<?php echo $this->Html->link('<i class="icon-white icon-camera"></i>&nbsp;&nbsp;<span class="hidden-tablet">'.__('Gestion des fournisseurs').'</span>',array('controller'=>'customers','action'=>'index'),array('escape'=>false,'class'=>'ajax-link')); ?>
-					</li>
-				</ul>
-		</div>
-			<div id="content">
+	<div id="iframe">
 				<?php echo $this->Session->flash(); ?>
-				<div class="breadcrumb">
-					<?php echo $this->Html->getCrumbs('&nbsp;&nbsp;<span class="divider">/</span>&nbsp;&nbsp;', __('Accueil')); ?>
-				</div>
 				<div class="bloc">
 					<div class="content">
 						<?php echo $this->fetch('content'); ?>
 						<div class="cb"></div>
 					</div>
 				</div> 
-			</div>
-		</div>
+	</div>
 	<?php echo $this->element('sql_dump'); ?>
 	<?php echo $this->Html->script(
 		array(

@@ -1,18 +1,19 @@
 <?php echo $this->Html->addCrumb(__('Gestion des bons de commande'), array('controller'=>'services','action'=>'index')); ?>
-<div class="box-header well" data-original-title>
-	<h2><i class="icon-barcode"></i> <?php echo __('Gestion des bons de commande'); ?></h2>
+<div class="title">
+	<h2><i class="icon-white icon-barcode"></i>&nbsp;&nbsp;<?php echo __('Gestion des bons de commande'); ?></h2>
 </div>	
-<div class="box-content">
-<div class="span4">
-<?php echo $this->Html->link('<i class="icon-home icon-white"></i> '.__('Retour à la page principale'), '/',array('escape'=>false,'class'=>"btn btn-success")); ?>
-</div>
-<div class="span4"></div>
-<div class="span4">
-<?php echo $this->Html->link('<i class="icon-plus icon-white"></i> '.__('Ajouter un nouveau bon de commande'), array('action' => 'add'),array('escape'=>false,'class'=>"btn btn-success")); ?>
-</div>
-<hr/>
-
-
+<div class="actions">
+<table>
+	<tr>
+		<td>
+			<?php echo $this->Html->link('<i class="icon-home icon-white"></i>&nbsp;&nbsp;'.__('Retour à la page principale'), '/',array('escape'=>false,'class'=>"btn btn-info")); ?>
+		</td>
+		<td>
+			<?php echo $this->Html->link('<i class="icon-plus icon-white"></i>&nbsp;&nbsp;'.__('Ajouter un nouveau bon de commande'), array('action' => 'add'),array('escape'=>false,'class'=>"btn btn-info")); ?>
+		</td>
+	</tr>
+	</table>
+	<div class="cb"></div>
 <div class="orderforms index">
 	<table cellpadding="0" cellspacing="0">
 	<tr>

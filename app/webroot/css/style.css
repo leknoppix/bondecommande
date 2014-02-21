@@ -972,12 +972,46 @@ header a {
 }
 
 /* line 169, ../sass/style.scss */
+#iframe {
+  margin: 10px;
+  color: #6D6D6D;
+  padding: 20px;
+}
+/* line 174, ../sass/style.scss */
+#iframe .bloc {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #FFFFFF;
+  overflow: hidden;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  border-radius: 15px;
+  -webkit-box-shadow: 0px 5px 10px #afaeae;
+  -moz-box-shadow: 0px 5px 10px #afaeae;
+  box-shadow: 0px 5px 10px #afaeae;
+}
+/* line 182, ../sass/style.scss */
+#iframe .bloc .title {
+  height: 35px;
+  padding-left: 15px;
+  margin-bottom: 5px;
+  position: relative;
+  background: url("../img/title.png");
+  line-height: 34px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #808080;
+}
+
+/* line 196, ../sass/style.scss */
 .action {
   padding: 10px;
 }
 
 /* système de notification*/
-/* line 173, ../sass/style.scss */
+/* line 200, ../sass/style.scss */
 .alert, .success, .error, .info, .warning, .btn-info, .btn-danger, .btn-primary {
   display: block;
   font-size: 12pt;
@@ -996,53 +1030,53 @@ header a {
   -moz-box-shadow: 0 1px 1px black;
   box-shadow: 0 1px 1px black;
 }
-/* line 185, ../sass/style.scss */
+/* line 212, ../sass/style.scss */
 .alert span.close, .success span.close, .error span.close, .info span.close, .warning span.close, .btn-info span.close, .btn-danger span.close, .btn-primary span.close {
   float: right;
   cursor: pointer;
 }
 
-/* line 191, ../sass/style.scss */
+/* line 218, ../sass/style.scss */
 .success {
   border-color: #3d3d3d;
   background-color: #5bb75b;
 }
 
-/* line 195, ../sass/style.scss */
+/* line 222, ../sass/style.scss */
 .error {
   border-color: #454545;
   background-color: #da4f49;
 }
 
-/* line 199, ../sass/style.scss */
+/* line 226, ../sass/style.scss */
 .info {
   border-color: #3f3f3f;
   background-color: #49afcd;
 }
 
-/* line 203, ../sass/style.scss */
+/* line 230, ../sass/style.scss */
 .warning {
   border-color: #5c4d37;
   background-color: #faa732;
 }
 
 /* customisation bouton */
-/* line 208, ../sass/style.scss */
+/* line 235, ../sass/style.scss */
 table {
   width: 100%;
 }
 
-/* line 212, ../sass/style.scss */
+/* line 239, ../sass/style.scss */
 table.customers, table.users, table.services {
   margin-top: 15px;
   margin-bottom: 15px;
   border: 1px solid black;
 }
-/* line 217, ../sass/style.scss */
+/* line 244, ../sass/style.scss */
 table.customers th, table.customers td, table.users th, table.users td, table.services th, table.services td {
   border: 1px solid black;
 }
-/* line 221, ../sass/style.scss */
+/* line 248, ../sass/style.scss */
 table.customers th, table.users th, table.services th {
   text-align: center;
   font-weight: bold;
@@ -1051,13 +1085,13 @@ table.customers th, table.users th, table.services th {
   line-height: 25px;
   color: black;
 }
-/* line 230, ../sass/style.scss */
+/* line 257, ../sass/style.scss */
 table.customers td.texte, table.users td.texte, table.services td.texte {
   text-align: left;
   padding-left: 15px;
 }
 
-/* line 236, ../sass/style.scss */
+/* line 263, ../sass/style.scss */
 .btn, .btn-info, .btn-danger {
   font-size: 12pt;
   color: white;
@@ -1071,30 +1105,30 @@ table.customers td.texte, table.users td.texte, table.services td.texte {
   border-radius: 5px;
 }
 
-/* line 245, ../sass/style.scss */
+/* line 272, ../sass/style.scss */
 .btn-info {
   border-color: #3f3f3f;
   background-color: #49afcd;
 }
 
-/* line 250, ../sass/style.scss */
+/* line 277, ../sass/style.scss */
 .btn-danger {
   border-color: #5c4d37;
   background-color: #faa732;
 }
 
-/* line 255, ../sass/style.scss */
+/* line 282, ../sass/style.scss */
 .btn-primary {
   border-color: #3a3a3a;
   background-color: #428bca;
 }
 
-/* line 259, ../sass/style.scss */
+/* line 286, ../sass/style.scss */
 .cb {
   clear: both;
 }
 
-/* line 263, ../sass/style.scss */
+/* line 290, ../sass/style.scss */
 ul.tabs {
   float: left;
   list-style: none;
@@ -1105,7 +1139,7 @@ ul.tabs {
   padding: 0;
 }
 
-/* line 273, ../sass/style.scss */
+/* line 300, ../sass/style.scss */
 ul.tabs li {
   float: left;
   height: 31px;
@@ -1123,7 +1157,7 @@ ul.tabs li {
   padding: 0;
 }
 
-/* line 286, ../sass/style.scss */
+/* line 313, ../sass/style.scss */
 ul.tabs li a {
   text-decoration: none;
   color: #000;
@@ -1139,21 +1173,21 @@ ul.tabs li a {
   padding: 0 20px;
 }
 
-/* line 299, ../sass/style.scss */
-.customers .input, .users .input, .services .input {
+/* line 326, ../sass/style.scss */
+.customers .input, .users .input, .services .input, .orderform .input {
   padding-top: 10px;
   padding-bottom: 10px;
 }
-/* line 304, ../sass/style.scss */
-.customers label, .users label, .services label {
+/* line 331, ../sass/style.scss */
+.customers label, .users label, .services label, .orderform label {
   width: 250px;
   height: 25px;
   line-height: 25px;
   font-size: 13pt;
   padding-left: 15px;
 }
-/* line 312, ../sass/style.scss */
-.customers input, .users input, .services input {
+/* line 339, ../sass/style.scss */
+.customers input, .users input, .services input, .orderform input {
   float: right;
   font-weight: bold;
   border: 0px solid;
@@ -1170,8 +1204,26 @@ ul.tabs li a {
   -moz-box-shadow: 0 1px 1px black;
   box-shadow: 0 1px 1px black;
 }
-/* line 324, ../sass/style.scss */
-.customers textarea, .users textarea, .services textarea {
+/* line 351, ../sass/style.scss */
+.customers select, .users select, .services select, .orderform select {
+  float: right;
+  font-weight: bold;
+  border: 0px solid;
+  width: 355px;
+  height: 30px;
+  padding: 3px;
+  background: url("../img/fond.jpg");
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 1px 1px black;
+  -moz-box-shadow: 0 1px 1px black;
+  box-shadow: 0 1px 1px black;
+}
+/* line 363, ../sass/style.scss */
+.customers textarea, .users textarea, .services textarea, .orderform textarea {
   float: right;
   font-weight: bold;
   border: 0px solid;
@@ -1189,13 +1241,13 @@ ul.tabs li a {
   box-shadow: 0 1px 1px black;
 }
 
-/* line 337, ../sass/style.scss */
+/* line 376, ../sass/style.scss */
 .btn-primary.submit {
   margin: 0;
   padding: 0;
   margin-top: 15px;
   margin-bottom: 15px;
-  height: 25px;
+  height: 30px;
   line-height: 25px;
   width: 100%;
 }

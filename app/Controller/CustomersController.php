@@ -22,7 +22,7 @@ class CustomersController extends AppController {
  */
 	public function index() {
 		$this->Customer->recursive = 0;
-		$customers=$this->Customer->find('all');
+		$customers=$this->Customer->find('all',array('order'=>'name'));
 		$this->set('customers', $customers);
 	}
 
@@ -35,14 +35,29 @@ class CustomersController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Customer->create();
 			if ($this->Customer->save($this->request->data)) {
-				$this->Session->setFlash(__('Le fournisseur a été ajouté'),'notif',array('type'=>'success'));
-				return $this->redirect(array('action' => 'index'));
+					$this->Session->setFlash(__('Le fournisseur a été ajouté'),'notif',array('type'=>'success'));
+					return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('Une erreur est survenu. Merci de vérifier les informations et de valider à nouveau.'),'notif',array('type'=>'error'));
 			}
 		}
 	}
-
+/**
+ * add method
+ *
+ * @return void
+ */
+	public function addiframe($type = null) {
+		$this->layout='iframe';
+		if ($this->request->is('post')) {
+			$this->Customer->create();
+			if ($this->Customer->save($this->request->data)) {
+					$this->request->data['Customer']['id']=$this->Customer->id;
+			} else {
+				$this->Session->setFlash(__('Une erreur est survenu. Merci de vérifier les informations et de valider à nouveau.'),'notif',array('type'=>'error'));
+			}
+		}
+	}
 /**
  * edit method
  *

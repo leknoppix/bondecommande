@@ -16,16 +16,16 @@
 	<?php echo $this->Form->create('User'); ?>
 				<div id="tabs" class="users">
 					<ul class="tabs">
-						<li><a href="#identite">Son identité</a></li>
-						<li><a href="#password">Mot de passe</a></li>
-						<li><a href="#adressage">Coordonnées</a></li>
-						<li><a href="#mail">Information mail</a></li>
+						<li><a href="#identite"><?php echo __('Son identité'); ?></a></li>
+						<li><a href="#password"><?php echo __('Mot de passe'); ?></a></li>
+						<li><a href="#adressage"><?php echo __('Coordonnées'); ?></a></li>
+						<li><a href="#mail"><?php echo __('Information mail'); ?></a></li>
 					</ul>
 					<div class="cb"></div>
 					<div class="tab-pane" id="identite">
 						<?php
 							echo $this->Form->input('nom',array(
-									'label'=>'Son nom'
+									'label'=>__('Son nom')
 								)
 							);
 						?>
@@ -41,6 +41,9 @@
 					<div class="tab-pane" id="password">
 						<?php
 							echo $this->Form->input('passwordmodif',array('type'=>'password','label'=>__('Le nouveau mot de passe')));
+						?>
+						<div class="cb"></div>
+						<?php
 							echo $this->Form->input('confirm_password',array('type'=>'password','label'=>__('Veuillez à nouveau indiquer le mot de passe')));
 						?>
 					</div>

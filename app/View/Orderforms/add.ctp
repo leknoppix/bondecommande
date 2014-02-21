@@ -4,18 +4,18 @@
 	<h2><i class="icon-white icon-barcode"></i>&nbsp;&nbsp;<?php echo __('Ajouter un bon de commande'); ?></h2>
 </div>	
 <div class="action">
-<table>
-	<tr>
-		<td>
-			<?php echo $this->Html->link('<i class="icon-home icon-white"></i>&nbsp;&nbsp;'.__('Retour à la page principale'), '/',array('escape'=>false,'class'=>"btn btn-info")); ?>
-		</td>
-		<td>
-			<?php echo $this->Html->link('<i class="icon-circle-arrow-left icon-white"></i>&nbsp;&nbsp;'.__('Retour à la page précédente'), array('action' => 'index'),array('escape'=>false,'class'=>"btn btn-info")); ?>
-		</td>
-	</tr>
-</table>
-<div class="cb"></div>
-<?php 
+	<table>
+		<tr>
+			<td>
+				<?php echo $this->Html->link('<i class="icon-home icon-white"></i>&nbsp;&nbsp;'.__('Retour à la page principale'), '/',array('escape'=>false,'class'=>"btn btn-info")); ?>
+			</td>
+			<td>
+				<?php echo $this->Html->link('<i class="icon-circle-arrow-left icon-white"></i>&nbsp;&nbsp;'.__('Retour à la page précédente'), array('action' => 'index'),array('escape'=>false,'class'=>"btn btn-info")); ?>
+			</td>
+		</tr>
+	</table>
+	<div class="cb"></div>
+	<?php 
 				echo $this->Form->create('Openform'); 
 			?>
 			<div id="tabs" class="orderform">
@@ -24,8 +24,8 @@
 					<li><a href="#customers"><?php echo __('Information fournisseur'); ?></a></li>
 					<li><a href="#products"><?php echo __('Information fournitures'); ?></a></li>
 				</ul>
-				<div class="cb"></div
->				<div class="tab-pane active" id="internal">
+				<div class="cb"></div>
+				<div class="tab-pane active" id="internal">
 						<?php
 							//on indique le numéro provisoire du bon de commande
 							echo $this->Form->input('numbers.newnum',
@@ -67,9 +67,55 @@
 							)
 						);
 					?>
-					<p><?php echo $this->Html->link('Ajouter un fournisseur',array('controller'=>'customers','action'=>'addiframe'),array('class'=>'fancybox fancybox.iframe')); ?></p>
+					<p><?php echo $this->Html->link('<i class="icon-white icon-plus-sign"></i>&nbsp;&nbsp;'.__('Ajouter un fournisseur'),array('controller'=>'customers','action'=>'addiframe'),array('escape'=>false,'class'=>'fancybox fancybox.iframe btn btn_add')); ?></p>
 				</div>
 				<div class="tab-pane" id="products">
+					<table class="orderforms">
+						<thead>
+						<tr>
+							<th class="w70">Nom du produit</th>
+							<th class="w15">Quantité</th>
+							<th class="w15">Prix en HT</th>
+						</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="w70">
+									<?php 
+										echo $this->Form->input('0.products',
+											array(
+												'label'=>false,
+												'div'=>false,
+												'type'=>'text'
+											)
+										);
+									?>
+								</td>
+								<td class="w15">
+									<?php 
+										echo $this->Form->input('0.quantite',
+											array(
+												'label'=>false,
+												'div'=>false,
+												'type'=>'text'
+											)
+										);
+									?>
+								</td>
+								<td class="w15">
+									<?php 
+										echo $this->Form->input('0.quantite',
+											array(
+												'label'=>false,
+												'div'=>false,
+												'type'=>'text'
+											)
+										);
+									?>
+								</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			</div>
 	<div class="cb"></div>

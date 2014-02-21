@@ -235,30 +235,6 @@ table
 {
 	width: 100%;
 }
-table.customers,table.users,table.services
-{
-	margin-top: 15px;
-	margin-bottom: 15px;
-	border:1px solid black;
-	th,td
-	{
-		border:1px solid black;
-	}
-	th
-	{
-		text-align: center;
-		font-weight: bold;
-		font-size: 13pt;
-		height: 25px;
-		line-height: 25px;
-		color:black;
-	}
-	td.texte
-	{
-		text-align: left;
-		padding-left: 15px;
-	}
-}
 .btn
 {
 	font-size: 12pt;
@@ -267,6 +243,13 @@ table.customers,table.users,table.services
 	text-align: center;
 	text-decoration: none;
 	@include border-radius(5px);
+}
+.btn_add
+{
+	@extend .btn;
+	@include mborderColor($info);
+	width:300px;
+	float:right;
 }
 .btn-info
 {
@@ -381,4 +364,50 @@ padding:0 20px;
 	height: 30px;
 	line-height: 25px;
 	width:100%;
+}
+table.customers,table.users,table.services,table.orderforms
+{
+	margin-top: 15px;
+	margin-bottom: 15px;
+	border:1px solid black;
+	th,td
+	{
+		border:1px solid black;
+	}
+	th
+	{
+		text-align: center;
+		font-weight: bold;
+		font-size: 13pt;
+		height: 25px;
+		line-height: 25px;
+		color:black;
+	}
+	th.w70
+	{
+		width: 70%;
+	}
+	td.w15
+	{
+		width: 15%;
+	}
+	td.texte
+	{
+		text-align: left;
+		padding-left: 15px;
+	}
+	td.w70
+	{
+		width: 70%;
+	}
+	td.w15
+	{
+		width: 15%;
+	}
+	td input
+	{
+		float:left;
+		padding:2px;
+		margin: 5px;
+	}
 }

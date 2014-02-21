@@ -67,8 +67,8 @@ class OrderformsController extends AppController {
 				)
 			);
 		$users = $this->Orderform->User->find('list');
-		$customers = $this->Orderform->Customer->find('list');
-		$services = $this->Orderform->Service->find('list');
+		$customers = $this->Orderform->Customer->find('list',array('order'=>'name'));
+		$services = $this->Orderform->Service->find('list',array('order'=>'name'));
 		$products = $this->Orderform->Product->find('list');
 		$this->set(compact('users', 'customers', 'services', 'products','numbers'));
 	}

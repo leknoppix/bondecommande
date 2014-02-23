@@ -27,29 +27,29 @@
 		<div class="cb"></div>
 		<div class="tab-pane" id="identite">
 			<?php
-				echo $this->Form->input('name',array('label'=>__('Nom du fournisseur')));
+				echo $this->Form->input('name',array('label'=>__('Nom du fournisseur'),'class'=>'w30'));
 			?>
 			<div class="cb"></div>
 			<?php
-				echo $this->Form->input('address',array('label'=>__('Adresse du fournisseur'),'type'=>'textarea'));
+				echo $this->Form->input('address',array('label'=>__('Adresse du fournisseur'),'class'=>'w30','type'=>'textarea'));
 			?>
 			<div class="cb"></div>
 			<?php
-				echo $this->Form->input('zipcode',array('label'=>__('Code postal')));
+				echo $this->Form->input('zipcode',array('label'=>__('Code postal'),'class'=>'w30'));
 			?>
 			<div class="cb"></div>
 			<?php
-				echo $this->Form->input('city',array('label'=>__('Ville')));
+				echo $this->Form->input('city',array('label'=>__('Ville'),'class'=>'w30'));
 			?>
 		</div>
 		<div class="tab-pane" id="correspondance">
 			<?php
-				echo $this->Form->input('tel',array('label'=>__('Téléphone'),'required'=>false));
-				echo $this->Form->input('fax',array('label'=>__('Fax'),'required'=>false));
-				echo $this->Form->input('mail',array('label'=>__('Adresse mail'),'required'=>false));
-				echo $this->Form->input('siteinternet',array('label'=>__('Site internet'),'required'=>false));
+				echo $this->Form->input('tel',array('label'=>__('Téléphone'),'required'=>false,'class'=>'w30'));
+				echo $this->Form->input('fax',array('label'=>__('Fax'),'required'=>false,'class'=>'w30'));
+				echo $this->Form->input('mail',array('label'=>__('Adresse mail'),'required'=>false,'class'=>'w30'));
+				echo $this->Form->input('siteinternet',array('label'=>__('Site internet'),'required'=>false,'class'=>'w30'));
 			?>
 		</div>
 	</div>
-	<?php echo $this->Form->end(array('label'=>__('Modifier ce fournisseur'),'class'=>'btn btn-primary submit')); ?>
+	<?php echo $this->Form->end(array('label'=>__('Modifier ce fournisseur'),'class'=>'btn btn-primary submit w100')); ?>
 </div>

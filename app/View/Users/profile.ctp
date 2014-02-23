@@ -25,18 +25,30 @@
 					<div class="cb"></div>
 					<div class="tab-pane" id="identite">
 						<?php
-							echo $this->Form->input('nom',array(
-									'label'=>__('Votre nom')
+							echo $this->Form->input('nom',
+								array(
+									'label'=>__('Votre nom'),
+									'class'=>'w30'
 								)
 							);
 						?>
 						<div class="cb"></div>
 						<?php
-							echo $this->Form->input('prenom',array('label'=>__('Votre prénom')));
+							echo $this->Form->input('prenom',
+									array(
+										'label'=>__('Votre prénom'),
+										'class'=>'w30'
+									)
+								);
 						?>
 						<div class="cb"></div>
 						<?php
-							echo $this->Form->input('username',array('label'=>__('Votre nom d\'utilisateur')));
+							echo $this->Form->input('username',
+								array(
+									'label'=>__('Votre nom d\'utilisateur'),
+									'class'=>'w30'
+								)
+							);
 						?>
 					</div>
 					<div class="tab-pane" id="password">
@@ -46,46 +58,96 @@
 							</strong>
 						</div>
 						<?php
-							echo $this->Form->input('passwordmodif',array('type'=>'password','label'=>__('Votre nouveau mot de passe'),'required'=>false));
+							echo $this->Form->input('passwordmodif',
+									array(
+										'type'=>'password',
+										'label'=>__('Votre nouveau mot de passe'),
+										'required'=>false,
+										'class'=>'w30'
+									)
+								);
 						?>
 						<div class="cb"></div>
 						<?php
-							echo $this->Form->input('confirm_password',array('type'=>'password','label'=>__('Veuillez à nouveau indiquer votre mot de passe')));
+							echo $this->Form->input('confirm_password',
+								array(
+									'type'=>'password',
+									'label'=>__('Veuillez à nouveau indiquer votre mot de passe'),
+									'class'=>'w30'
+								)
+							);
 						?>
 					</div>
 					<div class="tab-pane" id="adressage">
 						<?php
-							echo $this->Form->input('telephone_fixe',array('label'=>__('Votre téléphone fixe')));
+							echo $this->Form->input('telephone_fixe',
+								array(
+									'label'=>__('Votre téléphone fixe'),
+									'class'=>'w30'
+								)
+							);
 						?>
 						<div class="cb"></div>
 						<?php
-							echo $this->Form->input('telephone_mobile',array('label'=>__('Votre téléphone mobile')));
+							echo $this->Form->input('telephone_mobile',
+								array(
+									'label'=>__('Votre téléphone mobile'),
+									'class'=>'w30'
+								)
+							);
 						?>
 						<div class="cb"></div>
 						<?php
-							echo $this->Form->input('adresse_postale',array('label'=>__('Votre adresse postale')));
+							echo $this->Form->input('adresse_postale',
+								array(
+									'label'=>__('Votre adresse postale'),
+									'class'=>'w30'
+								)
+							);
 						?>
 						<div class="cb"></div>
 						<?php
-							echo $this->Form->input('code_postal',array('label'=>__('Code Postal')));
-								echo $this->Form->input('ville',array('label'=>__('Ville'),'class'=>"span8"));
+							echo $this->Form->input('code_postal',
+								array(
+									'label'=>__('Code Postal'),
+									'class'=>'w30'
+								)
+							);
+							echo $this->Form->input('ville',
+								array(
+									'label'=>__('Ville'),
+									'class'=>'w30'
+								)
+							);
 						?>
 					</div>
 					<div class="tab-pane" id="mail">
 						<?php
-							echo $this->Form->input('mail',array('label'=>__('Votre adresse mail')));
+							echo $this->Form->input('mail',
+								array(
+									'label'=>__('Votre adresse mail'),
+									'class'=>'w30'
+								)
+							);
 						?>
 						<div class="cb"></div>
 						<?php
 							echo $this->Form->input('signature',
 								array(
 									'label'=>__('Signature pour accompagner vos mails'),
-									'class'=> 'cleditor',
+									'class'=> 'cleditor w30',
 									'type'=>'textarea'
 								));
 						?>
 					</div>
 				</div>
 				<div class="cb"></div>
-				<?php echo $this->Form->end(array('label'=>__('Modifier votre profil'),'class'=>'btn btn-primary submit')); ?>
+				<?php 
+					echo $this->Form->end(
+						array(
+							'label'=>__('Modifier votre profil'),
+							'class'=>'btn btn-primary submit w100'
+						)
+					);
+				?>
 </div>

@@ -5,10 +5,10 @@
 <div class="action">
 	<table>
 		<tr>
-			<td>
+			<td class="w50">
 				<?php echo $this->Html->link('<i class="icon-home icon-white"></i> '.__('Retour à la page principale'), '/',array('escape'=>false,'class'=>"btn btn-info")); ?>
 			</td>
-			<td>
+			<td class="w50">
 				<?php echo $this->Html->link('<i class="icon-plus icon-white"></i> '.__('Ajouter un nouvel utilisateur'), array('action' => 'add'),array('escape'=>false,'class'=>"btn btn-info")); ?>
 			</td>
 		</tr>

@@ -13,7 +13,7 @@ $primary:#428BCA;
 //fonction
 @function borderColor($color)
 {
-	@return desaturate(darken($color,30%), 70%)
+	@return desaturate(darken($color,30%), 70%);
 }
 //mixin
 @mixin mborderColor($color)
@@ -21,6 +21,15 @@ $primary:#428BCA;
 	@extend .alert;
 	border-color:borderColor($color);
 	background-color:$color;
+}
+//tableau responsive
+@for $i from 1 through 100 {
+	.w#{$i}
+	{
+		width: 1% * $i;
+		margin:0;
+		padding: 0;
+	}
 }
 //css
 body
@@ -59,7 +68,6 @@ body
 		input {
 			float: right;
 			border:0px solid;
-			width:250px;
 			height: 25px;
 			padding:3px;
 			background: url($urlfond);
@@ -69,16 +77,9 @@ body
 	}
 	.submit input
 	{
-		width:500px;
 		height: 27px;
 		font-size: 13pt;
 		@include border-radius(5px);
-		@include transition;
-		&:hover
-		{
-			color:white;
-			font-weight: bold;
-		}
 	}
 }
 header{
@@ -248,7 +249,6 @@ table
 {
 	@extend .btn;
 	@include mborderColor($info);
-	width:300px;
 	float:right;
 }
 .btn-info
@@ -270,38 +270,39 @@ table
 	clear: both;
 }
 //tabs
-ul.tabs {
-float:left;
-list-style:none;
-height:32px;
-width:100%;
-border-radius:8px 0 -50px 0;
-margin:0;
-padding:0;
+ul.tabs
+{
+	float:left;
+	list-style:none;
+	height:32px;
+	width:100%;
+	border-radius:8px 0 -50px 0;
+	margin:0;
+	padding:0;
 }
- 
-ul.tabs li {
-float:left;
-height:31px;
-line-height:31px;
-border:1px solid #999;
-overflow:hidden;
-position:relative;
-background:#e0e0e0;
-@include border-radius(8px 8px 0px 0px);
-margin:0 5px -1px 0;
-padding:0;
+ul.tabs li
+{
+	float:left;
+	height:31px;
+	line-height:31px;
+	border:1px solid #999;
+	overflow:hidden;
+	position:relative;
+	background:#e0e0e0;
+	@include border-radius(8px 8px 0px 0px);
+	margin:0 5px -1px 0;
+	padding:0;
 }
- 
-ul.tabs li a {
-text-decoration:none;
-color:#000;
-display:block;
-font-size:1.2em;
-border:1px solid #fff;
-outline:none;
-@include border-radius(8px 8px 0px 0px);
-padding:0 20px;
+ul.tabs li a
+{
+	text-decoration:none;
+	color:#000;
+	display:block;
+	font-size:1.2em;
+	border:1px solid #fff;
+	outline:none;
+	@include border-radius(8px 8px 0px 0px);
+	padding:0 20px;
 }
 .customers,.users,.services,.orderform
 {
@@ -323,7 +324,6 @@ padding:0 20px;
 		float: right;
 		font-weight: bold;
 		border:0px solid;
-		width:350px;
 		height: 25px;
 		padding:3px;
 		background: url($urlfond);
@@ -335,7 +335,6 @@ padding:0 20px;
 		float: right;
 		font-weight: bold;
 		border:0px solid;
-		width:355px;
 		height: 30px;
 		padding:3px;
 		background: url($urlfond);
@@ -347,7 +346,6 @@ padding:0 20px;
 		float: right;
 		font-weight: bold;
 		border:0px solid;
-		width:350px;
 		height: 100px;
 		padding:3px;
 		background: url($urlfond);
@@ -363,16 +361,17 @@ padding:0 20px;
 	margin-bottom: 15px;
 	height: 30px;
 	line-height: 25px;
-	width:100%;
 }
-table.customers,table.users,table.services,table.orderforms
+table.customers, table.users, table.services, table.orderforms
 {
 	margin-top: 15px;
 	margin-bottom: 15px;
 	border:1px solid black;
-	th,td
+	th, td
 	{
-		border:1px solid black;
+		border: 1px solid black;
+		margin: 5px;
+		padding: 5px;
 	}
 	th
 	{
@@ -383,31 +382,9 @@ table.customers,table.users,table.services,table.orderforms
 		line-height: 25px;
 		color:black;
 	}
-	th.w70
-	{
-		width: 70%;
-	}
-	td.w15
-	{
-		width: 15%;
-	}
 	td.texte
 	{
 		text-align: left;
 		padding-left: 15px;
-	}
-	td.w70
-	{
-		width: 70%;
-	}
-	td.w15
-	{
-		width: 15%;
-	}
-	td input
-	{
-		float:left;
-		padding:2px;
-		margin: 5px;
 	}
 }

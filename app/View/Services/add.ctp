@@ -18,8 +18,8 @@
 	<div id="tabs" class="services">
 	<?php echo $this->Form->create('Service'); ?>
 	<?php
-		echo $this->Form->input('name',array('label'=>__('Nom du service')));
+		echo $this->Form->input('name',array('label'=>__('Nom du service'),'class'=>'w30'));
 	?>
 	</div>
-	<?php echo $this->Form->end(array('label'=>__('Ajouter ce nouveau service'),'class'=>'btn btn-primary submit')); ?>
+	<?php echo $this->Form->end(array('label'=>__('Ajouter ce nouveau service'),'class'=>'btn btn-primary submit w100')); ?>
 </div>

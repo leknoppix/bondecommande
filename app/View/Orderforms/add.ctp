@@ -1,5 +1,5 @@
 <?php echo $this->Html->addCrumb(__('Gestion des bons de commande'), array('controller'=>'services','action'=>'index')); ?>
-<?php echo $this->Html->addCrumb(__('Ajouter un bon de commande'), array('controller'=>'services','action'=>'add')); ?>
+<?php echo $this->Html->addCrumb(__('Ajouter un bon de commande'), array('controller'=>'orderforms','action'=>'add')); ?>
 <div class="title">
 	<h2><i class="icon-white icon-barcode"></i>&nbsp;&nbsp;<?php echo __('Ajouter un bon de commande'); ?></h2>
 </div>	
@@ -32,14 +32,16 @@
 								array(
 									'label'=>__('Numéro du bon de commande provisoire'),
 									'readonly'=>true,
-									'value'=>$numbers['Numberorder']['newnum']
+									'value'=>$numbers['Numberorder']['newnum'],
+									'class'=>'w30'
 								)
 							);
 						?>
 						<?php 
 							echo $this->Form->input('name',
 								array(
-									'label'=>__('Nom du bon de commande')
+									'label'=>__('Nom du bon de commande'),
+									'class'=>'w30'
 								)
 							);
 						?>
@@ -48,14 +50,15 @@
 								array(
 									'label'=>__('Date de la demande'),
 									'value'=>date('d/m/Y'),
-									'class'=>'datepicker'
+									'class'=>'datepicker w30'
 								)
 							);
 						?>
 						<?php 
 							echo $this->Form->input('service_id',
 								array(
-									'label'=>__('Nom du service demandant')
+									'label'=>__('Nom du service demandant'),
+									'class'=>'w30'
 								)
 							);
 						?>
@@ -63,63 +66,61 @@
 				<div class="tab-pane" id="customers">
 					<?php
 						echo $this->Form->input('customer_id',array(
-								'label'=>__('Nom du fournisseur')
+								'label'=>__('Nom du fournisseur'),
+								'class'=>'w30'
 							)
 						);
 					?>
-					<p><?php echo $this->Html->link('<i class="icon-white icon-plus-sign"></i>&nbsp;&nbsp;'.__('Ajouter un fournisseur'),array('controller'=>'customers','action'=>'addiframe'),array('escape'=>false,'class'=>'fancybox fancybox.iframe btn btn_add')); ?></p>
+					<p><?php echo $this->Html->link('<i class="icon-white icon-plus-sign"></i>&nbsp;&nbsp;'.__('Ajouter un fournisseur'),array('controller'=>'customers','action'=>'addiframe'),array('escape'=>false,'class'=>'fancybox fancybox.iframe btn btn_add w30')); ?></p>
 				</div>
 				<div class="tab-pane" id="products">
 					<table class="orderforms">
 						<thead>
-						<tr>
-							<th class="w70">Nom du produit</th>
-							<th class="w15">Quantité</th>
-							<th class="w15">Prix en HT</th>
-						</tr>
+							<tr>
+								<th class="w70">Nom du produit</th>
+								<th class="w15">Quantité</th>
+								<th class="w15">Prix en HT</th>
+							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td class="w70">
-									<?php 
+								<td><?php 
 										echo $this->Form->input('0.products',
 											array(
 												'label'=>false,
 												'div'=>false,
-												'type'=>'text'
+												'type'=>'text',
+												'class'=>'w100'
 											)
 										);
-									?>
-								</td>
-								<td class="w15">
-									<?php 
+									?></td>
+								<td><?php 
 										echo $this->Form->input('0.quantite',
 											array(
 												'label'=>false,
 												'div'=>false,
-												'type'=>'text'
+												'type'=>'text',
+												'class'=>'w100'
 											)
 										);
-									?>
-								</td>
-								<td class="w15">
-									<?php 
-										echo $this->Form->input('0.quantite',
+									?></td>
+								<td><?php 
+										echo $this->Form->input('0.prix',
 											array(
 												'label'=>false,
 												'div'=>false,
-												'type'=>'text'
+												'type'=>'text',
+												'class'=>'w100'
 											)
 										);
-									?>
-								</td>
+									?></td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
 			</div>
 	<div class="cb"></div>
-	<?php echo $this->Form->end(array('label'=>__('Ajouter ce bon de commande'),'class'=>'btn btn-primary submit')); ?>
+	<?php echo $this->Form->end(array('label'=>__('Ajouter ce bon de commande'),'class'=>'btn btn-primary submit w100')); ?>
 </div>
 <?php
 	$this->Html->css('pickadate/themes/default.css', null, array('inline' => false));

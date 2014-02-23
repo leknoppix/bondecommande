@@ -19,8 +19,8 @@
 		<?php echo $this->Form->create('Service'); ?>
 		<?php
 			echo $this->Form->input('id');
-			echo $this->Form->input('name',array('label'=>__('Nom du service')));
+			echo $this->Form->input('name',array('label'=>__('Nom du service'),'class'=>'w30'));
 		?>
 	</div>
-	<?php echo $this->Form->end(array('label'=>__('Modifier ce service'),'class'=>'btn btn-primary submit')); ?>
+	<?php echo $this->Form->end(array('label'=>__('Modifier ce service'),'class'=>'btn btn-primary submit w100')); ?>
 </div>

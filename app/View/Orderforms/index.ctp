@@ -2,33 +2,29 @@
 <div class="title">
 	<h2><i class="icon-white icon-barcode"></i>&nbsp;&nbsp;<?php echo __('Gestion des bons de commande'); ?></h2>
 </div>	
-<div class="actions">
-<table>
-	<tr>
-		<td>
-			<?php echo $this->Html->link('<i class="icon-home icon-white"></i>&nbsp;&nbsp;'.__('Retour à la page principale'), '/',array('escape'=>false,'class'=>"btn btn-info")); ?>
-		</td>
-		<td>
-			<?php echo $this->Html->link('<i class="icon-plus icon-white"></i>&nbsp;&nbsp;'.__('Ajouter un nouveau bon de commande'), array('action' => 'add'),array('escape'=>false,'class'=>"btn btn-info")); ?>
-		</td>
-	</tr>
+<div class="action">
+	<table>
+		<tr>
+			<td class="w50">
+				<?php echo $this->Html->link('<i class="icon-home icon-white"></i>&nbsp;&nbsp;'.__('Retour à la page principale'), '/',array('escape'=>false,'class'=>"btn btn-info")); ?>
+			</td>
+			<td class="w50">
+				<?php echo $this->Html->link('<i class="icon-plus icon-white"></i>&nbsp;&nbsp;'.__('Ajouter un nouveau bon de commande'), array('action' => 'add'),array('escape'=>false,'class'=>"btn btn-info")); ?>
+			</td>
+		</tr>
 	</table>
 	<div class="cb"></div>
-<div class="orderforms index">
-	<table cellpadding="0" cellspacing="0">
+	<table class="orderforms">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('user_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('customer_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('date'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('service_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('etat'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($orderforms as $orderform): ?>
 	<tr>
-		<td><?php echo h($orderform['Orderform']['id']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($orderform['User']['name'], array('controller' => 'users', 'action' => 'view', $orderform['User']['id'])); ?>
 		</td>
@@ -40,7 +36,6 @@
 		<td>
 			<?php echo $this->Html->link($orderform['Service']['name'], array('controller' => 'services', 'action' => 'view', $orderform['Service']['id'])); ?>
 		</td>
-		<td><?php echo h($orderform['Orderform']['etat']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $orderform['Orderform']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $orderform['Orderform']['id'])); ?>

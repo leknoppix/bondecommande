@@ -4,7 +4,7 @@
 	<h2><i class="icon-white icon-wrench"></i>&nbsp;&nbsp;<?php echo __('Ajouter un nouveau service'); ?></h2>
 </div>	
 <div class="action">
-	<table>
+	<table class="w100">
 		<tr>
 			<td>
 				<?php echo $this->Html->link('<i class="icon-home icon-white"></i>&nbsp;&nbsp;'.__('Retour à la page principale'), '/',array('escape'=>false,'class'=>"btn btn-info")); ?>

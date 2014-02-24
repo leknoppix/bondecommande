@@ -27,9 +27,13 @@ $primary:#428BCA;
 	.w#{$i}
 	{
 		width: 1% * $i;
-		margin:0;
-		padding: 0;
+		@include box-sizing(border-box);
 	}
+}
+/*clear both*/
+.cb
+{
+	clear: both;
 }
 //css
 body
@@ -232,10 +236,6 @@ header{
 	@include mborderColor($warning);
 }
 /* customisation bouton */
-table
-{
-	width: 100%;
-}
 .btn
 {
 	font-size: 12pt;
@@ -265,9 +265,14 @@ table
 {
 	@include mborderColor($primary);
 }
-.cb
+.btn-primary.submit
 {
-	clear: both;
+	margin:0;
+	padding:0;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	height: 30px;
+	line-height: 25px;
 }
 //tabs
 ul.tabs
@@ -275,7 +280,6 @@ ul.tabs
 	float:left;
 	list-style:none;
 	height:32px;
-	width:100%;
 	border-radius:8px 0 -50px 0;
 	margin:0;
 	padding:0;
@@ -304,7 +308,34 @@ ul.tabs li a
 	@include border-radius(8px 8px 0px 0px);
 	padding:0 20px;
 }
-.customers,.users,.services,.orderform
+/* Mise en forme des formulaires */
+table.customers, table.users, table.services
+{
+	margin-top: 15px;
+	margin-bottom: 15px;
+	border:1px solid black;
+	th, td
+	{
+		border: 1px solid black;
+		margin: 5px;
+		padding: 5px;
+	}
+	th
+	{
+		text-align: center;
+		font-weight: bold;
+		font-size: 13pt;
+		height: 25px;
+		line-height: 25px;
+		color:black;
+	}
+	td.texte
+	{
+		text-align: left;
+		padding-left: 15px;
+	}
+}
+.customers, .users, .services, .orderform
 {
 	.input
 	{
@@ -346,34 +377,18 @@ ul.tabs li a
 		float: right;
 		font-weight: bold;
 		border:0px solid;
-		height: 100px;
+		height: 70px;
 		padding:3px;
 		background: url($urlfond);
 		@include border-radius(5px);
 		@include box-shadow(0 1px 1px #000);
 	}
 }
-.btn-primary.submit
-{
-	margin:0;
-	padding:0;
-	margin-top: 15px;
-	margin-bottom: 15px;
-	height: 30px;
-	line-height: 25px;
-}
-table.customers, table.users, table.services, table.orderforms
+.orderforms
 {
 	margin-top: 15px;
 	margin-bottom: 15px;
-	border:1px solid black;
-	th, td
-	{
-		border: 1px solid black;
-		margin: 5px;
-		padding: 5px;
-	}
-	th
+	.head
 	{
 		text-align: center;
 		font-weight: bold;
@@ -382,9 +397,14 @@ table.customers, table.users, table.services, table.orderforms
 		line-height: 25px;
 		color:black;
 	}
-	td.texte
+	input.right
 	{
-		text-align: left;
-		padding-left: 15px;
+		text-align: right;
 	}
+}
+.inline
+{
+	display: inline-block;
+	margin-top:3px;
+	margin-bottom: 3px;
 }

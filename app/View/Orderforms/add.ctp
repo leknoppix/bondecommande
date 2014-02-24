@@ -4,7 +4,7 @@
 	<h2><i class="icon-white icon-barcode"></i>&nbsp;&nbsp;<?php echo __('Ajouter un bon de commande'); ?></h2>
 </div>	
 <div class="action">
-	<table>
+	<table class="w100">
 		<tr>
 			<td>
 				<?php echo $this->Html->link('<i class="icon-home icon-white"></i>&nbsp;&nbsp;'.__('Retour à la page principale'), '/',array('escape'=>false,'class'=>"btn btn-info")); ?>
@@ -74,49 +74,83 @@
 					<p><?php echo $this->Html->link('<i class="icon-white icon-plus-sign"></i>&nbsp;&nbsp;'.__('Ajouter un fournisseur'),array('controller'=>'customers','action'=>'addiframe'),array('escape'=>false,'class'=>'fancybox fancybox.iframe btn btn_add w30')); ?></p>
 				</div>
 				<div class="tab-pane" id="products">
-					<table class="orderforms">
-						<thead>
-							<tr>
-								<th class="w70">Nom du produit</th>
-								<th class="w15">Quantité</th>
-								<th class="w15">Prix en HT</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><?php 
+					<div class="orderforms">
+						<div class="head w100">
+							<div class="w58 inline">Nom du produit</div>
+							<div class="w10 inline">Quantité</div>
+							<div class="w10 inline">Prix en HT</div>
+							<div class="w10 inline">TVA</div>
+							<div class="w10 inline">Total TTC</div>
+						</div>
+						<div class="cb"></div>
+						<div class="body-0 w100">
+							<div class="w58 inline"><?php 
 										echo $this->Form->input('0.products',
 											array(
 												'label'=>false,
 												'div'=>false,
 												'type'=>'text',
-												'class'=>'w100'
+												'class'=>'w99'
 											)
 										);
-									?></td>
-								<td><?php 
+									?>
+							</div>
+							<div class="w10 inline">
+									<?php 
 										echo $this->Form->input('0.quantite',
 											array(
 												'label'=>false,
 												'div'=>false,
 												'type'=>'text',
-												'class'=>'w100'
+												'class'=>'w99 right calcul qtt',
+												'value'=>0
 											)
 										);
-									?></td>
-								<td><?php 
+									?>
+							</div>
+							<div class="w10 inline">
+									<?php 
 										echo $this->Form->input('0.prix',
 											array(
 												'label'=>false,
 												'div'=>false,
 												'type'=>'text',
-												'class'=>'w100'
+												'class'=>'w99 right calcul prixht',
+												'value'=>0
 											)
 										);
-									?></td>
-							</tr>
-						</tbody>
-					</table>
+									?>
+							</div>
+							<div class="w10 inline">
+									<?php 
+										echo $this->Form->input('0.tva',
+											array(
+												'label'=>false,
+												'div'=>false,
+												'type'=>'text',
+												'class'=>'w99 right calcul tva',
+												'value'=>0
+											)
+										);
+									?>
+							</div>
+							<div class="w10 inline">
+									<?php 
+										echo $this->Form->input('0.total',
+											array(
+												'label'=>false,
+												'div'=>false,
+												'type'=>'text',
+												'class'=>'w99 right total',
+												'readonly'=>true,
+												'value'=>0
+											)
+										);
+									?>
+							</div>
+						</div>
+						<a href="#" class="addproduct">Ajouter un produit</a>
+					</div>
 				</div>
 			</div>
 	<div class="cb"></div>

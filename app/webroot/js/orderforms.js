@@ -26,12 +26,21 @@ $(function() {
   			$('.'+parentdiv+' .total').val(total);
   		}
 	});
+
 	//système de clonage
 	var nb_copy_initial=0;
     $('.addproduct').on('click',function()
     {
         nb_copy_initial++;
-        $(this).before( $(".body-0").clone(true,true).removeClass('body-0').attr('class', 'body-'+nb_copy_initial) );
+        $(this).before( $(".body-0").clone(true,true)
+        							.removeClass('body-0')
+        							.attr('class', 'body-'+nb_copy_initial) );
+        //on modifie les names des champs ajoutés
+        $(".body-"+nb_copy_initial+" input").each(function()
+        {
+        	$(this).attr("name", $(this).attr("name").replace(/\[0\]/g, '['+nb_copy_initial+']'));
+        	$(this).attr("id", $(this).attr("id").replace(/m0/g, 'm'+nb_copy_initial));
+        });
         //on vide les inputs
         $('.body-'+nb_copy_initial+' input').val('');
         $('.body-'+nb_copy_initial+' input.calcul').val('0');

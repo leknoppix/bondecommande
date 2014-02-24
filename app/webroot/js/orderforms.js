@@ -28,7 +28,7 @@ $(function() {
 	});
 
 	//système de clonage
-	var nb_copy_initial=0;
+	/*var nb_copy_initial=0;
     $('.addproduct').on('click',function()
     {
         nb_copy_initial++;
@@ -44,5 +44,19 @@ $(function() {
         //on vide les inputs
         $('.body-'+nb_copy_initial+' input').val('');
         $('.body-'+nb_copy_initial+' input.calcul').val('0');
-    });
+    });*/
+
+    var options = {
+      valeur_initiale:'0',
+      nb_copy_initial:'0',
+      classclone:'body-',
+      controller:'Openform',
+    }
+    $('.addproduct').on('click',function()
+    {
+            $(this).clonage(options);
+            $('.body-'+options.nb_copy_initial+' input').val('');
+            $('.body-'+options.nb_copy_initial+' input.calcul').val('0');
+      }
+    );
 });

@@ -4,7 +4,7 @@
 	<h2><i class="icon-white icon-user"></i>&nbsp;&nbsp;<?php echo __('Ajouter un utilisateur'); ?></h2>
 </div>	
 <div class="action">
-	<table>
+	<table class="w100">
 		<tr>
 			<td><?php echo $this->Html->link('<i class="icon-home icon-white"></i>&nbsp;&nbsp;'.__('Retour à la page principale'), '/',array('escape'=>false,'class'=>"btn btn-info")); ?>
 			</td>
@@ -15,7 +15,7 @@
 	<div class="cb"></div>
 	<?php echo $this->Form->create('User'); ?>
 				<div id="tabs" class="users">
-					<ul class="tabs">
+					<ul class="tabs w100">
 						<li><a href="#identite"><?php echo __('Son identité'); ?></a></li>
 						<li><a href="#password"><?php echo __('Mot de passe'); ?></a></li>
 						<li><a href="#adressage"><?php echo __('Coordonnées'); ?></a></li>

@@ -3,7 +3,7 @@
 	<h2><i class="icon-white icon-camera"></i>&nbsp;&nbsp;<?php echo __('Gestion des fournisseurs'); ?></h2>
 </div>
 <div class="action">
-	<table>
+	<table class="w100">
 		<tr>
 			<td class="w50">
 				<?php echo $this->Html->link('<i class="icon-white icon-home"></i>&nbsp;&nbsp;'.__('Retour à la page principale'), '/',array('escape'=>false,'class'=>"btn btn-info")); ?>
@@ -14,7 +14,7 @@
 		</tr>
 	</table>
 	<div class="cb"></div>
-	<table class="customers">
+	<table class="customers w100">
 		<thead>
 			<tr>
 				<th><?php echo __('Nom du fournisseur'); ?></th>

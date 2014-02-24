@@ -3,7 +3,7 @@
 	<h2><i class="icon-white icon-barcode"></i>&nbsp;&nbsp;<?php echo __('Gestion des bons de commande'); ?></h2>
 </div>	
 <div class="action">
-	<table>
+	<table class="w100">
 		<tr>
 			<td class="w50">
 				<?php echo $this->Html->link('<i class="icon-home icon-white"></i>&nbsp;&nbsp;'.__('Retour à la page principale'), '/',array('escape'=>false,'class'=>"btn btn-info")); ?>
@@ -14,7 +14,7 @@
 		</tr>
 	</table>
 	<div class="cb"></div>
-	<table class="orderforms">
+	<table class="orderforms w100">
 	<tr>
 			<th><?php echo $this->Paginator->sort('user_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('customer_id'); ?></th>

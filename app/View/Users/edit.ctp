@@ -4,7 +4,7 @@
 	<h2><i class="icon-white icon-user"></i>&nbsp;&nbsp;<?php echo __('Modifier un utilisateur'); ?></h2>
 </div>	
 <div class="action">
-	<table>
+	<table class="w100">
 		<tr>
 			<td><?php echo $this->Html->link('<i class="icon-home icon-white"></i>&nbsp;&nbsp;'.__('Retour à la page principale'), '/',array('escape'=>false,'class'=>"btn btn-info")); ?>
 			</td>
@@ -18,7 +18,7 @@
 					echo $this->Form->input('id');
 				?>
 				<div id="tabs" class="users">
-					<ul class="tabs">
+					<ul class="tabs w100">
 						<li><a href="#identite">Son identité</a></li>
 						<li><a href="#password">Mot de passe</a></li>
 						<li><a href="#adressage">Coordonnées</a></li>

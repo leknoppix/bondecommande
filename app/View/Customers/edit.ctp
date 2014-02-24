@@ -4,7 +4,7 @@
 	<h2><i class="icon-white icon-camera"></i>&nbsp;&nbsp;<?php echo __('Modifier un fournisseur'); ?></h2>
 </div>
 <div class="action">
-	<table>
+	<table class="w100">
 		<tr>
 			<td>
 				<?php echo $this->Html->link('<i class="icon-white icon-home"></i> '.__('Retour à la page principale'), '/',array('escape'=>false,'class'=>"btn btn-info")); ?>

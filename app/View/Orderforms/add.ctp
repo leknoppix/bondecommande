@@ -90,7 +90,7 @@
 												'label'=>false,
 												'div'=>false,
 												'type'=>'text',
-												'class'=>'w99'
+												'class'=>'w99 autocomplete'
 											)
 										);
 									?>

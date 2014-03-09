@@ -1905,64 +1905,20 @@ header a {
   line-height: 25px;
 }
 
-/* line 279, ../sass/style.scss */
-ul.tabs {
-  float: left;
-  list-style: none;
-  height: 32px;
-  border-radius: 8px 0 -50px 0;
-  margin: 0;
-  padding: 0;
-}
-
-/* line 288, ../sass/style.scss */
-ul.tabs li {
-  float: left;
-  height: 31px;
-  line-height: 31px;
-  border: 1px solid #999;
-  overflow: hidden;
-  position: relative;
-  background: #e0e0e0;
-  -webkit-border-radius: 8px 8px 0px 0px;
-  -moz-border-radius: 8px 8px 0px 0px;
-  -ms-border-radius: 8px 8px 0px 0px;
-  -o-border-radius: 8px 8px 0px 0px;
-  border-radius: 8px 8px 0px 0px;
-  margin: 0 5px -1px 0;
-  padding: 0;
-}
-
-/* line 301, ../sass/style.scss */
-ul.tabs li a {
-  text-decoration: none;
-  color: #000;
-  display: block;
-  font-size: 1.2em;
-  border: 1px solid #fff;
-  outline: none;
-  -webkit-border-radius: 8px 8px 0px 0px;
-  -moz-border-radius: 8px 8px 0px 0px;
-  -ms-border-radius: 8px 8px 0px 0px;
-  -o-border-radius: 8px 8px 0px 0px;
-  border-radius: 8px 8px 0px 0px;
-  padding: 0 20px;
-}
-
 /* Mise en forme des formulaires */
-/* line 313, ../sass/style.scss */
+/* line 279, ../sass/style.scss */
 table.customers, table.users, table.services {
   margin-top: 15px;
   margin-bottom: 15px;
   border: 1px solid black;
 }
-/* line 318, ../sass/style.scss */
+/* line 284, ../sass/style.scss */
 table.customers th, table.customers td, table.users th, table.users td, table.services th, table.services td {
   border: 1px solid black;
   margin: 5px;
   padding: 5px;
 }
-/* line 324, ../sass/style.scss */
+/* line 290, ../sass/style.scss */
 table.customers th, table.users th, table.services th {
   text-align: center;
   font-weight: bold;
@@ -1971,18 +1927,18 @@ table.customers th, table.users th, table.services th {
   line-height: 25px;
   color: black;
 }
-/* line 333, ../sass/style.scss */
+/* line 299, ../sass/style.scss */
 table.customers td.texte, table.users td.texte, table.services td.texte {
   text-align: left;
   padding-left: 15px;
 }
 
-/* line 341, ../sass/style.scss */
+/* line 307, ../sass/style.scss */
 .customers .input, .users .input, .services .input, .orderform .input {
   padding-top: 10px;
   padding-bottom: 10px;
 }
-/* line 346, ../sass/style.scss */
+/* line 312, ../sass/style.scss */
 .customers label, .users label, .services label, .orderform label {
   width: 250px;
   height: 25px;
@@ -1990,7 +1946,7 @@ table.customers td.texte, table.users td.texte, table.services td.texte {
   font-size: 13pt;
   padding-left: 15px;
 }
-/* line 354, ../sass/style.scss */
+/* line 320, ../sass/style.scss */
 .customers input, .users input, .services input, .orderform input {
   float: right;
   font-weight: bold;
@@ -2007,7 +1963,7 @@ table.customers td.texte, table.users td.texte, table.services td.texte {
   -moz-box-shadow: 0 1px 1px black;
   box-shadow: 0 1px 1px black;
 }
-/* line 365, ../sass/style.scss */
+/* line 331, ../sass/style.scss */
 .customers select, .users select, .services select, .orderform select {
   float: right;
   font-weight: bold;
@@ -2024,7 +1980,7 @@ table.customers td.texte, table.users td.texte, table.services td.texte {
   -moz-box-shadow: 0 1px 1px black;
   box-shadow: 0 1px 1px black;
 }
-/* line 376, ../sass/style.scss */
+/* line 342, ../sass/style.scss */
 .customers textarea, .users textarea, .services textarea, .orderform textarea {
   float: right;
   font-weight: bold;
@@ -2042,12 +1998,12 @@ table.customers td.texte, table.users td.texte, table.services td.texte {
   box-shadow: 0 1px 1px black;
 }
 
-/* line 388, ../sass/style.scss */
+/* line 354, ../sass/style.scss */
 .orderforms {
   margin-top: 15px;
   margin-bottom: 15px;
 }
-/* line 392, ../sass/style.scss */
+/* line 358, ../sass/style.scss */
 .orderforms .head {
   text-align: center;
   font-weight: bold;
@@ -2056,14 +2012,39 @@ table.customers td.texte, table.users td.texte, table.services td.texte {
   line-height: 25px;
   color: black;
 }
-/* line 401, ../sass/style.scss */
+/* line 367, ../sass/style.scss */
 .orderforms input.right {
   text-align: right;
 }
 
-/* line 406, ../sass/style.scss */
+/* line 372, ../sass/style.scss */
 .inline {
   display: inline-block;
   margin-top: 3px;
   margin-bottom: 3px;
+}
+
+/* autocomplete */
+/* line 379, ../sass/style.scss */
+.autocomplete-suggestions {
+  border: 1px solid #999;
+  background: #FFF;
+  overflow: auto;
+}
+
+/* line 385, ../sass/style.scss */
+.autocomplete-suggestion {
+  padding: 2px 5px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+/* line 390, ../sass/style.scss */
+.autocomplete-suggestion strong {
+  font-weight: normal;
+  color: #3399FF;
+}
+
+/* line 395, ../sass/style.scss */
+.autocomplete-selected {
+  background: #F0F0F0;
 }

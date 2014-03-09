@@ -274,40 +274,6 @@ header{
 	height: 30px;
 	line-height: 25px;
 }
-//tabs
-ul.tabs
-{
-	float:left;
-	list-style:none;
-	height:32px;
-	border-radius:8px 0 -50px 0;
-	margin:0;
-	padding:0;
-}
-ul.tabs li
-{
-	float:left;
-	height:31px;
-	line-height:31px;
-	border:1px solid #999;
-	overflow:hidden;
-	position:relative;
-	background:#e0e0e0;
-	@include border-radius(8px 8px 0px 0px);
-	margin:0 5px -1px 0;
-	padding:0;
-}
-ul.tabs li a
-{
-	text-decoration:none;
-	color:#000;
-	display:block;
-	font-size:1.2em;
-	border:1px solid #fff;
-	outline:none;
-	@include border-radius(8px 8px 0px 0px);
-	padding:0 20px;
-}
 /* Mise en forme des formulaires */
 table.customers, table.users, table.services
 {
@@ -407,4 +373,25 @@ table.customers, table.users, table.services
 	display: inline-block;
 	margin-top:3px;
 	margin-bottom: 3px;
+}
+/* autocomplete */
+.autocomplete-suggestions
+{
+	border: 1px solid #999;
+	background: #FFF;
+	overflow: auto;
+}
+.autocomplete-suggestion
+{
+	padding: 2px 5px;
+	white-space: nowrap;
+	overflow: hidden;
+	strong
+	{
+	font-weight: normal; color: #3399FF;
+	}
+}
+.autocomplete-selected
+{
+	background: #F0F0F0;
 }

@@ -8,7 +8,7 @@
 
 			$(this).before( 
 				$('.'+options.classclone+options.valeur_initiale)
-				.clone(true,true)
+				.clone(true)
         		.removeClass(options.classclone+options.valeur_initiale)
         		.attr('class', options.classclone+options.nb_copy_initial)
         	);

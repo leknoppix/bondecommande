@@ -13,7 +13,8 @@ class ProductsController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('Paginator','RequestHandler');
+	public $helpers = array('Ajax');
 
 /**
  * index method
@@ -100,4 +101,40 @@ class ProductsController extends AppController {
 			$this->Session->setFlash(__('The product could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
-	}}
+	}
+
+	public function ajaxview() {
+		if ( $this->RequestHandler->isAjax() )
+		{
+			Configure::write ( 'debug', 0 );
+            $this->autoRender=false;
+			$options=array('fields' => array('Product.name','Product.id'));
+			$options = array('conditions' => array('Product.name LIKE'=> '%'.$_GET['term'].'%'));
+			$products=$this->Product->find('all', $options);
+			$i=0;
+			foreach($products as $product)
+			{
+				$response[$i]['id']=$product['Product']['id'];
+				$response[$i]['label']=$product['Product']['name'];
+				$i++;
+			}
+			echo json_encode($response);
+		}
+		else
+		{
+			$options=array('fields' => array('Product.name','Product.id'));
+			$options = array('conditions' => array('Product.name LIKE'=> '%'.$_GET['term'].'%'));
+			$products=$this->Product->find('all', $options);
+			$i=0;
+			foreach($products as $product)
+			{
+				$response[$i]['id']=$product['Product']['id'];
+				$response[$i]['label']=$product['Product']['name'];
+				$i++;
+			}
+			debug($response);
+		}
+	}
+}
+
+	

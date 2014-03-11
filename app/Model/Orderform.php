@@ -137,4 +137,11 @@ class Orderform extends AppModel {
 		)
 	);
 
+	public function beforeSave($options = array())
+	{
+		debug($this->data);
+		echo "merde";
+		exit();
+	}
+
 }

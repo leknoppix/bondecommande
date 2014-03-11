@@ -16,7 +16,7 @@
 	</table>
 	<div class="cb"></div>
 	<?php 
-				echo $this->Form->create('Openform'); 
+				echo $this->Form->create('Orderform'); 
 			?>
 			<div id="tabs" class="orderform">
 				<ul class="tabs">
@@ -46,7 +46,7 @@
 							);
 						?>
 						<?php
-							echo $this->Form->input('date',
+							echo $this->Form->input('date1',
 								array(
 									'label'=>__('Date de la demande'),
 									'value'=>date('d/m/Y'),

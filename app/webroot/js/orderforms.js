@@ -16,7 +16,7 @@ $(function() {
     nb_copy_initial:'0',
     classclone:'body',
     delimiter:'-',
-    controller:'Openform',
+    controller:'Orderform',
   }
   $('.addproduct').on('click',function()
   {
@@ -58,7 +58,7 @@ $(function() {
   $(document).on('keydown','.autocomplete',function()
   {
     $('#'+$(this).attr('id')+'Id').val(0);
-    $(this).focus().autocomplete({
+    $(this).autocomplete({
       source: "../../backoffice/produits/ajaxview",
       minLength: 1,
       select: function( event, ui ) {

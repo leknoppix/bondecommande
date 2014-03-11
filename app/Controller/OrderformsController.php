@@ -46,21 +46,7 @@ class OrderformsController extends AppController {
  * @return void
  */
 	public function add() {
-		if ($this->request->is('post')) {
-			/*$this->Orderform->create();
-			if ($this->Orderform->save($this->request->data)) {
-				$this->Session->setFlash(__('The orderform has been saved.'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The orderform could not be saved. Please, try again.'));
-			}*/
-			debug($this->request->data);
-			die();
-		}
-		else
-		{
-			/* appel de la table     pour récupérer l'id du bon de commande suivant */
-			$this->loadModel('Numberorder');
+		$this->loadModel('Numberorder');
 			$numbers=$this->Numberorder->find(
 					'first',
 					array(
@@ -70,12 +56,29 @@ class OrderformsController extends AppController {
 						)
 					)
 				);
-			if(!$numbers)
-			{
-				$this->Numberorder->create();
-				$this->Numberorder->save(array('year'=>date('Y'),'num'=>'000000'));
-				$numbers['Numberorder']['newnum']=date('Y').'-'.str_pad('000001',6,'0',STR_PAD_LEFT);
-			}
+		if(!$numbers)
+		{
+			$this->Numberorder->create();
+			$this->Numberorder->save(array('year'=>date('Y'),'num'=>'000000'));
+			$numbers['Numberorder']['newnum']=date('Y').'-'.str_pad('000001',6,'0',STR_PAD_LEFT);
+		}
+		if ($this->request->is('post')) {
+			$this->request->data['Orderform']['numorder']=$numbers['Numberorder']['newnum'];
+			$this->Orderform->create();
+			$this->Orderform->save($this->request->data);
+			/*if ($this->Orderform->save($this->request->data)) {
+				$this->Session->setFlash(__('The orderform has been saved.'));
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The orderform could not be saved. Please, try again.'));
+			}*/
+
+			debug($this->request->data);
+			die();
+		}
+		else
+		{
+			/* appel de la table     pour récupérer l'id du bon de commande suivant */
 			$users = $this->Orderform->User->find('list');
 			$customers = $this->Orderform->Customer->find('list',array('order'=>'name'));
 			$services = $this->Orderform->Service->find('list',array('order'=>'name'));

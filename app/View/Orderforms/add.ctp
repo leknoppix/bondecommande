@@ -163,6 +163,5 @@
 	$this->Html->script('pickadate/picker.js', array('inline' => false));
 	$this->Html->script('pickadate/picker.date.js', array('inline' => false));
 	$this->Html->script('fancy/jquery.fancybox.js', array('inline' => false));
-	$this->Html->script('jquery.cake.clone.js', array('inline' => false));
 	$this->Html->script('orderforms.js', array('inline' => false));
 ?>

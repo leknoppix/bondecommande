@@ -10,62 +10,61 @@ $(function() {
 	});
 	// systeme box
 	$("a.fancybox").fancybox();
-	// systeme de calcul TTC
-	$('.calcul').keyup(function()
-	{
-  		var selectdiv = $(this).parent().parent().attr('class');
-  		var select = selectdiv.split(' ');
-  		var parentdiv = select[0];
-  		var quantite = $('.'+parentdiv+' .qtt').val();
-  		var prixht = $('.'+parentdiv+' .prixht').val();
-  		var tva = $('.'+parentdiv+' .tva').val();
-  		if(quantite!='0' && prixht!='0')
-  		{
-  			var total=(quantite*prixht)*(tva/100+1);
-  			total=total.toFixed(2);
-  			$('.'+parentdiv+' .total').val(total);
-  		}
-	});
-  var availableTags = [
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "BASIC",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"
-    ];
+	//système de clonage
   var options = {
     valeur_initiale:'0',
     nb_copy_initial:'0',
-    classclone:'body-',
+    classclone:'body',
+    delimiter:'-',
     controller:'Openform',
   }
   $('.addproduct').on('click',function()
   {
-    $(this).clonage(options);
-    $('.ui-helper-hidden-accessible').remove();
-    $('.body-'+options.nb_copy_initial+' input').val('');
-    $('.body-'+options.nb_copy_initial+' input.calcul').val('0');
+    add();
   });
-  $( "#products" ).find('input.autocomplete').bind("keyup", function(event){
-      $(this).autocomplete({
-        source: availableTags
-      });
+  function init()
+  {
+    options.clone = $('<div>')
+            .append( $("."+options.classclone+options.delimiter+options.valeur_initiale).clone() )
+            .html();
+  }
+  function add()
+  {
+    initial=options.nb_copy_initial
+    options.nb_copy_initial++;
+    var clone=options.clone;
+    clone= clone.replace(new RegExp(options.delimiter+options.valeur_initiale,'g'),options.delimiter+options.nb_copy_initial);
+    clone=clone.replace(new RegExp('\\['+options.valeur_initiale+'\\]','g'),'['+options.nb_copy_initial+']');
+    clone=clone.replace(new RegExp(options.controller+options.valeur_initiale,'g'),options.controller+options.nb_copy_initial);
+    $("."+options.classclone+options.delimiter+initial).after(clone);
+  }
+  // systeme de calcul TTC
+  $(document).on('keydown','.calcul',function()
+  {
+      var selectdiv = $(this).parent().parent().attr('class');
+      var select = selectdiv.split(' ');
+      var parentdiv = select[0];
+      var quantite = $('.'+parentdiv+' .qtt').val();
+      var prixht = $('.'+parentdiv+' .prixht').val();
+      var tva = $('.'+parentdiv+' .tva').val();
+      if(quantite!='0' && prixht!='0')
+      {
+        var total=(quantite*prixht)*(tva/100+1);
+        total=total.toFixed(2);
+        $('.'+parentdiv+' .total').val(total);
+      }
   });
+  //systeme autocomplete
+  $(document).on('keydown','.autocomplete',function()
+  {
+    $(this).focus().autocomplete({
+      source: "../../backoffice/produits/ajaxview",
+      minLength: 1,
+      select: function( event, ui ) {
+        $(this).val(ui.item.label);
+      }
+    });
+  });
+  //fonction lancer dès l'initialisation
+  init();
 });

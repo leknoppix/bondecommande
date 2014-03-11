@@ -14,7 +14,7 @@ class ProductsController extends AppController {
  * @var array
  */
 	public $components = array('Paginator','RequestHandler');
-	public $helpers = array('Ajax');
+	public $helpers = array('Js','Html');
 
 /**
  * index method
@@ -114,7 +114,7 @@ class ProductsController extends AppController {
 			$response[$i]['label']=$product['Product']['name'];
 			$i++;
 		}
-		if ( $this->RequestHandler->isAjax() )
+		if ( $this->request->is('ajax') )
 		{
 			Configure::write ( 'debug', 0 );
             $this->autoRender=false;
@@ -123,6 +123,7 @@ class ProductsController extends AppController {
 		else
 		{
 			debug($response);
+			exit();
 		}
 	}
 }

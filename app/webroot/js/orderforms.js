@@ -57,11 +57,16 @@ $(function() {
   //systeme autocomplete
   $(document).on('keydown','.autocomplete',function()
   {
+    $('#'+$(this).attr('id')+'Id').val(0);
     $(this).focus().autocomplete({
       source: "../../backoffice/produits/ajaxview",
       minLength: 1,
       select: function( event, ui ) {
         $(this).val(ui.item.label);
+        if(ui.item.id!='')
+        {
+          $('#'+$(this).attr('id')+'Id').val(ui.item.id);
+        }
       }
     });
   });

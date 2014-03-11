@@ -93,6 +93,14 @@
 												'class'=>'w99 autocomplete'
 											)
 										);
+										echo $this->Form->input('0.products_id',
+											array(
+												'label'=>false,
+												'div'=>false,
+												'type'=>'hidden',
+												'value'=>'0',
+											)
+										);
 									?>
 							</div>
 							<div class="w10 inline">

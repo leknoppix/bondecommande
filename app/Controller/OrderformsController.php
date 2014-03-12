@@ -47,15 +47,15 @@ class OrderformsController extends AppController {
  */
 	public function add() {
 		$this->loadModel('Numberorder');
-			$numbers=$this->Numberorder->find(
-					'first',
-					array(
-						'fields'=>array('year','num'),
-						'conditions'=>array(
-							'year'=>date('Y')
-						)
+		$numbers=$this->Numberorder->find(
+				'first',
+				array(
+					'fields'=>array('id','year','num'),
+					'conditions'=>array(
+						'year'=>date('Y')
 					)
-				);
+				)
+			);
 		if(!$numbers)
 		{
 			$this->Numberorder->create();
@@ -63,20 +63,16 @@ class OrderformsController extends AppController {
 			$numbers['Numberorder']['newnum']=date('Y').'-'.str_pad('000001',6,'0',STR_PAD_LEFT);
 		}
 		if ($this->request->is('post')) {
-			$this->request->data['Orderform']['user_id']=$this->Session->read('Auth.User.id');
+			$this->Numberorder->save($numbers);
 			$this->request->data['Orderform']['numorder']=$numbers['Numberorder']['newnum'];
 			$this->Orderform->create();
-			$this->Orderform->saveAssociated($this->request->data);
-
-			/*if ($this->Orderform->save($this->request->data)) {
-				$this->Session->setFlash(__('The orderform has been saved.'));
+			if ($this->Orderform->saveAssociated($this->request->data)){
+				$this->Session->setFlash(__('Le bon de commande a été enregistré. Vous pouvez générer le bon de commande'),'notif',array('type'=>'success'));
 				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The orderform could not be saved. Please, try again.'));
-			}*/
-
-			debug($this->request->data);
-			die();
+			}
+			 else {
+				$this->Session->setFlash(__('Une erreur est survenu. Merci de vérifier les informations et de valider à nouveau.'),'notif',array('type'=>'error'));
+			}
 		}
 		else
 		{

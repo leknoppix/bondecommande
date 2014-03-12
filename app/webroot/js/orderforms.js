@@ -21,6 +21,8 @@ $(function() {
   $('.addproduct').click(function()
   {
     $(this).clonage(options);
+    $('.body-'+init+' input').val('');
+    $('.body-'+init+' input.calcul').val('0');
   });
   // systeme de calcul TTC
   $(document).on('keydown','.calcul',function()

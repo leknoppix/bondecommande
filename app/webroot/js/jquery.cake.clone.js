@@ -4,32 +4,24 @@
 	{
 		return this.each(function()
 		{
-			options.nb_copy_initial++;
+			options.nbrincrem++;
 
 			$(this).before( 
-				$('.'+options.classclone+options.valeur_initiale)
+				$('.'+options.classclone+options.delimiter+options.init)
 				.clone(true)
-        		.removeClass(options.classclone+options.valeur_initiale)
-        		.attr('class', options.classclone+options.nb_copy_initial)
+        		.removeClass(options.classclone+options.delimiter+options.init)
+        		.attr('class', options.classclone+options.delimiter+options.nbrincrem)
         	);
 	        
-	        $('.'+options.classclone+options.nb_copy_initial+" input").each(function()
+	        $('.'+options.classclone+options.delimiter+options.nbrincrem+" input").each(function()
 	        {
 	        	$(this).attr("name", $(this)
 	        		.attr("name")
-<<<<<<< Updated upstream
-	        		.replace('['+options.controller+'][0]', '['+options.controller+']['+options.nb_copy_initial+']')
-	        	);
-	        	$(this).attr("id", $(this)
-	        		.attr("id")
-	        		.replace(options.controller+0, options.controller+options.nb_copy_initial)
-=======
 	        		.replace('['+options.controller+']['+options.init+']', '['+options.controller+']['+options.nbrincrem+']')
 	        	);
 	        	$(this).attr("id", $(this)
 	        		.attr("id")
 	        		.replace(options.controller+options.init, options.controller+options.nbrincrem)
->>>>>>> Stashed changes
 	        	);
 	        });
 		});

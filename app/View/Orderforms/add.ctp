@@ -16,7 +16,7 @@
 	</table>
 	<div class="cb"></div>
 	<?php 
-				echo $this->Form->create('Openform'); 
+				echo $this->Form->create('Orderform'); 
 			?>
 			<div id="tabs" class="orderform">
 				<ul class="tabs">
@@ -46,7 +46,7 @@
 							);
 						?>
 						<?php
-							echo $this->Form->input('date',
+							echo $this->Form->input('date1',
 								array(
 									'label'=>__('Date de la demande'),
 									'value'=>date('d/m/Y'),
@@ -85,11 +85,7 @@
 						<div class="cb"></div>
 						<div class="body-0 w100">
 							<div class="w58 inline"><?php 
-<<<<<<< Updated upstream
-										echo $this->Form->input('0.products',
-=======
 										echo $this->Form->input('Product.0.name',
->>>>>>> Stashed changes
 											array(
 												'label'=>false,
 												'div'=>false,
@@ -101,11 +97,7 @@
 							</div>
 							<div class="w10 inline">
 									<?php 
-<<<<<<< Updated upstream
-										echo $this->Form->input('0.quantite',
-=======
-										echo $this->Form->input('Product.0.amount',
->>>>>>> Stashed changes
+										echo $this->Form->input('Product.0.amout',
 											array(
 												'label'=>false,
 												'div'=>false,
@@ -118,11 +110,7 @@
 							</div>
 							<div class="w10 inline">
 									<?php 
-<<<<<<< Updated upstream
-										echo $this->Form->input('0.prix',
-=======
 										echo $this->Form->input('Product.0.price',
->>>>>>> Stashed changes
 											array(
 												'label'=>false,
 												'div'=>false,
@@ -135,7 +123,7 @@
 							</div>
 							<div class="w10 inline">
 									<?php 
-										echo $this->Form->input('0.tva',
+										echo $this->Form->input('Product.0.tva',
 											array(
 												'label'=>false,
 												'div'=>false,
@@ -148,7 +136,7 @@
 							</div>
 							<div class="w10 inline">
 									<?php 
-										echo $this->Form->input('0.total',
+										echo $this->Form->input('Product.0.total',
 											array(
 												'label'=>false,
 												'div'=>false,
@@ -169,6 +157,7 @@
 	<?php echo $this->Form->end(array('label'=>__('Ajouter ce bon de commande'),'class'=>'btn btn-primary submit w100')); ?>
 </div>
 <?php
+	$this->Html->script('jquery.cake.clone.js', array('inline' => false));
 	$this->Html->css('pickadate/themes/default.css', null, array('inline' => false));
 	$this->Html->css('pickadate/themes/default.date.css', null, array('inline' => false));
 	$this->Html->css('fancy/jquery.fancybox.css', null, array('inline' => false));

@@ -46,44 +46,37 @@ class OrderformsController extends AppController {
  * @return void
  */
 	public function add() {
+		$this->loadModel('Numberorder');
+		$numbers=$this->Numberorder->find(
+				'first',
+				array(
+					'fields'=>array('id','year','num'),
+					'conditions'=>array(
+						'year'=>date('Y')
+					)
+				)
+			);
+		if(!$numbers)
+		{
+			$this->Numberorder->create();
+			$this->Numberorder->save(array('year'=>date('Y'),'num'=>'000000'));
+			$numbers['Numberorder']['newnum']=date('Y').'-'.str_pad('000001',6,'0',STR_PAD_LEFT);
+		}
 		if ($this->request->is('post')) {
-<<<<<<< Updated upstream
-			/*$this->Orderform->create();
-			if ($this->Orderform->save($this->request->data)) {
-=======
 			$this->request->data['Orderform']['numorder']=$numbers['Numberorder']['newnum'];
 			$this->Orderform->create();
-			$this->Orderform->saveAssociated($this->request->data);
-
-			/*if ($this->Orderform->save($this->request->data)) {
->>>>>>> Stashed changes
-				$this->Session->setFlash(__('The orderform has been saved.'));
+			if ($this->Orderform->saveAssociated($this->request->data))
+			{
+				$this->Session->setFlash(__('Le bon de commande a été enregistré. Vous pouvez générer le bon de commande'),'notif',array('type'=>'success'));
 				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The orderform could not be saved. Please, try again.'));
-			}*/
-			debug($this->request->data);
-			die();
+			}
+			 else {
+				$this->Session->setFlash(__('Une erreur est survenu. Merci de vérifier les informations et de valider à nouveau.'),'notif',array('type'=>'error'));
+			}
 		}
 		else
 		{
 			/* appel de la table     pour récupérer l'id du bon de commande suivant */
-			$this->loadModel('Numberorder');
-			$numbers=$this->Numberorder->find(
-					'first',
-					array(
-						'fields'=>array('year','num'),
-						'conditions'=>array(
-							'year'=>date('Y')
-						)
-					)
-				);
-			if(!$numbers)
-			{
-				$this->Numberorder->create();
-				$this->Numberorder->save(array('year'=>date('Y'),'num'=>'000000'));
-				$numbers['Numberorder']['newnum']=date('Y').'-'.str_pad('000001',6,'0',STR_PAD_LEFT);
-			}
 			$users = $this->Orderform->User->find('list');
 			$customers = $this->Orderform->Customer->find('list',array('order'=>'name'));
 			$services = $this->Orderform->Service->find('list',array('order'=>'name'));

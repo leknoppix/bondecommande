@@ -14,7 +14,7 @@ class ProductsController extends AppController {
  * @var array
  */
 	public $components = array('Paginator','RequestHandler');
-	public $helpers = array('Ajax');
+	public $helpers = array('Js','Html');
 
 /**
  * index method
@@ -104,35 +104,26 @@ class ProductsController extends AppController {
 	}
 
 	public function ajaxview() {
-		if ( $this->RequestHandler->isAjax() )
+		$options=array('fields' => array('Product.name','Product.id'));
+		$options = array('conditions' => array('Product.name LIKE'=> '%'.$_GET['term'].'%'));
+		$products=$this->Product->find('all', $options);
+		$i=0;
+		foreach($products as $product)
+		{
+			$response[$i]['id']=$product['Product']['id'];
+			$response[$i]['label']=$product['Product']['name'];
+			$i++;
+		}
+		if ( $this->request->is('ajax') )
 		{
 			Configure::write ( 'debug', 0 );
             $this->autoRender=false;
-			$options=array('fields' => array('Product.name','Product.id'));
-			$options = array('conditions' => array('Product.name LIKE'=> '%'.$_GET['term'].'%'));
-			$products=$this->Product->find('all', $options);
-			$i=0;
-			foreach($products as $product)
-			{
-				$response[$i]['id']=$product['Product']['id'];
-				$response[$i]['label']=$product['Product']['name'];
-				$i++;
-			}
 			echo json_encode($response);
 		}
 		else
 		{
-			$options=array('fields' => array('Product.name','Product.id'));
-			$options = array('conditions' => array('Product.name LIKE'=> '%'.$_GET['term'].'%'));
-			$products=$this->Product->find('all', $options);
-			$i=0;
-			foreach($products as $product)
-			{
-				$response[$i]['id']=$product['Product']['id'];
-				$response[$i]['label']=$product['Product']['name'];
-				$i++;
-			}
 			debug($response);
+			exit();
 		}
 	}
 }

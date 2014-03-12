@@ -85,7 +85,7 @@
 						<div class="cb"></div>
 						<div class="body-0 w100">
 							<div class="w58 inline"><?php 
-										echo $this->Form->input('Product.0.products',
+										echo $this->Form->input('Product.0.name',
 											array(
 												'label'=>false,
 												'div'=>false,
@@ -93,19 +93,11 @@
 												'class'=>'w99 autocomplete'
 											)
 										);
-										echo $this->Form->input('Product.0.products_id',
-											array(
-												'label'=>false,
-												'div'=>false,
-												'type'=>'hidden',
-												'value'=>'0',
-											)
-										);
 									?>
 							</div>
 							<div class="w10 inline">
 									<?php 
-										echo $this->Form->input('Product.0.quantite',
+										echo $this->Form->input('Product.0.amout',
 											array(
 												'label'=>false,
 												'div'=>false,
@@ -118,7 +110,7 @@
 							</div>
 							<div class="w10 inline">
 									<?php 
-										echo $this->Form->input('Product.0.prix',
+										echo $this->Form->input('Product.0.price',
 											array(
 												'label'=>false,
 												'div'=>false,

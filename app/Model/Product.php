@@ -3,6 +3,7 @@ App::uses('AppModel', 'Model');
 /**
  * Product Model
  *
+ * @property Orderform $Orderform
  */
 class Product extends AppModel {
 
@@ -13,32 +14,22 @@ class Product extends AppModel {
  */
 	public $displayField = 'name';
 
+
+	//The Associations below have been created with all possible keys, those that are not needed can be removed
+
 /**
- * Validation rules
+ * belongsTo associations
  *
  * @var array
  */
-	public $validate = array(
-		'name' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'slug' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
+	public $belongsTo = array(
+		'Orderform' => array(
+			'className' => 'Orderform',
+			'foreignKey' => 'orderform_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
 	);
 	public function beforeSave($options=array()){
 		if(!empty($this->data['Product']['name']))

@@ -136,5 +136,11 @@ class Orderform extends AppModel {
 			'finderQuery' => '',
 		)
 	);
+	public function beforeSave($options=array()){
+		$this->data['Orderform']['user_id']=$this->Session->read('Auth.User.id');
+		list($jour,$mois,$annee)=split('/',$this->data['Orderform']['date1']);
+		$this->data['Orderform']['date']=$annee.'-'.$mois.'-'.$jour;
+		return true;
+	}
 
 }

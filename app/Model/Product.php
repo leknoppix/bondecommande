@@ -40,4 +40,11 @@ class Product extends AppModel {
 			),
 		),
 	);
+	public function beforeSave($options=array()){
+		if(!empty($this->data['Product']['name']))
+	    {
+	    	$this->data['Product']['slug'] = strtolower(Inflector::slug($this->data['Product']['name'],'-'));
+	    }
+	    return true;
+	}
 }

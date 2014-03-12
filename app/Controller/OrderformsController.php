@@ -63,9 +63,11 @@ class OrderformsController extends AppController {
 			$numbers['Numberorder']['newnum']=date('Y').'-'.str_pad('000001',6,'0',STR_PAD_LEFT);
 		}
 		if ($this->request->is('post')) {
+			$this->request->data['Orderform']['user_id']=$this->Session->read('Auth.User.id');
 			$this->request->data['Orderform']['numorder']=$numbers['Numberorder']['newnum'];
 			$this->Orderform->create();
-			$this->Orderform->save($this->request->data);
+			$this->Orderform->saveAssociated($this->request->data);
+
 			/*if ($this->Orderform->save($this->request->data)) {
 				$this->Session->setFlash(__('The orderform has been saved.'));
 				return $this->redirect(array('action' => 'index'));

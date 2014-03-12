@@ -47,8 +47,16 @@ class OrderformsController extends AppController {
  */
 	public function add() {
 		if ($this->request->is('post')) {
+<<<<<<< Updated upstream
 			/*$this->Orderform->create();
 			if ($this->Orderform->save($this->request->data)) {
+=======
+			$this->request->data['Orderform']['numorder']=$numbers['Numberorder']['newnum'];
+			$this->Orderform->create();
+			$this->Orderform->saveAssociated($this->request->data);
+
+			/*if ($this->Orderform->save($this->request->data)) {
+>>>>>>> Stashed changes
 				$this->Session->setFlash(__('The orderform has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {

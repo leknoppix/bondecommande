@@ -20,7 +20,13 @@ $(function() {
   }
   $('.addproduct').on('click',function()
   {
+<<<<<<< Updated upstream
     add();
+=======
+    $(this).clonage(options);
+    $('.body-'+nb_copy_initial+' input').val('');
+    $('.body-'+nb_copy_initial+' input.calcul').val('0');
+>>>>>>> Stashed changes
   });
   function init()
   {

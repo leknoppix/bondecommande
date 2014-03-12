@@ -85,7 +85,11 @@
 						<div class="cb"></div>
 						<div class="body-0 w100">
 							<div class="w58 inline"><?php 
+<<<<<<< Updated upstream
 										echo $this->Form->input('0.products',
+=======
+										echo $this->Form->input('Product.0.name',
+>>>>>>> Stashed changes
 											array(
 												'label'=>false,
 												'div'=>false,
@@ -97,7 +101,11 @@
 							</div>
 							<div class="w10 inline">
 									<?php 
+<<<<<<< Updated upstream
 										echo $this->Form->input('0.quantite',
+=======
+										echo $this->Form->input('Product.0.amount',
+>>>>>>> Stashed changes
 											array(
 												'label'=>false,
 												'div'=>false,
@@ -110,7 +118,11 @@
 							</div>
 							<div class="w10 inline">
 									<?php 
+<<<<<<< Updated upstream
 										echo $this->Form->input('0.prix',
+=======
+										echo $this->Form->input('Product.0.price',
+>>>>>>> Stashed changes
 											array(
 												'label'=>false,
 												'div'=>false,

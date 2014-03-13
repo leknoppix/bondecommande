@@ -1907,19 +1907,19 @@ header a {
 
 /* Mise en forme des formulaires */
 /* line 279, ../sass/style.scss */
-table.customers, table.users, table.services {
+table.customers, table.users, table.services, table.orderforms {
   margin-top: 15px;
   margin-bottom: 15px;
   border: 1px solid black;
 }
 /* line 284, ../sass/style.scss */
-table.customers th, table.customers td, table.users th, table.users td, table.services th, table.services td {
+table.customers th, table.customers td, table.users th, table.users td, table.services th, table.services td, table.orderforms th, table.orderforms td {
   border: 1px solid black;
   margin: 5px;
   padding: 5px;
 }
 /* line 290, ../sass/style.scss */
-table.customers th, table.users th, table.services th {
+table.customers th, table.users th, table.services th, table.orderforms th {
   text-align: center;
   font-weight: bold;
   font-size: 13pt;
@@ -1928,7 +1928,7 @@ table.customers th, table.users th, table.services th {
   color: black;
 }
 /* line 299, ../sass/style.scss */
-table.customers td.texte, table.users td.texte, table.services td.texte {
+table.customers td.texte, table.users td.texte, table.services td.texte, table.orderforms td.texte {
   text-align: left;
   padding-left: 15px;
 }
@@ -2013,11 +2013,52 @@ table.customers td.texte, table.users td.texte, table.services td.texte {
   color: black;
 }
 /* line 367, ../sass/style.scss */
+.orderforms .upper {
+  text-transform: uppercase;
+}
+/* line 371, ../sass/style.scss */
+.orderforms .adresse {
+  border: 1px solid black;
+  padding: 10px;
+  padding-left: 25px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 378, ../sass/style.scss */
+.orderforms .big {
+  font-size: 35pt;
+  line-height: 35px;
+  margin-bottom: 35px;
+}
+/* line 384, ../sass/style.scss */
+.orderforms .bold {
+  font-weight: bolder;
+}
+/* line 388, ../sass/style.scss */
 .orderforms input.right {
   text-align: right;
 }
+/* line 392, ../sass/style.scss */
+.orderforms table thead tr.trcolor, .orderforms table tfoot tr.trcolor {
+  background-color: #f5f9fc;
+  font-weight: bold;
+  font-size: 13pt;
+  line-height: 25px;
+}
+/* line 399, ../sass/style.scss */
+.orderforms table tbody tr, .orderforms table tfoot tr {
+  line-height: 25px;
+}
+/* line 402, ../sass/style.scss */
+.orderforms table tbody tr td.right, .orderforms table tfoot tr td.right {
+  text-align: right;
+  padding-right: 10px;
+}
 
-/* line 372, ../sass/style.scss */
+/* line 409, ../sass/style.scss */
 .inline {
   display: inline-block;
   margin-top: 3px;
@@ -2025,26 +2066,26 @@ table.customers td.texte, table.users td.texte, table.services td.texte {
 }
 
 /* autocomplete */
-/* line 379, ../sass/style.scss */
+/* line 416, ../sass/style.scss */
 .autocomplete-suggestions {
   border: 1px solid #999;
   background: #FFF;
   overflow: auto;
 }
 
-/* line 385, ../sass/style.scss */
+/* line 422, ../sass/style.scss */
 .autocomplete-suggestion {
   padding: 2px 5px;
   white-space: nowrap;
   overflow: hidden;
 }
-/* line 390, ../sass/style.scss */
+/* line 427, ../sass/style.scss */
 .autocomplete-suggestion strong {
   font-weight: normal;
   color: #3399FF;
 }
 
-/* line 395, ../sass/style.scss */
+/* line 432, ../sass/style.scss */
 .autocomplete-selected {
   background: #F0F0F0;
 }

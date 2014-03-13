@@ -1,6 +1,7 @@
 # User specific & automatically generated files #
 #################################################
 /app/Config/database.php
+/app/Config/adresse.php
 /app/tmp
 /app/webroot/.sass-cache/
 /lib/Cake/Console/Templates/skel/tmp/

@@ -2013,11 +2013,31 @@ table.customers td.texte, table.users td.texte, table.services td.texte {
   color: black;
 }
 /* line 367, ../sass/style.scss */
+.orderforms .upper {
+  text-transform: uppercase;
+}
+/* line 371, ../sass/style.scss */
+.orderforms .adresse {
+  border: 1px solid black;
+  padding: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 377, ../sass/style.scss */
+.orderforms .big {
+  font-size: 35pt;
+  line-height: 35px;
+  margin-bottom: 35px;
+}
+/* line 383, ../sass/style.scss */
 .orderforms input.right {
   text-align: right;
 }
 
-/* line 372, ../sass/style.scss */
+/* line 388, ../sass/style.scss */
 .inline {
   display: inline-block;
   margin-top: 3px;
@@ -2025,26 +2045,26 @@ table.customers td.texte, table.users td.texte, table.services td.texte {
 }
 
 /* autocomplete */
-/* line 379, ../sass/style.scss */
+/* line 395, ../sass/style.scss */
 .autocomplete-suggestions {
   border: 1px solid #999;
   background: #FFF;
   overflow: auto;
 }
 
-/* line 385, ../sass/style.scss */
+/* line 401, ../sass/style.scss */
 .autocomplete-suggestion {
   padding: 2px 5px;
   white-space: nowrap;
   overflow: hidden;
 }
-/* line 390, ../sass/style.scss */
+/* line 406, ../sass/style.scss */
 .autocomplete-suggestion strong {
   font-weight: normal;
   color: #3399FF;
 }
 
-/* line 395, ../sass/style.scss */
+/* line 411, ../sass/style.scss */
 .autocomplete-selected {
   background: #F0F0F0;
 }

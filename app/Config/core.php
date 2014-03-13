@@ -276,7 +276,6 @@
  * once instead of passing it each time in function calls.
  */
 	Configure::write('Config.timezone', 'Europe/Paris');
-
 /**
  *
  * Cache Engine Configuration

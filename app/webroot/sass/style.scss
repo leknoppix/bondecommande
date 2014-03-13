@@ -363,6 +363,22 @@ table.customers, table.users, table.services
 		line-height: 25px;
 		color:black;
 	}
+	.upper
+	{
+		text-transform: uppercase;
+	}
+	.adresse
+	{
+		border:1px solid black;
+		padding:5px;
+		@include border-radius(5px);
+	}
+	.big
+	{
+		font-size: 35pt;
+		line-height: 35px;
+		margin-bottom: 35px;
+	}
 	input.right
 	{
 		text-align: right;

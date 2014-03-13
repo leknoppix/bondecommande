@@ -1668,6 +1668,7 @@ body {
 /* line 89, ../sass/style.scss */
 header {
   height: 40px;
+  z-index: 9;
   position: fixed;
   top: 0;
   left: 0;
@@ -1679,13 +1680,13 @@ header {
   text-indent: 20px;
   background: url("../img/spriteh.png");
 }
-/* line 102, ../sass/style.scss */
+/* line 103, ../sass/style.scss */
 header a {
   color: #AEAEAE;
   text-decoration: none;
 }
 
-/* line 108, ../sass/style.scss */
+/* line 109, ../sass/style.scss */
 #sidebar {
   position: fixed;
   width: 250px;
@@ -1699,7 +1700,7 @@ header a {
   background-color: #494949;
   border-right: 1px solid #1B1B1B;
 }
-/* line 118, ../sass/style.scss */
+/* line 119, ../sass/style.scss */
 #sidebar > ul > li > a {
   height: 40px;
   line-height: 40px;
@@ -1712,7 +1713,7 @@ header a {
   border-top: 1px solid #606060;
 }
 
-/* line 131, ../sass/style.scss */
+/* line 132, ../sass/style.scss */
 #content {
   margin-top: 40px;
   margin-left: 252px;
@@ -1720,7 +1721,7 @@ header a {
   padding: 20px;
   position: relative;
 }
-/* line 138, ../sass/style.scss */
+/* line 139, ../sass/style.scss */
 #content .breadcrumb {
   background-color: #F5F5F5;
   height: 50px;
@@ -1732,13 +1733,13 @@ header a {
   -o-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 145, ../sass/style.scss */
+/* line 146, ../sass/style.scss */
 #content .breadcrumb a {
   text-decoration: none;
   font-weight: bold;
   color: #6D6D6D;
 }
-/* line 152, ../sass/style.scss */
+/* line 153, ../sass/style.scss */
 #content .bloc {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -1753,7 +1754,7 @@ header a {
   -moz-box-shadow: 0px 5px 10px #afaeae;
   box-shadow: 0px 5px 10px #afaeae;
 }
-/* line 160, ../sass/style.scss */
+/* line 161, ../sass/style.scss */
 #content .bloc .title {
   height: 35px;
   padding-left: 15px;
@@ -1766,13 +1767,13 @@ header a {
   color: #808080;
 }
 
-/* line 174, ../sass/style.scss */
+/* line 175, ../sass/style.scss */
 #iframe {
   margin: 10px;
   color: #6D6D6D;
   padding: 20px;
 }
-/* line 179, ../sass/style.scss */
+/* line 180, ../sass/style.scss */
 #iframe .bloc {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -1787,7 +1788,7 @@ header a {
   -moz-box-shadow: 0px 5px 10px #afaeae;
   box-shadow: 0px 5px 10px #afaeae;
 }
-/* line 187, ../sass/style.scss */
+/* line 188, ../sass/style.scss */
 #iframe .bloc .title {
   height: 35px;
   padding-left: 15px;
@@ -1800,13 +1801,13 @@ header a {
   color: #808080;
 }
 
-/* line 201, ../sass/style.scss */
+/* line 202, ../sass/style.scss */
 .action {
   padding: 10px;
 }
 
 /* système de notification*/
-/* line 205, ../sass/style.scss */
+/* line 206, ../sass/style.scss */
 .alert, .success, .error, .info, .warning, .btn_add, .btn-info, .btn-danger, .btn-primary {
   display: block;
   font-size: 12pt;
@@ -1825,38 +1826,38 @@ header a {
   -moz-box-shadow: 0 1px 1px black;
   box-shadow: 0 1px 1px black;
 }
-/* line 217, ../sass/style.scss */
+/* line 218, ../sass/style.scss */
 .alert span.close, .success span.close, .error span.close, .info span.close, .warning span.close, .btn_add span.close, .btn-info span.close, .btn-danger span.close, .btn-primary span.close {
   float: right;
   cursor: pointer;
 }
 
-/* line 223, ../sass/style.scss */
+/* line 224, ../sass/style.scss */
 .success {
   border-color: #3d3d3d;
   background-color: #5bb75b;
 }
 
-/* line 227, ../sass/style.scss */
+/* line 228, ../sass/style.scss */
 .error {
   border-color: #454545;
   background-color: #da4f49;
 }
 
-/* line 231, ../sass/style.scss */
+/* line 232, ../sass/style.scss */
 .info {
   border-color: #3f3f3f;
   background-color: #49afcd;
 }
 
-/* line 235, ../sass/style.scss */
+/* line 236, ../sass/style.scss */
 .warning {
   border-color: #5c4d37;
   background-color: #faa732;
 }
 
 /* customisation bouton */
-/* line 240, ../sass/style.scss */
+/* line 241, ../sass/style.scss */
 .btn, .btn_add, .btn-info, .btn-danger {
   font-size: 12pt;
   color: white;
@@ -1870,32 +1871,32 @@ header a {
   border-radius: 5px;
 }
 
-/* line 249, ../sass/style.scss */
+/* line 250, ../sass/style.scss */
 .btn_add {
   border-color: #3f3f3f;
   background-color: #49afcd;
   float: right;
 }
 
-/* line 255, ../sass/style.scss */
+/* line 256, ../sass/style.scss */
 .btn-info {
   border-color: #3f3f3f;
   background-color: #49afcd;
 }
 
-/* line 260, ../sass/style.scss */
+/* line 261, ../sass/style.scss */
 .btn-danger {
   border-color: #5c4d37;
   background-color: #faa732;
 }
 
-/* line 265, ../sass/style.scss */
+/* line 266, ../sass/style.scss */
 .btn-primary {
   border-color: #3a3a3a;
   background-color: #428bca;
 }
 
-/* line 269, ../sass/style.scss */
+/* line 270, ../sass/style.scss */
 .btn-primary.submit {
   margin: 0;
   padding: 0;
@@ -1906,19 +1907,19 @@ header a {
 }
 
 /* Mise en forme des formulaires */
-/* line 279, ../sass/style.scss */
+/* line 280, ../sass/style.scss */
 table.customers, table.users, table.services, table.orderforms {
   margin-top: 15px;
   margin-bottom: 15px;
   border: 1px solid black;
 }
-/* line 284, ../sass/style.scss */
+/* line 285, ../sass/style.scss */
 table.customers th, table.customers td, table.users th, table.users td, table.services th, table.services td, table.orderforms th, table.orderforms td {
   border: 1px solid black;
   margin: 5px;
   padding: 5px;
 }
-/* line 290, ../sass/style.scss */
+/* line 291, ../sass/style.scss */
 table.customers th, table.users th, table.services th, table.orderforms th {
   text-align: center;
   font-weight: bold;
@@ -1927,18 +1928,18 @@ table.customers th, table.users th, table.services th, table.orderforms th {
   line-height: 25px;
   color: black;
 }
-/* line 299, ../sass/style.scss */
+/* line 300, ../sass/style.scss */
 table.customers td.texte, table.users td.texte, table.services td.texte, table.orderforms td.texte {
   text-align: left;
   padding-left: 15px;
 }
 
-/* line 307, ../sass/style.scss */
+/* line 308, ../sass/style.scss */
 .customers .input, .users .input, .services .input, .orderform .input {
   padding-top: 10px;
   padding-bottom: 10px;
 }
-/* line 312, ../sass/style.scss */
+/* line 313, ../sass/style.scss */
 .customers label, .users label, .services label, .orderform label {
   width: 250px;
   height: 25px;
@@ -1946,7 +1947,7 @@ table.customers td.texte, table.users td.texte, table.services td.texte, table.o
   font-size: 13pt;
   padding-left: 15px;
 }
-/* line 320, ../sass/style.scss */
+/* line 321, ../sass/style.scss */
 .customers input, .users input, .services input, .orderform input {
   float: right;
   font-weight: bold;
@@ -1963,7 +1964,7 @@ table.customers td.texte, table.users td.texte, table.services td.texte, table.o
   -moz-box-shadow: 0 1px 1px black;
   box-shadow: 0 1px 1px black;
 }
-/* line 331, ../sass/style.scss */
+/* line 332, ../sass/style.scss */
 .customers select, .users select, .services select, .orderform select {
   float: right;
   font-weight: bold;
@@ -1980,7 +1981,7 @@ table.customers td.texte, table.users td.texte, table.services td.texte, table.o
   -moz-box-shadow: 0 1px 1px black;
   box-shadow: 0 1px 1px black;
 }
-/* line 342, ../sass/style.scss */
+/* line 343, ../sass/style.scss */
 .customers textarea, .users textarea, .services textarea, .orderform textarea {
   float: right;
   font-weight: bold;
@@ -1998,12 +1999,12 @@ table.customers td.texte, table.users td.texte, table.services td.texte, table.o
   box-shadow: 0 1px 1px black;
 }
 
-/* line 354, ../sass/style.scss */
+/* line 355, ../sass/style.scss */
 .orderforms {
   margin-top: 15px;
   margin-bottom: 15px;
 }
-/* line 358, ../sass/style.scss */
+/* line 359, ../sass/style.scss */
 .orderforms .head {
   text-align: center;
   font-weight: bold;
@@ -2012,11 +2013,11 @@ table.customers td.texte, table.users td.texte, table.services td.texte, table.o
   line-height: 25px;
   color: black;
 }
-/* line 367, ../sass/style.scss */
+/* line 368, ../sass/style.scss */
 .orderforms .upper {
   text-transform: uppercase;
 }
-/* line 371, ../sass/style.scss */
+/* line 372, ../sass/style.scss */
 .orderforms .adresse {
   border: 1px solid black;
   padding: 10px;
@@ -2027,38 +2028,38 @@ table.customers td.texte, table.users td.texte, table.services td.texte, table.o
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 378, ../sass/style.scss */
+/* line 379, ../sass/style.scss */
 .orderforms .big {
   font-size: 35pt;
   line-height: 35px;
   margin-bottom: 35px;
 }
-/* line 384, ../sass/style.scss */
+/* line 385, ../sass/style.scss */
 .orderforms .bold {
   font-weight: bolder;
 }
-/* line 388, ../sass/style.scss */
+/* line 389, ../sass/style.scss */
 .orderforms input.right {
   text-align: right;
 }
-/* line 392, ../sass/style.scss */
+/* line 393, ../sass/style.scss */
 .orderforms table thead tr.trcolor, .orderforms table tfoot tr.trcolor {
   background-color: #f5f9fc;
   font-weight: bold;
   font-size: 13pt;
   line-height: 25px;
 }
-/* line 399, ../sass/style.scss */
+/* line 400, ../sass/style.scss */
 .orderforms table tbody tr, .orderforms table tfoot tr {
   line-height: 25px;
 }
-/* line 402, ../sass/style.scss */
+/* line 403, ../sass/style.scss */
 .orderforms table tbody tr td.right, .orderforms table tfoot tr td.right {
   text-align: right;
   padding-right: 10px;
 }
 
-/* line 409, ../sass/style.scss */
+/* line 410, ../sass/style.scss */
 .inline {
   display: inline-block;
   margin-top: 3px;
@@ -2066,26 +2067,26 @@ table.customers td.texte, table.users td.texte, table.services td.texte, table.o
 }
 
 /* autocomplete */
-/* line 416, ../sass/style.scss */
+/* line 417, ../sass/style.scss */
 .autocomplete-suggestions {
   border: 1px solid #999;
   background: #FFF;
   overflow: auto;
 }
 
-/* line 422, ../sass/style.scss */
+/* line 423, ../sass/style.scss */
 .autocomplete-suggestion {
   padding: 2px 5px;
   white-space: nowrap;
   overflow: hidden;
 }
-/* line 427, ../sass/style.scss */
+/* line 428, ../sass/style.scss */
 .autocomplete-suggestion strong {
   font-weight: normal;
   color: #3399FF;
 }
 
-/* line 432, ../sass/style.scss */
+/* line 433, ../sass/style.scss */
 .autocomplete-selected {
   background: #F0F0F0;
 }

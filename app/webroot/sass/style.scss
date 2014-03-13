@@ -275,7 +275,7 @@ header{
 	line-height: 25px;
 }
 /* Mise en forme des formulaires */
-table.customers, table.users, table.services
+table.customers, table.users, table.services, table.orderforms
 {
 	margin-top: 15px;
 	margin-bottom: 15px;
@@ -363,9 +363,46 @@ table.customers, table.users, table.services
 		line-height: 25px;
 		color:black;
 	}
+	.upper
+	{
+		text-transform: uppercase;
+	}
+	.adresse
+	{
+		border:1px solid black;
+		padding:10px;
+		padding-left: 25px;
+		@include border-radius(5px);
+	}
+	.big
+	{
+		font-size: 35pt;
+		line-height: 35px;
+		margin-bottom: 35px;
+	}
+	.bold
+	{
+		font-weight: bolder;
+	}
 	input.right
 	{
 		text-align: right;
+	}
+	table thead tr.trcolor,table tfoot tr.trcolor
+	{
+		background-color: #f5f9fc;
+		font-weight: bold;
+		font-size: 13pt;
+		line-height: 25px;
+	}
+	table tbody tr,table tfoot tr
+	{
+		line-height: 25px;
+		td.right
+		{
+			text-align: right;
+			padding-right: 10px;
+		}
 	}
 }
 .inline

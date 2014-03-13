@@ -3,6 +3,15 @@
 <div class="title">
 	<h2><i class="icon-white icon-barcode"></i>&nbsp;&nbsp;<?php echo __('Aperçu d\'un bon de commande'); ?></h2>
 </div>
+<table class="w100">
+		<tr>
+			<td><?php echo $this->Html->link('<i class="icon-home icon-white"></i>&nbsp;&nbsp;'.__('Retour à la page principale'), '/',array('escape'=>false,'class'=>"btn btn-info")); ?>
+			</td>
+			<td><?php echo $this->Html->link('<i class="icon-circle-arrow-left icon-white"></i>&nbsp;&nbsp;'.__('Retour à la page précédente'), array('action' => 'index'),array('escape'=>false,'class'=>"btn btn-info")); ?>
+			</td>
+		</tr>
+	</table>
+<hr />
 <div class="action orderforms">
 	<div class="head upper big">
 		Bon de commande
@@ -12,13 +21,13 @@
 		<div class="w30 inline adresse">
 			<?php
 				echo Configure::read('Default.entity');
-			?><br /><br />
+			?><br />
 			<?php
 				echo Configure::read('Default.address');
 			?><br />
 			<?php
 				echo Configure::read('Default.complementaddress');
-			?><br /><br />
+			?><br />
 			<?php
 				echo Configure::read('Default.zipcode');
 			?> <?php
@@ -90,15 +99,8 @@
 						<?php endforeach; ?>
 				</tbody>
 				<tfoot>
-					<tr>
-						<td colspan="2"></td>
-						<td></td>
-						<td class="right"><?php echo $montanthttotal; ?> &euro;</td>
-						<td></td>
-						<td class="right"><?php echo $montantttctotal; ?> &euro;</td>
-					</tr>
 					<tr class="trcolor">
-						<td colspan="2">TOTAL</td>
+						<td colspan="2" class="right">TOTAL</td>
 						<td></td>
 						<td class="right"><?php echo $montanthttotal; ?> &euro;</td>
 						<td></td>
@@ -109,7 +111,3 @@
 		</div>
 	</div>
 </div>
-DEBUG
-<?php
-	debug($orderform);
-?>

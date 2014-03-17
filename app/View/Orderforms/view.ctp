@@ -3,6 +3,15 @@
 <div class="title">
 	<h2><i class="icon-white icon-barcode"></i>&nbsp;&nbsp;<?php echo __('Aperçu d\'un bon de commande'); ?></h2>
 </div>
+<table class="w100">
+		<tr>
+			<td><?php echo $this->Html->link('<i class="icon-home icon-white"></i>&nbsp;&nbsp;'.__('Retour à la page principale'), '/',array('escape'=>false,'class'=>"btn btn-info")); ?>
+			</td>
+			<td><?php echo $this->Html->link('<i class="icon-circle-arrow-left icon-white"></i>&nbsp;&nbsp;'.__('Retour à la page précédente'), array('action' => 'index'),array('escape'=>false,'class'=>"btn btn-info")); ?>
+			</td>
+		</tr>
+	</table>
+<hr />
 <div class="action orderforms">
 	<div class="head upper big">
 		Bon de commande
@@ -12,13 +21,13 @@
 		<div class="w30 inline adresse">
 			<?php
 				echo Configure::read('Default.entity');
-			?><br /><br />
+			?><br />
 			<?php
 				echo Configure::read('Default.address');
 			?><br />
 			<?php
 				echo Configure::read('Default.complementaddress');
-			?><br /><br />
+			?><br />
 			<?php
 				echo Configure::read('Default.zipcode');
 			?> <?php
@@ -66,7 +75,7 @@
 							<tr>
 								<td><?php echo $produits['name']; ?></td>
 								<td class="right">
-									<?php echo $produits['price']; ?> &euro;
+									<?php echo number_format($produits['price'], 3, ',', ''); ?> &euro;
 								</td>
 								<td class="right">
 									<?php echo $produits['amout']; ?>
@@ -74,7 +83,7 @@
 								<td class="right">
 									<?php
 										$montanthttotal=$montanthttotal+$montantht;
-										echo $montantht;
+										echo number_format($montantht, 2, ',', '');
 									?> &euro;
 								</td>
 								<td class="right">
@@ -83,33 +92,22 @@
 								<td class="right">
 									<?php
 										$montantttctotal=$montantttctotal+$montantttc;
-										echo $montantttc; 
+										echo number_format($montantttc, 2, ',', ''); 
 									?> &euro;
 								</td>
 							</tr>
 						<?php endforeach; ?>
 				</tbody>
 				<tfoot>
-					<tr>
-						<td colspan="2"></td>
-						<td></td>
-						<td class="right"><?php echo $montanthttotal; ?> &euro;</td>
-						<td></td>
-						<td class="right"><?php echo $montantttctotal; ?> &euro;</td>
-					</tr>
 					<tr class="trcolor">
-						<td colspan="2">TOTAL</td>
+						<td colspan="2" class="right">TOTAL</td>
 						<td></td>
-						<td class="right"><?php echo $montanthttotal; ?> &euro;</td>
+						<td class="right"><?php echo number_format($montanthttotal, 2, ',', ''); ?> &euro;</td>
 						<td></td>
-						<td class="right"><?php echo $montantttctotal; ?> &euro;</td>
+						<td class="right"><?php echo number_format($montantttctotal, 2, ',', ''); ?> &euro;</td>
 					</tr>
 				</tfoot>
 			</table>
 		</div>
 	</div>
 </div>
-DEBUG
-<?php
-	debug($orderform);
-?>

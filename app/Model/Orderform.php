@@ -78,5 +78,9 @@ class Orderform extends AppModel {
 		$this->data['Orderform']['datelivraison']=$annee.'-'.$mois.'-'.$jour;
 		return true;
 	}
-
+	public function afterFind($results, $primary = false) {
+		$results[0]['Orderform']['date1']=$results[0]['Orderform']['date'];
+		$results[0]['Orderform']['date2']=$results[0]['Orderform']['datelivraison'];
+		return $results;
+	}
 }

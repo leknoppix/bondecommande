@@ -115,7 +115,7 @@ class OrderformsController extends AppController {
 			throw new NotFoundException(__('Invalid orderform'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
-			if ($this->Orderform->save($this->request->data)) {
+			if ($this->Orderform->saveAssociated($this->request->data)) {
 				$this->Session->setFlash(__('The orderform has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
@@ -128,7 +128,11 @@ class OrderformsController extends AppController {
 		$users = $this->Orderform->User->find('list');
 		$customers = $this->Orderform->Customer->find('list');
 		$services = $this->Orderform->Service->find('list');
-		$products = $this->Orderform->Product->find('list');
+		$products = $this->Orderform->Product->find('all',
+			array(
+				'conditions' => array('Orderform.' . $this->Orderform->primaryKey => $id)
+			)
+		);
 		$this->set(compact('users', 'customers', 'services', 'products'));
 	}
 
@@ -146,9 +150,9 @@ class OrderformsController extends AppController {
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Orderform->delete()) {
-			$this->Session->setFlash(__('The orderform has been deleted.'));
+			$this->Session->setFlash(__('Le bon de commande a été supprimé'));
 		} else {
-			$this->Session->setFlash(__('The orderform could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('Une erreur est survenu. Merci de vérifier les informations et de valider à nouveau.'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

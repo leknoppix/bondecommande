@@ -11,21 +11,14 @@ $(function() {
 	// systeme box
 	$("a.fancybox").fancybox();
 	//système de clonage
-  var options = {
-    init:'0',
-    nbrincrem:'0',
-    classclone:'body',
-    delimiter:'-',
-    controller:'Product',
-  }
   $('.addproduct').click(function()
   {
     $(this).clonage(options);
-    $('.body-'+init+' input').val('');
-    $('.body-'+init+' input.calcul').val('0');
+    $('.body-'+options.nbrincrem+' input').val('');
+    $('.body-'+options.nbrincrem+' input.calcul').val('0');
   });
   // systeme de calcul TTC
-  $(document).on('keydown','.calcul',function()
+  $(document).on('keyup','.calcul',function()
   {
       var selectdiv = $(this).parent().parent().attr('class');
       var select = selectdiv.split(' ');

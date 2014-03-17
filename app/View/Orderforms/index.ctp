@@ -20,10 +20,10 @@
 			<th class="w15"><?php echo __('Fournisseur'); ?></th>
 			<th class="w15"><?php echo __('Date de la commande'); ?></th>
 			<th class="w15"><?php echo __('Service'); ?></th>
-			<th><?php echo __('Aperçu'); ?></th>
-			<th><?php echo __('PDF'); ?></th>
-			<th><?php echo __('Edition'); ?></th>
-			<th><?php echo __('Suppression'); ?></th>
+			<th class="w10"><?php echo __('Aperçu'); ?></th>
+			<th class="w10"><?php echo __('PDF'); ?></th>
+			<th class="w10"><?php echo __('Edition'); ?></th>
+			<th class="w10"><?php echo __('Suppression'); ?></th>
 	</tr>
 	<?php foreach ($orderforms as $orderform): ?>
 	<tr>
@@ -36,16 +36,16 @@
 			<?php echo $orderform['Service']['name']; ?>
 		</td>
 		<td>
-			<?php echo $this->Html->link('<i class="icon-search icon-white"></i>'.__('Aperçu'), array('action' => 'view', $orderform['Orderform']['id']),array('escape'=>false,'class'=>"btn btn-info")); ?>
+			<?php echo $this->Html->link('<i class="icon-search icon-white"></i>&nbsp;'.__('Aperçu'), array('action' => 'view', $orderform['Orderform']['id']),array('escape'=>false,'class'=>"btn btn-info")); ?>
 		</td>
 		<td>
-			<?php echo $this->Html->link('<i class="icon-book icon-white"></i>'.__('PDF'), array('action' => 'pdf', $orderform['Orderform']['id']),array('escape'=>false,'class'=>"btn btn-info")); ?>
+			<?php echo $this->Html->link('<i class="icon-book icon-white"></i>&nbsp;'.__('PDF'), array('action' => 'pdf', $orderform['Orderform']['id']),array('escape'=>false,'class'=>"btn btn-info")); ?>
 		</td>
 		<td>
-			<?php echo $this->Html->link('<i class="icon-edit icon-white"></i>'.__('Edition'), array('action' => 'edit', $orderform['Orderform']['id']),array('escape'=>false,'class'=>"btn btn-info")); ?>
+			<?php echo $this->Html->link('<i class="icon-edit icon-white"></i>&nbsp;'.__('Edition'), array('action' => 'edit', $orderform['Orderform']['id']),array('escape'=>false,'class'=>"btn btn-info")); ?>
 		</td>
 		<td>
-			<?php echo $this->Form->postLink('<i class="icon-trash icon-white"></i>'.__('Suppression'), array('action' => 'delete', $orderform['Orderform']['id']), array('escape'=>false,'class'=>"btn btn-danger"), __('Êtes vous sûr de vouloir supprimer l\'entré # %s?', $orderform['Orderform']['id'])); ?>
+			<?php echo $this->Form->postLink('<i class="icon-trash icon-white"></i>&nbsp;'.__('Suppression'), array('action' => 'delete', $orderform['Orderform']['id']), array('escape'=>false,'class'=>"btn btn-danger"), __('Êtes vous sûr de vouloir supprimer l\'entré # %s?', $orderform['Orderform']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

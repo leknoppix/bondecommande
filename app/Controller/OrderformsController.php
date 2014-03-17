@@ -40,6 +40,18 @@ class OrderformsController extends AppController {
 		$this->set('orderform', $this->Orderform->find('first', $options));
 	}
 
+	public function pdf($id = null) {
+		Configure::write('debug',0);
+	    //la solution depuis cakephp 2
+	    $this->response->type('pdf');
+    	$this->layout='pdf';
+		if (!$this->Orderform->exists($id)) {
+			throw new NotFoundException(__('Invalid orderform'));
+		}
+		$options = array('conditions' => array('Orderform.' . $this->Orderform->primaryKey => $id));
+		$this->set('orderform', $this->Orderform->find('first', $options));
+	}
+
 /**
  * add method
  *

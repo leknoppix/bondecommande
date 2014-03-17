@@ -74,6 +74,8 @@ class Orderform extends AppModel {
 		$this->data['Orderform']['user_id']=CakeSession::read('Auth.User.id');
 		list($jour,$mois,$annee)=split('/',$this->data['Orderform']['date1']);
 		$this->data['Orderform']['date']=$annee.'-'.$mois.'-'.$jour;
+		list($jour,$mois,$annee)=split('/',$this->data['Orderform']['date2']);
+		$this->data['Orderform']['datelivraison']=$annee.'-'.$mois.'-'.$jour;
 		return true;
 	}
 

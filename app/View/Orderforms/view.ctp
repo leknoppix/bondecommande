@@ -10,6 +10,11 @@
 			<td><?php echo $this->Html->link('<i class="icon-circle-arrow-left icon-white"></i>&nbsp;&nbsp;'.__('Retour à la page précédente'), array('action' => 'index'),array('escape'=>false,'class'=>"btn btn-info")); ?>
 			</td>
 		</tr>
+		<tr>
+			<td style="text-align:center;">
+				<?php echo $this->Html->link('<i class="icon-book icon-white"></i>&nbsp;&nbsp;'.__('Récupérer le pdf'), array('action' => 'pdf',$orderform['Orderform']['id']),array('escape'=>false,'class'=>"btn btn-info",'target'=>"_blank")); ?>
+			</td>
+		</tr>
 	</table>
 <hr />
 <div class="action orderforms">
@@ -47,7 +52,11 @@
 		<div class="w99">
 			<p><strong class="bold"><?php echo _('Numéro du bon de commande:'); ?></strong> <?php echo $orderform['Orderform']['numorder']; ?></p><br />
 			<p><strong class="bold"><?php echo _('Service demandeur:'); ?></strong> <?php echo $orderform['Service']['name']; ?></p><br />
-			<?php if($orderform['Orderform']['name']!=''){ ?><p><strong class="bold underligne"><?php echo _('Objet:'); ?></strong> <?php echo $orderform['Orderform']['name']; ?></p><br /><?php } ?>
+			<p><strong class="bold underligne"><?php echo _('Objet:'); ?></strong> <?php echo $orderform['Orderform']['name']; ?></p><br />
+			<p><strong class="bold"><?php echo _('Date de livraison souhaité:'); ?></strong> <?php echo $this->Time->format('d/m/Y',$orderform['Orderform']['datelivraison']); ?></p>
+			<p><strong class="bold"><?php echo _('Lieu de livraison:'); ?></strong><br />
+					<span style="margin-left:30px;"><?php echo $orderform['Orderform']['lieulivraison']; ?></span>
+			<p>
 		</div>
 		<div class="cb"></div>
 		<div class="w99 fourniture">

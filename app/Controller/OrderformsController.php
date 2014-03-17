@@ -22,7 +22,13 @@ class OrderformsController extends AppController {
  */
 	public function index() {
 		$this->Orderform->recursive = 0;
-		$this->set('orderforms', $this->Paginator->paginate());
+		$this->set('orderforms', 
+			$this->Orderform->find('all',
+				array(
+					'order'=>'Orderform.id DESC'
+				)
+			)
+		);
 	}
 
 /**

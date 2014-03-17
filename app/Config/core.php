@@ -262,7 +262,7 @@
  */
 	Configure::write('Acl.classname', 'DbAcl');
 	Configure::write('Acl.database', 'default');
-
+	Configure::write('Config.language', 'fr');
 /**
  * Uncomment this line and correct your server timezone to fix
  * any date & time related errors.

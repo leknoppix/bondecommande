@@ -54,6 +54,15 @@
 								)
 							);
 						?>
+						<?php
+							echo $this->Form->input('date2',
+								array(
+									'label'=>__('Date de livraison souhaité'),
+									'value'=>date('d/m/Y'),
+									'class'=>'datepicker w30'
+								)
+							);
+						?>
 						<?php 
 							echo $this->Form->input('service_id',
 								array(
@@ -62,6 +71,10 @@
 								)
 							);
 						?>
+						<?php
+							echo $this->Form->input('lieulivraison',array('label'=>__('Adresse de livraison'),'class'=>'w30','type'=>'textarea'));
+						?>
+						<div class="cb"></div>
 				</div>
 				<div class="tab-pane" id="customers">
 					<?php

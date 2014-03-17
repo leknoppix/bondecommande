@@ -16,30 +16,36 @@
 	<div class="cb"></div>
 	<table class="orderforms w100">
 	<tr>
-			<th><?php echo $this->Paginator->sort('user_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('customer_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('date'); ?></th>
-			<th><?php echo $this->Paginator->sort('name'); ?></th>
-			<th><?php echo $this->Paginator->sort('service_id'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
+			<th class="w15"><?php echo __('Numéro de commande'); ?></th>
+			<th class="w15"><?php echo __('Fournisseur'); ?></th>
+			<th class="w15"><?php echo __('Date de la commande'); ?></th>
+			<th class="w15"><?php echo __('Service'); ?></th>
+			<th><?php echo __('Aperçu'); ?></th>
+			<th><?php echo __('PDF'); ?></th>
+			<th><?php echo __('Edition'); ?></th>
+			<th><?php echo __('Suppression'); ?></th>
 	</tr>
 	<?php foreach ($orderforms as $orderform): ?>
 	<tr>
 		<td>
-			<?php echo $this->Html->link($orderform['User']['name'], array('controller' => 'users', 'action' => 'view', $orderform['User']['id'])); ?>
+			<?php echo $orderform['Orderform']['numorder']; ?>
+		</td>
+		<td><?php echo $this->Time->format('d/m/Y',$orderform['Orderform']['date']); ?></td>
+		<td><?php echo $this->Time->format('d/m/Y',$orderform['Orderform']['name']); ?></td>
+		<td>
+			<?php echo $orderform['Service']['name']; ?>
 		</td>
 		<td>
-			<?php echo $this->Html->link($orderform['Customer']['name'], array('controller' => 'customers', 'action' => 'view', $orderform['Customer']['id'])); ?>
+			<?php echo $this->Html->link('<i class="icon-search icon-white"></i>'.__('Aperçu'), array('action' => 'view', $orderform['Orderform']['id']),array('escape'=>false,'class'=>"btn btn-info")); ?>
 		</td>
-		<td><?php echo h($orderform['Orderform']['date']); ?>&nbsp;</td>
-		<td><?php echo h($orderform['Orderform']['name']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($orderform['Service']['name'], array('controller' => 'services', 'action' => 'view', $orderform['Service']['id'])); ?>
+			<?php echo $this->Html->link('<i class="icon-book icon-white"></i>'.__('PDF'), array('action' => 'pdf', $orderform['Orderform']['id']),array('escape'=>false,'class'=>"btn btn-info")); ?>
 		</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $orderform['Orderform']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $orderform['Orderform']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $orderform['Orderform']['id']), null, __('Are you sure you want to delete # %s?', $orderform['Orderform']['id'])); ?>
+		<td>
+			<?php echo $this->Html->link('<i class="icon-edit icon-white"></i>'.__('Edition'), array('action' => 'edit', $orderform['Orderform']['id']),array('escape'=>false,'class'=>"btn btn-info")); ?>
+		</td>
+		<td>
+			<?php echo $this->Form->postLink('<i class="icon-trash icon-white"></i>'.__('Suppression'), array('action' => 'delete', $orderform['Orderform']['id']), array('escape'=>false,'class'=>"btn btn-danger"), __('Êtes vous sûr de vouloir supprimer l\'entré # %s?', $orderform['Orderform']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

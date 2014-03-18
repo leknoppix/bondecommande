@@ -54,7 +54,6 @@
 							echo $this->Form->input('date1',
 								array(
 									'label'=>__('Date de la demande'),
-									'value'=>date('d/m/Y'),
 									'class'=>'datepicker w30'
 								)
 							);
@@ -62,8 +61,7 @@
 						<?php
 							echo $this->Form->input('date2',
 								array(
-									'label'=>__('Date de livraison souhaité'),
-									'value'=>date('d/m/Y'),
+									'label'=>__('Date de livraison souhaitée'),
 									'class'=>'datepicker w30'
 								)
 							);
@@ -182,7 +180,7 @@
 				</div>
 			</div>
 	<div class="cb"></div>
-	<?php echo $this->Form->end(array('label'=>__('Ajouter ce bon de commande'),'class'=>'btn btn-primary submit w100')); ?>
+	<?php echo $this->Form->end(array('label'=>__('Modifier ce bon de commande et enregistrer les modifications'),'class'=>'btn btn-primary submit w100')); ?>
 </div>
 <?php
 	$this->Html->script('jquery.cake.clone.js', array('inline' => false));

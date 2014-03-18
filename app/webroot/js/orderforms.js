@@ -20,7 +20,16 @@ $(function() {
   // systeme de calcul TTC
   $(document).on('keyup','.calcul',function()
   {
-      var selectdiv = $(this).parent().parent().attr('class');
+      calculatrice_taxe($(this));
+      
+  });
+  $('.calcul').each(function()
+  {
+      calculatrice_taxe($(this));
+  });
+  function calculatrice_taxe(nomdiv)
+  {
+    var selectdiv = nomdiv.parent().parent().attr('class');
       var select = selectdiv.split(' ');
       var parentdiv = select[0];
       var quantite = $('.'+parentdiv+' .qtt').val();
@@ -32,5 +41,16 @@ $(function() {
         total=total.toFixed(2);
         $('.'+parentdiv+' .total').val(total);
       }
+  }
+  $('.orderforms div.w100:last').each(function(){
+    incremental=$(this).attr('class').split(' ')[0].replace('body-','');
   });
+  var options = {
+      init:0,
+      nbrincrem:incremental,
+      classclone:'body',
+      delimiter:'-',
+      controller:'Product',
+    }
+  console.log(options);
 });

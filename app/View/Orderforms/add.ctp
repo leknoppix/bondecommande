@@ -57,7 +57,7 @@
 						<?php
 							echo $this->Form->input('date2',
 								array(
-									'label'=>__('Date de livraison souhaité'),
+									'label'=>__('Date de livraison souhaitée'),
 									'value'=>date('d/m/Y'),
 									'class'=>'datepicker w30'
 								)
@@ -177,16 +177,5 @@
 	$this->Html->script('pickadate/picker.js', array('inline' => false));
 	$this->Html->script('pickadate/picker.date.js', array('inline' => false));
 	$this->Html->script('fancy/jquery.fancybox.js', array('inline' => false));
-	$this->Html->scriptStart(array('inline' => false));
-?>
-var options = {
-    init:'0',
-    nbrincrem:'0',
-    classclone:'body',
-    delimiter:'-',
-    controller:'Product',
-  }
-<?php
-	$this->Html->scriptEnd();
 	$this->Html->script('orderforms.js', array('inline' => false));
 ?>

@@ -20,7 +20,7 @@
 <html>
 <head>
         <?php echo $this->Html->charset(); ?>
-        <title>Bon de Commande
+        <title><?php echo __('Application bon de commande'); ?>
         </title>
         <?php
                 echo $this->Html->meta('icon');

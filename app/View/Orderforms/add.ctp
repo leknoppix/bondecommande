@@ -89,11 +89,11 @@
 				<div class="tab-pane" id="products">
 					<div class="orderforms">
 						<div class="head w100">
-							<div class="w58 inline">Nom du produit</div>
-							<div class="w10 inline">Quantité</div>
-							<div class="w10 inline">Prix en HT</div>
-							<div class="w10 inline">TVA</div>
-							<div class="w10 inline">Total TTC</div>
+							<div class="w58 inline"><?php echo __('Nom du produit'); ?></div>
+							<div class="w10 inline"><?php echo __('Quantité'); ?></div>
+							<div class="w10 inline"><?php echo __('Prix en HT'); ?></div>
+							<div class="w10 inline"><?php echo __('TVA'); ?></div>
+							<div class="w10 inline"><?php echo __('Total TTC'); ?></div>
 						</div>
 						<div class="cb"></div>
 						<div class="body-0 w100">
@@ -162,7 +162,7 @@
 									?>
 							</div>
 						</div>
-						<a href="#" class="addproduct">Ajouter un produit</a>
+						<a href="#" class="addproduct"><?php echo __('Ajouter un produit'); ?></a>
 					</div>
 				</div>
 			</div>

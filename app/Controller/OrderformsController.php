@@ -40,7 +40,7 @@ class OrderformsController extends AppController {
  */
 	public function view($id = null) {
 		if (!$this->Orderform->exists($id)) {
-			throw new NotFoundException(__('Invalid orderform'));
+			throw new NotFoundException(__('Ce bon de commande n\'existe pas.'));
 		}
 		$options = array('conditions' => array('Orderform.' . $this->Orderform->primaryKey => $id));
 		$this->set('orderform', $this->Orderform->find('first', $options));
@@ -52,7 +52,7 @@ class OrderformsController extends AppController {
 	    $this->response->type('pdf');
     	$this->layout='pdf';
 		if (!$this->Orderform->exists($id)) {
-			throw new NotFoundException(__('Invalid orderform'));
+			throw new NotFoundException(__('Ce bon de commande n\'existe pas.'));
 		}
 		$options = array('conditions' => array('Orderform.' . $this->Orderform->primaryKey => $id));
 		$this->set('orderform', $this->Orderform->find('first', $options));
@@ -112,14 +112,14 @@ class OrderformsController extends AppController {
  */
 	public function edit($id = null) {
 		if (!$this->Orderform->exists($id)) {
-			throw new NotFoundException(__('Invalid orderform'));
+			throw new NotFoundException(__('Ce bon de commande n\'existe pas.'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Orderform->saveAssociated($this->request->data)) {
-				$this->Session->setFlash(__('The orderform has been saved.'));
+				$this->Session->setFlash(__('Le bon de commande a été modifié.'),'notif',array('type'=>'success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The orderform could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('Une erreur est survenu. Merci de vérifier les informations et de valider à nouveau.'),'notif',array('type'=>'error'));
 			}
 		} else {
 			$options = array('conditions' => array('Orderform.' . $this->Orderform->primaryKey => $id));
@@ -146,13 +146,13 @@ class OrderformsController extends AppController {
 	public function delete($id = null) {
 		$this->Orderform->id = $id;
 		if (!$this->Orderform->exists()) {
-			throw new NotFoundException(__('Invalid orderform'));
+			throw new NotFoundException(__('Ce bon de commande n\'existe pas.'));
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Orderform->delete()) {
-			$this->Session->setFlash(__('Le bon de commande a été supprimé'));
+			$this->Session->setFlash(__('Le bon de commande a été supprimé'),'notif',array('type'=>'success'));
 		} else {
-			$this->Session->setFlash(__('Une erreur est survenu. Merci de vérifier les informations et de valider à nouveau.'));
+			$this->Session->setFlash(__('Une erreur est survenu. Merci de vérifier les informations et de valider à nouveau.'),'notif',array('type'=>'error'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

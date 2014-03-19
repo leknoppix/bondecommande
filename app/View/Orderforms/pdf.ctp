@@ -9,15 +9,15 @@ ob_start(); ?>
 <page backtop="20mm" backleft="10mm" backright="10mm" backbottom="20mm">
 	<page_header> 
 		<p style="text-align:center;">
-			Bon de commande n° <?php echo $orderform['Orderform']['numorder']; ?> - Mairie de Mirande<br /><br />
-			Date de la commande <?php echo $this->Time->format('d/m/Y',$orderform['Orderform']['date']); ?>
+			<?php echo __('Bon de commande n°'); ?> <?php echo $orderform['Orderform']['numorder']; ?> - Mairie de xxx <br /><br />
+			<?php echo __('Date de la commande'); ?> <?php echo $this->Time->format('d/m/Y',$orderform['Orderform']['date']); ?>
 		</p>
 	</page_header>
 	<page_footer> 
 		<p style="text-align:center;">[[page_cu]]/[[page_nb]]</p>
 	</page_footer> 
 		<div style="text-align: center;font-weight: bold;color:black;text-transform: uppercase;font-size: 25pt;margin-bottom: 35px;">
-			Bon de commande
+			<?php echo __('Bon de commande'); ?>
 		</div>
 		<br /><br /><br /><br />
 		<table>
@@ -54,18 +54,18 @@ ob_start(); ?>
 		<table>
 			<tr>
 				<td style="width: 90mm;">
-					<strong class="bold"><?php echo _('Service demandeur:'); ?></strong> <?php echo $orderform['Service']['name']; ?>
+					<strong class="bold"><?php echo __('Service demandeur:'); ?></strong> <?php echo $orderform['Service']['name']; ?>
 				</td>
 				<td style="width: 90mm;">
-					<strong class="bold underligne"><?php echo _('Objet:'); ?></strong> <?php echo $orderform['Orderform']['name']; ?>
+					<strong class="bold underligne"><?php echo __('Objet:'); ?></strong> <?php echo $orderform['Orderform']['name']; ?>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<strong class="bold"><?php echo _('Date de livraison souhaité:'); ?></strong> <?php echo $this->Time->format('d/m/Y',$orderform['Orderform']['datelivraison']); ?>
+					<strong class="bold"><?php echo __('Date de livraison souhaité:'); ?></strong> <?php echo $this->Time->format('d/m/Y',$orderform['Orderform']['datelivraison']); ?>
 				</td>
 				<td>
-					<strong class="bold"><?php echo _('Lieu de livraison:'); ?></strong><br />
+					<strong class="bold"><?php echo __('Lieu de livraison:'); ?></strong><br />
 					<span style="margin-left:30mm;"><?php echo $orderform['Orderform']['lieulivraison']; ?></span>
 				</td>
 			</tr>
@@ -74,12 +74,12 @@ ob_start(); ?>
 			<table style="border-collapse:collapse;">
 				<thead>
 					<tr style="background-color:#f5f9fc;font-weight:bold;font-size:12pt;line-height:30px;">
-						<th style="height:6mm;width:55mm;text-align:center;border: 1px solid black;">Désignation</th>
-						<th style="height:6mm;width:25mm;text-align:center;border: 1px solid black;">Prix unitaire</th>
-						<th style="height:6mm;width:25mm;text-align:center;border: 1px solid black;">Quantités</th>
-						<th style="height:6mm;width:25mm;text-align:center;border: 1px solid black;">Montant HT</th>
-						<th style="height:6mm;width:20mm;text-align:center;border: 1px solid black;">TVA</th>
-						<th style="height:6mm;width:26mm;text-align:center;border: 1px solid black;">Montant TTC</th>
+						<th style="height:6mm;width:55mm;text-align:center;border: 1px solid black;"><?php echo __('Désignation'); ?></th>
+						<th style="height:6mm;width:25mm;text-align:center;border: 1px solid black;"><?php echo __('Prix unitaire'); ?></th>
+						<th style="height:6mm;width:25mm;text-align:center;border: 1px solid black;"><?php echo __('Quantités'); ?></th>
+						<th style="height:6mm;width:25mm;text-align:center;border: 1px solid black;"><?php echo __('Montant HT'); ?></th>
+						<th style="height:6mm;width:20mm;text-align:center;border: 1px solid black;"><?php echo __('TVA'); ?></th>
+						<th style="height:6mm;width:26mm;text-align:center;border: 1px solid black;"><?php echo __('Montant TTC'); ?></th>
 					</tr>
 				</thead>
 				<tbody>

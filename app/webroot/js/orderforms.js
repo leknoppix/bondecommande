@@ -52,5 +52,4 @@ $(function() {
       delimiter:'-',
       controller:'Product',
     }
-  console.log(options);
 });

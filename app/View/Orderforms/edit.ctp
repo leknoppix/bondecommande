@@ -96,7 +96,8 @@
 							<div class="w10 inline">Quantité</div>
 							<div class="w10 inline">Prix en HT</div>
 							<div class="w10 inline">TVA</div>
-							<div class="w10 inline">Total TTC</div>
+							<div class="w8 inline">Total TTC</div>
+							<div class="w2 inline"></div>
 						</div>
 						<div class="cb"></div>
 						<?php foreach($products as $k => $v)
@@ -158,7 +159,7 @@
 											);
 										?>
 								</div>
-								<div class="w10 inline">
+								<div class="w8 inline">
 										<?php 
 											echo $this->Form->input('Product.'.$k.'.total',
 												array(
@@ -171,6 +172,7 @@
 											);
 										?>
 								</div>
+								<div class="w2 inline delproduct"><a href="#">X</a></div>
 							</div>
 							<?php
 							}
@@ -190,16 +192,30 @@
 	$this->Html->script('pickadate/picker.js', array('inline' => false));
 	$this->Html->script('pickadate/picker.date.js', array('inline' => false));
 	$this->Html->script('fancy/jquery.fancybox.js', array('inline' => false));
+	$this->Html->script('orderforms.js', array('inline' => false));
 	$this->Html->scriptStart(array('inline' => false));
+	$url=$this->Html->url(array('controller'=>'products','action'=>'delete'));
 ?>
-var options = {
-    init:'0',
-    nbrincrem:'0',
-    classclone:'body',
-    delimiter:'-',
-    controller:'Product',
-  }
+$(document).ready(function(){
+  	$('.delproduct').click(function(e){
+      	e.preventDefault();
+	    var valeurfind = $(this).parent().find('input[type=hidden]').val();
+	    var divdel = $(this).parent().attr('class');
+	    //requete ajax pour la suppression
+	    $.ajax({
+	        type: "POST",
+	        url: '<?php echo $url; ?>'+'/'+valeurfind,
+	        success: function(msg)
+	        {
+                if(msg)
+                {
+                	toto= divdel.split(' ');
+					$('.'+toto[0]).remove();
+                }
+            }
+        });
+    });
+});
 <?php
 	$this->Html->scriptEnd();
-	$this->Html->script('orderforms.js', array('inline' => false));
 ?>

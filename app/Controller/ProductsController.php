@@ -35,7 +35,7 @@ class ProductsController extends AppController {
  */
 	public function view($id = null) {
 		if (!$this->Product->exists($id)) {
-			throw new NotFoundException(__('Invalid product'));
+			throw new NotFoundException(__('Ce produit n\'existe pas.'));
 		}
 		$options = array('conditions' => array('Product.' . $this->Product->primaryKey => $id));
 		$this->set('product', $this->Product->find('first', $options));
@@ -50,10 +50,10 @@ class ProductsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Product->create();
 			if ($this->Product->save($this->request->data)) {
-				$this->Session->setFlash(__('The product has been saved.'));
+				$this->Session->setFlash(__('Le produit a été ajouté.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The product could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('Une erreur est survenu, veuillez réessayer.'));
 			}
 		}
 	}
@@ -67,14 +67,14 @@ class ProductsController extends AppController {
  */
 	public function edit($id = null) {
 		if (!$this->Product->exists($id)) {
-			throw new NotFoundException(__('Invalid product'));
+			throw new NotFoundException(__('Ce produit n\'existe pas.'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Product->save($this->request->data)) {
-				$this->Session->setFlash(__('The product has been saved.'));
+				$this->Session->setFlash(__('Le produit a été modifié.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The product could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('Une erreur est survenu, veuillez réessayer.'));
 			}
 		} else {
 			$options = array('conditions' => array('Product.' . $this->Product->primaryKey => $id));
@@ -90,40 +90,13 @@ class ProductsController extends AppController {
  * @return void
  */
 	public function delete($id = null) {
+		if (!$this->Product->exists($id)) {
+			throw new NotFoundException(__('Ce produit n\'existe pas.'));
+		}
 		$this->Product->id = $id;
-		if (!$this->Product->exists()) {
-			throw new NotFoundException(__('Invalid product'));
-		}
-		$this->request->onlyAllow('post', 'delete');
-		if ($this->Product->delete()) {
-			$this->Session->setFlash(__('The product has been deleted.'));
-		} else {
-			$this->Session->setFlash(__('The product could not be deleted. Please, try again.'));
-		}
-		return $this->redirect(array('action' => 'index'));
-	}
-
-	public function ajaxview() {
-		$options=array('fields' => array('Product.name','Product.id'));
-		$options = array('conditions' => array('Product.name LIKE'=> '%'.$_GET['term'].'%'));
-		$products=$this->Product->find('all', $options);
-		$i=0;
-		foreach($products as $product)
+		if($this->Product->delete())
 		{
-			$response[$i]['id']=$product['Product']['id'];
-			$response[$i]['label']=$product['Product']['name'];
-			$i++;
-		}
-		if ( $this->request->is('ajax') )
-		{
-			Configure::write ( 'debug', 0 );
-            $this->autoRender=false;
-			echo json_encode($response);
-		}
-		else
-		{
-			debug($response);
-			exit();
+			echo true;
 		}
 	}
 }

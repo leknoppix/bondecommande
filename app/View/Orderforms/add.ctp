@@ -57,7 +57,7 @@
 						<?php
 							echo $this->Form->input('date2',
 								array(
-									'label'=>__('Date de livraison souhaité'),
+									'label'=>__('Date de livraison souhaitée'),
 									'value'=>date('d/m/Y'),
 									'class'=>'datepicker w30'
 								)

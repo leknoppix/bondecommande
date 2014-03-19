@@ -34,7 +34,7 @@
 	Router::connect('/backoffice/fournisseurs/:action/*', array('controller' => 'customers'));
 	Router::connect('/backoffice/bondecommande/:action/*', array('controller' => 'orderforms'));
 	Router::connect('/backoffice/logout',array('controller' => 'users', 'action' => 'logout'));
-	Router::connect('/backoffice',array('controller' => 'pages', 'action' => 'home'));
+	Router::connect('/backoffice',array('controller' => 'orderforms', 'action' => 'index'));
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on

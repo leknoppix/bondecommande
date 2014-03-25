@@ -1,11 +1,14 @@
 <?php
+
 App::uses('AppController', 'Controller');
+
 /**
  * Customers Controller
  *
  * @property Customer $Customer
  * @property PaginatorComponent $Paginator
  */
+
 class CustomersController extends AppController {
 
 /**
@@ -13,6 +16,7 @@ class CustomersController extends AppController {
  *
  * @var array
  */
+
 	public $components = array('Paginator');
 
 /**
@@ -20,9 +24,10 @@ class CustomersController extends AppController {
  *
  * @return void
  */
+
 	public function index() {
 		$this->Customer->recursive = 0;
-		$customers=$this->Customer->find('all',array('order'=>'name'));
+		$customers = $this->Customer->find('all',array('order'=>'name'));
 		$this->set('customers', $customers);
 	}
 

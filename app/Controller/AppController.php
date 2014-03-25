@@ -32,26 +32,26 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
-		public $components = array
-		(
+	public $components = array(
 			'Session',
 			'DebugKit.Toolbar',
 			'Auth' => array(
-						'loginAction' => array(
-				            'controller' => 'users',
-				            'action' => 'login'
-				        ),
-                        'loginRedirect' => '/backoffice',
-                        'logoutRedirect' => '/',
-                        'authorize' => array('Controller')
-                )
-		);
-		function beforeFilter()
-		{
-			$this->Auth->allow('login');
-		}
-		public function isAuthorized($user) {
-				$this->layout="admin";  
-                return true;
-        }
+				'loginAction' => array(
+				'controller' => 'users',
+				'action' => 'login'
+			),
+            	'loginRedirect' => '/backoffice',
+            	'logoutRedirect' => '/',
+            	'authorize' => array('Controller')
+        )
+	);
+
+	public function beforeFilter() {
+		$this->Auth->allow('login');
+	}
+
+	public function isAuthorized($user) {
+		$this->layout = 'admin';
+        return true;
+    }
 }

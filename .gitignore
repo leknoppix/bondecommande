@@ -25,3 +25,4 @@ Thumbs.db
 # Application specific & automatically generated files #
 ########################################################
 /app/webroot/.sass-cache
+/app/webroot/config.rb

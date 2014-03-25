@@ -40,10 +40,17 @@ class AppController extends Controller {
 				'controller' => 'users',
 				'action' => 'login'
 			),
+<<<<<<< HEAD
             	'loginRedirect' => '/backoffice',
             	'logoutRedirect' => '/',
             	'authorize' => array('Controller')
         )
+=======
+				'loginRedirect' => '/backoffice',
+				'logoutRedirect' => '/',
+				'authorize' => array('Controller')
+		)
+>>>>>>> b6367ae3a95372820b1388621f9a817c4ce70c05
 	);
 
 	public function beforeFilter() {
@@ -52,6 +59,11 @@ class AppController extends Controller {
 
 	public function isAuthorized($user) {
 		$this->layout = 'admin';
+<<<<<<< HEAD
         return true;
     }
+=======
+		return true;
+	}
+>>>>>>> b6367ae3a95372820b1388621f9a817c4ce70c05
 }

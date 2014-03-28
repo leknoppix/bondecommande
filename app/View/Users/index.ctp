@@ -1,4 +1,4 @@
-<?php echo $this->Html->addCrumb(__('Gestion des membres'), array('controller'=>'users','action'=>'index')); ?>
+<?php echo $this->Html->addCrumb(__('Gestion des membres'), array('controller' => 'users', 'action' => 'index')); ?>
 <div class="title">
 	<h2><i class="icon-white icon-user"></i>&nbsp;&nbsp;<?php echo __('Gestion des utilisateurs'); ?></h2>
 </div>	
@@ -6,10 +6,10 @@
 	<table class="w100">
 		<tr>
 			<td class="w50">
-				<?php echo $this->Html->link('<i class="icon-home icon-white"></i> '.__('Retour à la page principale'), '/',array('escape'=>false,'class'=>"btn btn-info")); ?>
+				<?php echo $this->Html->link('<i class="icon-home icon-white"></i> ' . __('Retour à la page principale'), '/', array('escape' => false, 'class' => "btn btn-info")); ?>
 			</td>
 			<td class="w50">
-				<?php echo $this->Html->link('<i class="icon-plus icon-white"></i> '.__('Ajouter un nouvel utilisateur'), array('action' => 'add'),array('escape'=>false,'class'=>"btn btn-info")); ?>
+				<?php echo $this->Html->link('<i class="icon-plus icon-white"></i> ' . __('Ajouter un nouvel utilisateur'), array('action' => 'add'), array('escape' => false, 'class' => "btn btn-info")); ?>
 			</td>
 		</tr>
 	</table>
@@ -37,10 +37,14 @@
 			<td class="texte"><?php echo h($user['User']['telephone_fixe']); ?>&nbsp;</td>
 			<td class="texte"><?php echo h($user['User']['telephone_mobile']); ?>&nbsp;</td>
 			<td>
-				<?php echo $this->Html->link('<i class="icon-edit icon-white"></i>&nbsp;&nbsp;'.__('Edition'), array('action' => 'edit', $user['User']['id']),array('escape'=>false,'class'=>"btn btn-info")); ?>
+				<?php
+					echo $this->Html->link('<i class="icon-edit icon-white"></i>&nbsp;&nbsp;' . __('Edition'), array('action' => 'edit', $user['User']['id']), array('escape' => false, 'class' => "btn btn-info"));
+				?>
 			</td>
 			<td>
-				<?php echo $this->Form->postLink('<i class="icon-trash icon-white"></i>&nbsp;&nbsp;'.__('Suppression'), array('action' => 'delete', $user['User']['id']), array('escape'=>false,'class'=>"btn btn-danger"), __('Êtes-vous sûr de supprimer l\'entrée %s?', $user['User']['nom'].' '.$user['User']['prenom'])); ?>
+				<?php
+					echo $this->Form->postLink('<i class="icon-trash icon-white"></i>&nbsp;&nbsp;' . __('Suppression'), array('action' => 'delete', $user['User']['id']), array('escape' => false, 'class' => "btn btn-danger"), __('Êtes-vous sûr de supprimer l\'entrée %s?', $user['User']['nom'] . ' ' . $user['User']['prenom']));
+				?>
 			</td>
 		</tr>
 		<?php endforeach; ?>

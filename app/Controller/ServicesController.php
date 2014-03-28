@@ -22,7 +22,7 @@ class ServicesController extends AppController {
  */
 	public function index() {
 		$this->Service->recursive = 0;
-		$services=$this->Service->find('all');
+		$services	=	$this->Service->find('all');
 		$this->set('services', $services);
 	}
 
@@ -34,13 +34,13 @@ class ServicesController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Service->create();
-			$d=$this->request->data;
-			$d['Services']['slug']=$d['Services']['name'];
+			$d	=	$this->request->data;
+			$d['Services']['slug']	=	$d['Services']['name'];
 			if ($this->Service->save($d)) {
-				$this->Session->setFlash(__('Le service a été ajouté.'),'notif',array('type'=>'success'));
+				$this->Session->setFlash(__('Le service a été ajouté.'),	'notif',	array('type'	=>	'success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('Une erreur est survenu. Merci de vérifier les informations et de valider à nouveau.'),'notif',array('type'=>'error'));
+				$this->Session->setFlash(__('Une erreur est survenu. Merci de vérifier les informations et de valider à nouveau.'),	'notif',	array('type'	=>	'error'));
 			}
 		}
 	}
@@ -58,10 +58,10 @@ class ServicesController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Service->save($this->request->data)) {
-				$this->Session->setFlash(__('Le service a été modifié.'),'notif',array('type'=>'success'));
+				$this->Session->setFlash(__('Le service a été modifié.'),	'notif',	array('type'	=>	'success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('Une erreur est survenu. Merci de vérifier les informations et de valider à nouveau.'),'notif',array('type'=>'error'));
+				$this->Session->setFlash(__('Une erreur est survenu. Merci de vérifier les informations et de valider à nouveau.'),	'notif',	array('type'	=>	'error'));
 			}
 		} else {
 			$options = array('conditions' => array('Service.' . $this->Service->primaryKey => $id));
@@ -83,9 +83,10 @@ class ServicesController extends AppController {
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Service->delete()) {
-			$this->Session->setFlash(__('Le service a été correctement supprimé.'),'notif',array('type'=>'success'));
+			$this->Session->setFlash(__('Le service a été correctement supprimé.'),	'notif',	array('type'	=>	'success'));
 		} else {
-			$this->Session->setFlash(__('Une erreur est survenu. Merci de vérifier les informations et de valider à nouveau.'),'notif',array('type'=>'error'));
+			$this->Session->setFlash(__('Une erreur est survenu. Merci de vérifier les informations et de valider à nouveau.'),	'notif',	array('type'	=>	'error'));
 		}
 		return $this->redirect(array('action' => 'index'));
-	}}
+	}
+}

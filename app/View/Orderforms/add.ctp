@@ -1,5 +1,5 @@
-<?php echo $this->Html->addCrumb(__('Gestion des bons de commande'), array('controller'=>'orderforms','action'=>'index')); ?>
-<?php echo $this->Html->addCrumb(__('Ajouter un bon de commande'), array('controller'=>'orderforms','action'=>'add')); ?>
+<?php echo $this->Html->addCrumb(__('Gestion des bons de commande'), array('controller' => 'orderforms', 'action' => 'index')); ?>
+<?php echo $this->Html->addCrumb(__('Ajouter un bon de commande'), array('controller' => 'orderforms', 'action' => 'add')); ?>
 <div class="title">
 	<h2><i class="icon-white icon-barcode"></i>&nbsp;&nbsp;<?php echo __('Ajouter un bon de commande'); ?></h2>
 </div>	
@@ -7,17 +7,17 @@
 	<table class="w100">
 		<tr>
 			<td>
-				<?php echo $this->Html->link('<i class="icon-home icon-white"></i>&nbsp;&nbsp;'.__('Retour à la page principale'), '/',array('escape'=>false,'class'=>"btn btn-info")); ?>
+				<?php echo $this->Html->link('<i class="icon-home icon-white"></i>&nbsp;&nbsp;' . __('Retour à la page principale'), '/', array('escape' => false, 'class' => "btn btn-info")); ?>
 			</td>
 			<td>
-				<?php echo $this->Html->link('<i class="icon-circle-arrow-left icon-white"></i>&nbsp;&nbsp;'.__('Retour à la page précédente'), array('action' => 'index'),array('escape'=>false,'class'=>"btn btn-info")); ?>
+				<?php echo $this->Html->link('<i class="icon-circle-arrow-left icon-white"></i>&nbsp;&nbsp;' . __('Retour à la page précédente'), array('action' => 'index'), array('escape' => false, 'class' => "btn btn-info")); ?>
 			</td>
 		</tr>
 	</table>
 	<div class="cb"></div>
-	<?php 
-				echo $this->Form->create('Orderform'); 
-			?>
+		<?php 
+			echo $this->Form->create('Orderform');
+		?>
 			<div id="tabs" class="orderform">
 				<ul class="tabs">
 					<li><a href="#internal"><?php echo __('Information interne'); ?></a></li>
@@ -30,61 +30,61 @@
 							//on indique le numéro provisoire du bon de commande
 							echo $this->Form->input('numbers.newnum',
 								array(
-									'label'=>__('Numéro du bon de commande provisoire'),
-									'readonly'=>true,
-									'value'=>$numbers['Numberorder']['newnum'],
-									'class'=>'w30'
+									'label' => __('Numéro du bon de commande provisoire'),
+									'readonly' => true,
+									'value' => $numbers['Numberorder']['newnum'],
+									'class' => 'w30'
 								)
 							);
 						?>
 						<?php 
 							echo $this->Form->input('name',
 								array(
-									'label'=>__('Nom du bon de commande'),
-									'class'=>'w30'
+									'label' => __('Nom du bon de commande'),
+									'class' => 'w30'
 								)
 							);
 						?>
 						<?php
 							echo $this->Form->input('date1',
 								array(
-									'label'=>__('Date de la demande'),
-									'value'=>date('d/m/Y'),
-									'class'=>'datepicker w30'
+									'label' => __('Date de la demande'),
+									'value' => date('d/m/Y'),
+									'class' => 'datepicker w30'
 								)
 							);
 						?>
 						<?php
 							echo $this->Form->input('date2',
 								array(
-									'label'=>__('Date de livraison souhaitée'),
-									'value'=>date('d/m/Y'),
-									'class'=>'datepicker w30'
+									'label' => __('Date de livraison souhaitée'),
+									'value' => date('d/m/Y'),
+									'class' => 'datepicker w30'
 								)
 							);
 						?>
 						<?php 
 							echo $this->Form->input('service_id',
 								array(
-									'label'=>__('Nom du service demandant'),
-									'class'=>'w30'
+									'label' => __('Nom du service demandant'),
+									'class' => 'w30'
 								)
 							);
 						?>
 						<?php
-							echo $this->Form->input('lieulivraison',array('label'=>__('Adresse de livraison'),'class'=>'w30','type'=>'textarea'));
+							echo $this->Form->input('lieulivraison', array('label' => __('Adresse de livraison'), 'class' => 'w30', 'type' => 'textarea'));
 						?>
 						<div class="cb"></div>
 				</div>
 				<div class="tab-pane" id="customers">
 					<?php
-						echo $this->Form->input('customer_id',array(
-								'label'=>__('Nom du fournisseur'),
-								'class'=>'w30'
+						echo $this->Form->input('customer_id', array(
+								'label' => __('Nom du fournisseur'),
+								'class' => 'w30'
 							)
 						);
 					?>
-					<p><?php echo $this->Html->link('<i class="icon-white icon-plus-sign"></i>&nbsp;&nbsp;'.__('Ajouter un fournisseur'),array('controller'=>'customers','action'=>'addiframe'),array('escape'=>false,'class'=>'fancybox fancybox.iframe btn btn_add w30')); ?></p>
+					<p><?php echo $this->Html->link('<i class="icon-white icon-plus-sign"></i>&nbsp;&nbsp;' . __('Ajouter un fournisseur'), array('controller' => 'customers', 'action' => 'addiframe'), array('escape' => false, 'class' => 'fancybox fancybox.iframe btn btn_add w30')); ?></p>
 				</div>
 				<div class="tab-pane" id="products">
 					<div class="orderforms">
@@ -100,10 +100,10 @@
 							<div class="w58 inline"><?php 
 										echo $this->Form->input('Product.0.name',
 											array(
-												'label'=>false,
-												'div'=>false,
-												'type'=>'text',
-												'class'=>'w99 autocomplete'
+												'label' => false,
+												'div' => false,
+												'type' => 'text',
+												'class' => 'w99 autocomplete'
 											)
 										);
 									?>
@@ -112,11 +112,11 @@
 									<?php 
 										echo $this->Form->input('Product.0.amout',
 											array(
-												'label'=>false,
-												'div'=>false,
-												'type'=>'text',
-												'class'=>'w99 right calcul qtt',
-												'value'=>0
+												'label' => false,
+												'div' => false,
+												'type' => 'text',
+												'class' => 'w99 right calcul qtt',
+												'value' => 0
 											)
 										);
 									?>
@@ -125,11 +125,11 @@
 									<?php 
 										echo $this->Form->input('Product.0.price',
 											array(
-												'label'=>false,
-												'div'=>false,
-												'type'=>'text',
-												'class'=>'w99 right calcul prixht',
-												'value'=>0
+												'label' => false,
+												'div' => false,
+												'type' => 'text',
+												'class' => 'w99 right calcul prixht',
+												'value' => 0
 											)
 										);
 									?>
@@ -138,11 +138,11 @@
 									<?php 
 										echo $this->Form->input('Product.0.tva',
 											array(
-												'label'=>false,
-												'div'=>false,
-												'type'=>'text',
-												'class'=>'w99 right calcul tva',
-												'value'=>0
+												'label' => false,
+												'div' => false,
+												'type' => 'text',
+												'class' => 'w99 right calcul tva',
+												'value' => 0
 											)
 										);
 									?>
@@ -151,12 +151,12 @@
 									<?php 
 										echo $this->Form->input('Product.0.total',
 											array(
-												'label'=>false,
-												'div'=>false,
-												'type'=>'text',
-												'class'=>'w99 right total',
-												'readonly'=>true,
-												'value'=>0
+												'label' => false,
+												'div' => false,
+												'type' => 'text',
+												'class' => 'w99 right total',
+												'readonly' => true,
+												'value' => 0
 											)
 										);
 									?>
@@ -167,7 +167,7 @@
 				</div>
 			</div>
 	<div class="cb"></div>
-	<?php echo $this->Form->end(array('label'=>__('Ajouter ce bon de commande'),'class'=>'btn btn-primary submit w100')); ?>
+	<?php echo $this->Form->end(array('label' => __('Ajouter ce bon de commande'), 'class' => 'btn btn-primary submit w100')); ?>
 </div>
 <?php
 	$this->Html->script('jquery.cake.clone.js', array('inline' => false));
@@ -178,4 +178,3 @@
 	$this->Html->script('pickadate/picker.date.js', array('inline' => false));
 	$this->Html->script('fancy/jquery.fancybox.js', array('inline' => false));
 	$this->Html->script('orderforms.js', array('inline' => false));
-?>

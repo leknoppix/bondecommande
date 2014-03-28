@@ -19,36 +19,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-        <?php echo $this->Html->charset(); ?>
-        <title><?php echo __('Application bon de commande'); ?>
-        </title>
-        <?php
-                echo $this->Html->meta('icon');
-                echo $this->fetch('meta');
-                echo $this->fetch('css');
-                echo $this->Html->css(
-                        array('style')
-                );
-        ?>
-        <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
-        <!--[if lt IE 9]>
-          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
+	<?php echo $this->Html->charset(); ?>
+	<title><?php echo __('Application bon de commande'); ?>
+	</title>
+	<?php
+		echo $this->Html->meta('icon');
+		echo $this->fetch('meta');
+		echo $this->fetch('css');
+		echo $this->Html->css(
+			array('style')
+		);
+	?>
+	<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
 </head>
 <body>
-        <div class="box_login">
-            <?php echo $this->Session->flash(); ?>
-            <?php echo $this->fetch('content'); ?>
-        </div>
-        <?php echo $this->element('sql_dump'); ?>
-        <?php echo $this->fetch('script'); ?>
-        <?php echo $this->Html->script(
-            array(
-                "jquery.min.js",
-                "jquery-ui.js",
-                "main.js"
-            )
-        );
-        ?>
+	<div class="box_login">
+		<?php echo $this->Session->flash(); ?>
+		<?php echo $this->fetch('content'); ?>
+	</div>
+	<?php echo $this->element('sql_dump'); ?>
+	<?php echo $this->fetch('script'); ?>
+	<?php echo $this->Html->script(
+		array(
+		"jquery.min.js",
+		"jquery-ui.js",
+		"main.js"
+		)
+	);
+	?>
 </body>
 </html>

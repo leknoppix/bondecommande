@@ -8,13 +8,11 @@ App::uses('AppController', 'Controller');
  */
 class UsersController extends AppController {
 
-
 /**
  * index method
  *
  * @return void
  */
-
 	public function index() {
 		$s = $this->Session->read('Auth');
 		$id	=	$s['User']['id'];
@@ -26,6 +24,7 @@ class UsersController extends AppController {
 			);
 		$this->set('users', $users);
 	}
+
 /**
  * logout method
  *

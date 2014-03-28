@@ -13,8 +13,9 @@ class ProductsController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator','RequestHandler');
-	public $helpers = array('Js','Html');
+	public $components	=	array('Paginator',	'RequestHandler');
+
+	public $helpers	=	array('Js',	'Html');
 
 /**
  * index method
@@ -94,8 +95,7 @@ class ProductsController extends AppController {
 			throw new NotFoundException(__('Ce produit n\'existe pas.'));
 		}
 		$this->Product->id = $id;
-		if($this->Product->delete())
-		{
+		if ($this->Product->delete()) {
 			echo true;
 		}
 	}

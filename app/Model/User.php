@@ -60,16 +60,16 @@ class User extends AppModel {
 			),
 		),
 		'password' => array(
-			'identicalFieldValues' => array( 
-        		'rule' => array('identicalFieldValues', 'confirm_password' ), 
-        		'message' => 'Please re-enter your password twice so that the values match' 
-            ),
+			'identicalFieldValues' => array(
+				'rule' => array('identicalFieldValues', 'confirm_password' ),
+				'message' => 'Please re-enter your password twice so that the values match'
+			),
 		),
-		'passwordmodif' => array(
-			'identicalFieldValues' => array( 
-        		'rule' => array('identicalFieldValues', 'confirm_password' ), 
-        		'message' => 'Please re-enter your password twice so that the values match' 
-            ),
+		'passwordmodif' => array()
+			'identicalFieldValues' => array(
+				'rule' => array('identicalFieldValues', 'confirm_password' ),
+				'message' => 'Please re-enter your password twice so that the values match'
+			),
 		),
 		'mail' => array(
 			'email' => array(
@@ -150,26 +150,30 @@ class User extends AppModel {
 			),
 		),
 	);
-	public function beforeSave($options = array())
-	{
-		$this->data['User']['name']=$this->data['User']['username'];
-	    if(!empty($this->data['User']['passwordmodif']))
-	    {
-	    	$this->data['User']['password']=Security::hash($this->data['User']['passwordmodif'],null,true);
-	    }
-	    return true;
+
+	public function beforeSave($options = array()) {
+		$this->data['User']['name'] = $this->data['User']['username'];
+		if (!empty($this->data['User']['passwordmodif'])) {
+			$this->data['User']['password'] = Security::hash($this->data['User']['passwordmodif'], null, true);
+		}
+		return true;
 	}
-	function identicalFieldValues( $field=array(), $compare_field=null )  
-    { 
-        foreach( $field as $key => $value ){ 
-            $v1 = $value; 
-            $v2 = $this->data[$this->name][ $compare_field ];                  
-            if($v1 !== $v2) { 
-                return FALSE; 
-            } else { 
-                continue; 
-            } 
-        } 
-        return TRUE; 
-    } 
+
+/**
+ * identicalFieldValues
+ *
+ * @var array
+ */
+	public function identicalFieldValues($field = array(), $comparefield = null) {
+		foreach ($field as $key => $value) {
+			$v1 = $value;
+			$v2 = $this->data[$this->name][$comparefield];
+			if ($v1 !== $v2) {
+				return false;
+			} else {
+				continue;
+			}
+		}
+		return true;
+	}
 }

@@ -69,7 +69,7 @@ class Orderform extends AppModel {
 		)
 	);
 
-	public function beforeSave($options=array()) {
+	public function beforeSave($options = array()) {
 		$this->data['Orderform']['user_id'] = CakeSession::read('Auth.User.id');
 		list($jour, $mois, $annee) = explode('/', $this->data['Orderform']['date1']);
 		$this->data['Orderform']['date'] = $annee . '-' . $mois . '-' . $jour;
@@ -78,7 +78,7 @@ class Orderform extends AppModel {
 		return true;
 	}
 
-	public function afterFind($results, $primary=false) {
+	public function afterFind($results, $primary = false) {
 		list($annee1, $mois1, $jour1) = explode('-', $results[0]['Orderform']['date']);
 		$results[0]['Orderform']['date1'] = $jour1 . '/' . $mois1 . '/' . $annee1;
 		list($annee2, $mois2, $jour2) = explode('-', $results[0]['Orderform']['datelivraison']);

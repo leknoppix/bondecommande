@@ -80,7 +80,7 @@
 				<strong class="bold">
 					<?php echo _('Date de livraison souhaité:'); ?>
 				</strong> 
-				<?php echo $this->Time->format('d/m/Y', $orderform['Orderform']['datelivraison']); ?>
+				<?php echo $this->Time->format('d/m/Y', $orderform['Orderform']['shipped']); ?>
 			</p>
 			<p>
 				<strong class="bold">
@@ -117,7 +117,7 @@
 							<tr>
 								<td><?php echo $produits['name']; ?></td>
 								<td class="right">
-									<?php echo number_format($produits['price'], 3, ',', ''); ?> &euro;
+									<?php echo number_format($produits['price'], 2, ',', ''); ?> &euro;
 								</td>
 								<td class="right">
 									<?php echo $produits['amout']; ?>

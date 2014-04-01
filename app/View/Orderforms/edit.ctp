@@ -51,16 +51,18 @@
 							);
 						?>
 						<?php
-							echo $this->Form->input('date1',
+							echo $this->Form->input('invoice',
 								array(
+									'type' => 'text',
 									'label' => __('Date de la demande'),
 									'class' => 'datepicker w30'
 								)
 							);
 						?>
 						<?php
-							echo $this->Form->input('date2',
+							echo $this->Form->input('shipped',
 								array(
+									'type' => 'text',
 									'label' => __('Date de livraison souhaitée'),
 									'class' => 'datepicker w30'
 								)
@@ -87,7 +89,7 @@
 							)
 						);
 					?>
-					<p><?php echo $this->Html->link('<i class="icon-white icon-plus-sign"></i>&nbsp;&nbsp;' . __('Ajouter un fournisseur'), array('controller' => 'customers', 'action' => 'addiframe'), rray('escape' => false, 'class' => 'fancybox fancybox.iframe btn btn_add w30')); ?></p>
+					<p><?php echo $this->Html->link('<i class="icon-white icon-plus-sign"></i>&nbsp;&nbsp;' . __('Ajouter un fournisseur'), array('controller' => 'customers', 'action' => 'addiframe'), array('escape' => false, 'class' => 'fancybox fancybox.iframe btn btn_add w30')); ?></p>
 				</div>
 				<div class="tab-pane" id="products">
 					<div class="orderforms">

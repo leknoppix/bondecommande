@@ -70,19 +70,19 @@ class Orderform extends AppModel {
 	);
 
 	public function beforeSave($options = array()) {
+		App::uses('CakeTime', 'Utility');
+		$this->data['Orderform']['invoice'] = CakeTime::format($this->data['Orderform']['invoice'],  '%Y-%m-%d');
+		$this->data['Orderform']['shipped'] = CakeTime::format($this->data['Orderform']['shipped'],  '%Y-%m-%d');
 		$this->data['Orderform']['user_id'] = CakeSession::read('Auth.User.id');
-		list($jour, $mois, $annee) = explode('/', $this->data['Orderform']['date1']);
-		$this->data['Orderform']['date'] = $annee . '-' . $mois . '-' . $jour;
-		list($jour, $mois, $annee) = explode('/', $this->data['Orderform']['date2']);
-		$this->data['Orderform']['datelivraison'] = $annee . '-' . $mois . '-' . $jour;
 		return true;
 	}
 
 	public function afterFind($results, $primary = false) {
-		list($annee1, $mois1, $jour1) = explode('-', $results[0]['Orderform']['date']);
-		$results[0]['Orderform']['date1'] = $jour1 . '/' . $mois1 . '/' . $annee1;
-		list($annee2, $mois2, $jour2) = explode('-', $results[0]['Orderform']['datelivraison']);
-		$results[0]['Orderform']['date2'] = $jour2 . '/' . $mois2 . '/' . $annee2;
+		App::uses('CakeTime', 'Utility');
+		foreach ($results as $key => $val) {
+			$results[$key]['Orderform']['invoice'] = CakeTime::format($results[$key]['Orderform']['invoice'],  '%d-%m-%Y');
+			$results[$key]['Orderform']['shipped'] = CakeTime::format($results[$key]['Orderform']['shipped'],  '%d-%m-%Y');
+		}
 		return $results;
 	}
 }

@@ -65,7 +65,7 @@ class User extends AppModel {
 				'message' => 'Please re-enter your password twice so that the values match'
 			),
 		),
-		'passwordmodif' => array()
+		'passwordmodif' => array(
 			'identicalFieldValues' => array(
 				'rule' => array('identicalFieldValues', 'confirm_password' ),
 				'message' => 'Please re-enter your password twice so that the values match'
@@ -164,7 +164,7 @@ class User extends AppModel {
  *
  * @var array
  */
-	public function identicalFieldValues($field = array(), $comparefield = null) {
+	function identicalFieldValues($field = array(), $comparefield = null) {
 		foreach ($field as $key => $value) {
 			$v1 = $value;
 			$v2 = $this->data[$this->name][$comparefield];

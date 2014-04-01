@@ -82,7 +82,7 @@ ob_start(); ?>
 					<strong class="bold">
 						<?php echo __('Date de livraison souhaité:'); ?>
 					</strong> 
-					<?php echo $this->Time->format('d/m/Y', $orderform['Orderform']['datelivraison']); ?>
+					<?php echo $this->Time->format('d/m/Y', $orderform['Orderform']['shipped']); ?>
 				</td>
 				<td>
 					<strong class="bold"><?php echo __('Lieu de livraison:'); ?></strong><br />

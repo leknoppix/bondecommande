@@ -46,19 +46,21 @@
 							);
 						?>
 						<?php
-							echo $this->Form->input('date1',
+							echo $this->Form->input('invoice',
 								array(
 									'label' => __('Date de la demande'),
-									'value' => date('d/m/Y'),
+									'type' => 'text',
+									'value' => date('d-m-Y'),
 									'class' => 'datepicker w30'
 								)
 							);
 						?>
 						<?php
-							echo $this->Form->input('date2',
+							echo $this->Form->input('shipped',
 								array(
 									'label' => __('Date de livraison souhaitée'),
-									'value' => date('d/m/Y'),
+									'type' => 'text',
+									'value' => date('d-m-Y'),
 									'class' => 'datepicker w30'
 								)
 							);

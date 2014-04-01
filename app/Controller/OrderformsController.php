@@ -47,7 +47,6 @@ class OrderformsController extends AppController {
 
 	public function pdf($id = null) {
 		Configure::write('debug',	0);
-		//la solution depuis cakephp 2
 		$this->response->type('pdf');
 		$this->layout	=	'pdf';
 		if (!$this->Orderform->exists($id)) {
@@ -73,13 +72,20 @@ class OrderformsController extends AppController {
 					)
 				)
 			);
+		//Cas d'une nouvelle année
 		if (!$numbers) {
 			$this->Numberorder->create();
 			$this->Numberorder->save(array('year'	=>	date('Y'),	'num'	=>	'000000'));
-			$numbers['Numberorder']['newnum']	=	date('Y')	.	'-'	.	str_pad('000001',	6,	'0',	STR_PAD_LEFT);
+			$numbers['Numberorder']['newnum']	=	date('Y')	.	'-'	.	str_pad('1',	6,	'0',	STR_PAD_LEFT);
 		}
 		if ($this->request->is('post')) {
-			$this->request->data['Orderform']['numorder']	=	$numbers['Numberorder']['newnum'];
+			$this->Numberorder->save(array(
+											'id' => $numbers['Numberorder']['id'],
+											'year' => $numbers['Numberorder']['year'],
+											'num' => str_pad($numbers['Numberorder']['num'] + 1, 6, '0', STR_PAD_LEFT)
+										)
+				);
+			$this->request->data['Orderform']['numorder']	=	$numbers['Numberorder']['year'] . '-' . str_pad($numbers['Numberorder']['num'] + 1, 6, '0', STR_PAD_LEFT);
 			$this->Orderform->create();
 			if ($this->Orderform->saveAssociated($this->request->data)) {
 				$this->Session->setFlash(__('Le bon de commande a été enregistré. Vous pouvez générer le bon de commande'),	'notif',	array('type'	=>	'success'));
@@ -88,7 +94,6 @@ class OrderformsController extends AppController {
 				$this->Session->setFlash(__('Une erreur est survenu. Merci de vérifier les informations et de valider à nouveau.'),	'notif',	array('type'	=>	'error'));
 			}
 		} else {
-			/* appel de la table     pour récupérer l'id du bon de commande suivant */
 			$users = $this->Orderform->User->find('list');
 			$customers = $this->Orderform->Customer->find('list',	array('order'	=>	'name'));
 			$services = $this->Orderform->Service->find('list',	array('order'	=>	'name'));

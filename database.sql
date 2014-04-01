@@ -77,10 +77,10 @@ CREATE TABLE IF NOT EXISTS `orderforms` (
   `numorder` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
   `user_id` int(255) NOT NULL,
   `customer_id` int(255) NOT NULL,
-  `date` date NOT NULL,
+  `invoice` date NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `service_id` int(255) NOT NULL,
-  `datelivraison` date NOT NULL,
+  `shipped` date NOT NULL,
   `lieulivraison` text COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;

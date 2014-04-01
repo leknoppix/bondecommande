@@ -32,12 +32,12 @@ CREATE TABLE IF NOT EXISTS `customers` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `name` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `address` text COLLATE utf8_unicode_ci NOT NULL,
-  `zipcode` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
+  `postal` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
   `city` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
-  `tel` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `phone` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `fax` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `mail` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `siteinternet` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `website` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
@@ -57,6 +57,7 @@ CREATE TABLE IF NOT EXISTS `numberorders` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `year` varchar(4) COLLATE utf8_unicode_ci NOT NULL,
   `num` varchar(6) COLLATE utf8_unicode_ci NOT NULL,
+  `new_num` varchar(6) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
@@ -81,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `orderforms` (
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `service_id` int(255) NOT NULL,
   `shipped` date NOT NULL,
-  `lieulivraison` text COLLATE utf8_unicode_ci NOT NULL,
+  `shipping_address` text COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
@@ -100,9 +101,9 @@ CREATE TABLE IF NOT EXISTS `products` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `slug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `amout` float NOT NULL,
-  `price` float NOT NULL,
-  `tva` float(12,2) NOT NULL,
+  `amout` DECIMAL(10,4) NOT NULL,
+  `price` DECIMAL(10,4) NOT NULL,
+  `tva` DECIMAL(10,4) NOT NULL,
   `orderform_id` int(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
@@ -138,17 +139,16 @@ CREATE TABLE IF NOT EXISTS `services` (
 
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `nom` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `prenom` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `firstname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `lastname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `mail` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `telephone_fixe` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `telephone_mobile` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `adresse_postale` text COLLATE utf8_unicode_ci NOT NULL,
-  `code_postal` varchar(6) COLLATE utf8_unicode_ci NOT NULL,
-  `ville` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `phone_office` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `phone_mobile` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `addresss` text COLLATE utf8_unicode_ci NOT NULL,
+  `postal` varchar(6) COLLATE utf8_unicode_ci NOT NULL,
+  `city` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `signature` text COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
@@ -157,8 +157,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Contenu de la table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `nom`, `prenom`, `username`, `password`, `mail`, `telephone_fixe`, `telephone_mobile`, `adresse_postale`, `code_postal`, `ville`, `signature`) VALUES
-(1, 'Administrateur', 'admin', 'admin', 'admin', 'f14362cd37c3bc78f6ebb0d78547557fa924fb82', 'admin@admin.fr', '0000000000', '0000000000', 'ah', '0000', 'ah', 'coucou');
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `password`, `email`, `phone_office`, `phone_mobile`, `address`, `postal`, `city`, `signature`) VALUES
+(1, 'Administrateur', 'admin', 'admin', 'f14362cd37c3bc78f6ebb0d78547557fa924fb82', 'admin@admin.fr', '0000000000', '0000000000', 'ah', '0000', 'ah', 'coucou');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -69,20 +69,4 @@ class Orderform extends AppModel {
 		)
 	);
 
-	public function beforeSave($options = array()) {
-		App::uses('CakeTime', 'Utility');
-		$this->data['Orderform']['invoice'] = CakeTime::format($this->data['Orderform']['invoice'],  '%Y-%m-%d');
-		$this->data['Orderform']['shipped'] = CakeTime::format($this->data['Orderform']['shipped'],  '%Y-%m-%d');
-		$this->data['Orderform']['user_id'] = CakeSession::read('Auth.User.id');
-		return true;
-	}
-
-	public function afterFind($results, $primary = false) {
-		App::uses('CakeTime', 'Utility');
-		foreach ($results as $key => $val) {
-			$results[$key]['Orderform']['invoice'] = CakeTime::format($results[$key]['Orderform']['invoice'],  '%d-%m-%Y');
-			$results[$key]['Orderform']['shipped'] = CakeTime::format($results[$key]['Orderform']['shipped'],  '%d-%m-%Y');
-		}
-		return $results;
-	}
 }

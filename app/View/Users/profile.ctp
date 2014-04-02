@@ -25,7 +25,7 @@
 					<div class="cb"></div>
 					<div class="tab-pane" id="identite">
 						<?php
-							echo $this->Form->input('nom',
+							echo $this->Form->input('firstname',
 								array(
 									'label' => __('Votre nom'),
 									'class' => 'w30'
@@ -34,7 +34,7 @@
 						?>
 						<div class="cb"></div>
 						<?php
-							echo $this->Form->input('prenom',
+							echo $this->Form->input('lastname',
 									array(
 										'label' => __('Votre prénom'),
 										'class' => 'w30'
@@ -80,7 +80,7 @@
 					</div>
 					<div class="tab-pane" id="adressage">
 						<?php
-							echo $this->Form->input('telephone_fixe',
+							echo $this->Form->input('phone_office',
 								array(
 									'label' => __('Votre téléphone fixe'),
 									'class' => 'w30'
@@ -89,7 +89,7 @@
 						?>
 						<div class="cb"></div>
 						<?php
-							echo $this->Form->input('telephone_mobile',
+							echo $this->Form->input('phone_mobile',
 								array(
 									'label' => __('Votre téléphone mobile'),
 									'class' => 'w30'
@@ -98,7 +98,7 @@
 						?>
 						<div class="cb"></div>
 						<?php
-							echo $this->Form->input('adresse_postale',
+							echo $this->Form->input('address',
 								array(
 									'label' => __('Votre adresse postale'),
 									'class' => 'w30'
@@ -107,13 +107,13 @@
 						?>
 						<div class="cb"></div>
 						<?php
-							echo $this->Form->input('code_postal',
+							echo $this->Form->input('postal',
 								array(
 									'label' => __('Code Postal'),
 									'class' => 'w30'
 								)
 							);
-							echo $this->Form->input('ville',
+							echo $this->Form->input('city',
 								array(
 									'label' => __('Ville'),
 									'class' => 'w30'
@@ -123,7 +123,7 @@
 					</div>
 					<div class="tab-pane" id="mail">
 						<?php
-							echo $this->Form->input('mail',
+							echo $this->Form->input('email',
 								array(
 									'label' => __('Votre adresse mail'),
 									'class' => 'w30'

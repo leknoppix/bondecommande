@@ -30,7 +30,7 @@
 					<div class="cb"></div>
 					<div class="tab-pane" id="identite">
 						<?php
-							echo $this->Form->input('nom', array(
+							echo $this->Form->input('lastname', array(
 									'label' => __('Son nom'),
 									'class' => 'w30'
 								)
@@ -38,7 +38,7 @@
 						?>
 						<div class="cb"></div>
 						<?php
-							echo $this->Form->input('prenom', array('label' => __('Son prénom'), 'class' => 'w30'));
+							echo $this->Form->input('firstname', array('label' => __('Son prénom'), 'class' => 'w30'));
 						?>
 						<div class="cb"></div>
 						<?php
@@ -56,28 +56,28 @@
 					</div>
 					<div class="tab-pane" id="adressage">
 						<?php
-							echo $this->Form->input('telephone_fixe', array('label' => __('Le téléphone fixe'), 'class' => 'w30'));
+							echo $this->Form->input('phone_office', array('label' => __('Le téléphone fixe'), 'class' => 'w30'));
 						?>
 						<div class="cb"></div>
 						<?php
-							echo $this->Form->input('telephone_mobile', array('label' => __('Le téléphone mobile'), 'class' => 'w30'));
+							echo $this->Form->input('phone_mobile', array('label' => __('Le téléphone mobile'), 'class' => 'w30'));
 						?>
 						<div class="cb"></div>
 						<?php
-							echo $this->Form->input('adresse_postale', array('label' => __('L\'adresse postale'), 'class' => 'w30'));
+							echo $this->Form->input('addresss', array('label' => __('L\'adresse postale'), 'class' => 'w30'));
 						?>
 						<div class="cb"></div>
 						<?php
-							echo $this->Form->input('code_postal', array('label' => __('Code Postal'), 'class' => 'w30'));
+							echo $this->Form->input('postal', array('label' => __('Code Postal'), 'class' => 'w30'));
 						?>
 						<div class="cb"></div>
 						<?php
-							echo $this->Form->input('ville', array('label' => __('Ville'), 'class' => 'w30'));
+							echo $this->Form->input('city', array('label' => __('Ville'), 'class' => 'w30'));
 						?>
 					</div>
 					<div class="tab-pane" id="mail">
 						<?php
-							echo $this->Form->input('mail', array('label' => __('Adresse mail'), 'class' => 'w30'));
+							echo $this->Form->input('email', array('label' => __('Adresse mail'), 'class' => 'w30'));
 						?>
 						<div class="cb"></div>
 						<?php

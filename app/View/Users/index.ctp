@@ -30,12 +30,12 @@
 	<tbody>
 		<?php foreach ($users as $user): ?>
 		<tr>
-			<td class="texte"><?php echo h($user['User']['nom']); ?>&nbsp;</td>
-			<td class="texte"><?php echo h($user['User']['prenom']); ?>&nbsp;</td>
+			<td class="texte"><?php echo h($user['User']['firstname']); ?>&nbsp;</td>
+			<td class="texte"><?php echo h($user['User']['lastname']); ?>&nbsp;</td>
 			<td class="texte"><?php echo h($user['User']['username']); ?>&nbsp;</td>
-			<td class="texte"><?php echo h($user['User']['mail']); ?>&nbsp;</td>
-			<td class="texte"><?php echo h($user['User']['telephone_fixe']); ?>&nbsp;</td>
-			<td class="texte"><?php echo h($user['User']['telephone_mobile']); ?>&nbsp;</td>
+			<td class="texte"><?php echo h($user['User']['email']); ?>&nbsp;</td>
+			<td class="texte"><?php echo h($user['User']['phone_office']); ?>&nbsp;</td>
+			<td class="texte"><?php echo h($user['User']['phone_mobile']); ?>&nbsp;</td>
 			<td>
 				<?php
 					echo $this->Html->link('<i class="icon-edit icon-white"></i>&nbsp;&nbsp;' . __('Edition'), array('action' => 'edit', $user['User']['id']), array('escape' => false, 'class' => "btn btn-info"));

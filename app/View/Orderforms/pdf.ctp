@@ -120,7 +120,7 @@ ob_start(); ?>
 									<?php echo number_format($produits['price'], 2, ',', ''); ?> &euro;
 								</td>
 								<td style="border: 1px solid black;text-align:right;padding-right:10px;height:6mm">
-									<?php echo $produits['amout']; ?>
+									<?php echo number_format($produits['amout'], 2, ',', ''); ?>
 								</td>
 								<td style="border: 1px solid black;text-align:right;padding-right:10px;height:6mm">
 									<?php

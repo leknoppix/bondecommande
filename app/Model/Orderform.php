@@ -69,4 +69,9 @@ class Orderform extends AppModel {
 		)
 	);
 
+	public function beforeSave($options = array()) {
+			$this->data['Orderform']['user_id'] = CakeSession::read('Auth.User.id');
+		return true;
+	}
+
 }

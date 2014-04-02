@@ -66,7 +66,7 @@ class OrderformsController extends AppController {
 		$numbers	=	$this->Numberorder->find(
 				'first',
 				array(
-					'fields'	=>	array('id',	'year',	'num'),
+					'fields'	=>	array('id','year',	'num', 'new_num'),
 					'conditions'	=>	array(
 						'year'	=>	date('Y')
 					)
@@ -75,17 +75,23 @@ class OrderformsController extends AppController {
 		//Cas d'une nouvelle année
 		if (!$numbers) {
 			$this->Numberorder->create();
-			$this->Numberorder->save(array('year'	=>	date('Y'),	'num'	=>	'000000'));
-			$numbers['Numberorder']['newnum']	=	date('Y')	.	'-'	.	str_pad('1',	6,	'0',	STR_PAD_LEFT);
+			$this->Numberorder->save(
+				array(
+					'year'	=>	date('Y'),
+					'num'	=>	'000001'
+				)
+			);
+			$numbers['Numberorder']['new_num']	=	date('Y')	.	'-'	.	str_pad('1',	6,	'0',	STR_PAD_LEFT);
 		}
 		if ($this->request->is('post')) {
-			$this->Numberorder->save(array(
-											'id' => $numbers['Numberorder']['id'],
-											'year' => $numbers['Numberorder']['year'],
-											'num' => str_pad($numbers['Numberorder']['num'] + 1, 6, '0', STR_PAD_LEFT)
-										)
-				);
-			$this->request->data['Orderform']['numorder']	=	$numbers['Numberorder']['year'] . '-' . str_pad($numbers['Numberorder']['num'] + 1, 6, '0', STR_PAD_LEFT);
+			$this->request->data['Orderform']['numorder']	=	$numbers['Numberorder']['new_num'];
+			$this->Numberorder->save(
+				array(
+					'id' => $numbers['Numberorder']['id'],
+					'year'	=>	date('Y'),
+					'num' => str_pad($numbers['Numberorder']['num'] + 1,	6,	'0',	STR_PAD_LEFT)
+				)
+			);
 			$this->Orderform->create();
 			if ($this->Orderform->saveAssociated($this->request->data)) {
 				$this->Session->setFlash(__('Le bon de commande a été enregistré. Vous pouvez générer le bon de commande'),	'notif',	array('type'	=>	'success'));
@@ -97,7 +103,7 @@ class OrderformsController extends AppController {
 			$customers = $this->Orderform->Customer->find('list',	array('order'	=>	'name'));
 			$services = $this->Orderform->Service->find('list',	array('order'	=>	'name'));
 			$products = $this->Orderform->Product->find('list');
-			$this->set(compact('users', 'customers', 'services', 'products',	'numbers'));
+			$this->set(compact('customers', 'services', 'products',	'numbers'));
 		}
 	}
 
@@ -123,7 +129,6 @@ class OrderformsController extends AppController {
 			$options = array('conditions' => array('Orderform.' . $this->Orderform->primaryKey => $id));
 			$this->request->data = $this->Orderform->find('first', $options);
 		}
-		$users = $this->Orderform->User->find('list');
 		$customers = $this->Orderform->Customer->find('list');
 		$services = $this->Orderform->Service->find('list');
 		$products = $this->Orderform->Product->find('all',

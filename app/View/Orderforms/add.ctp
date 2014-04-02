@@ -32,7 +32,7 @@
 								array(
 									'label' => __('Numéro du bon de commande provisoire'),
 									'readonly' => true,
-									'value' => $numbers['Numberorder']['newnum'],
+									'value' => $numbers['Numberorder']['new_num'],
 									'class' => 'w30'
 								)
 							);

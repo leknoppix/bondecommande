@@ -74,7 +74,7 @@
 							);
 						?>
 						<?php
-							echo $this->Form->input('lieulivraison', array('label' => __('Adresse de livraison'), 'class' => 'w30', 'type' => 'textarea'));
+							echo $this->Form->input('shipping_address', array('label' => __('Adresse de livraison'), 'class' => 'w30', 'type' => 'textarea'));
 						?>
 						<div class="cb"></div>
 				</div>

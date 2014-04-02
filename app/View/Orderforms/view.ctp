@@ -86,7 +86,7 @@
 				<strong class="bold">
 					<?php echo _('Lieu de livraison:'); ?>
 				</strong><br />
-					<span style="margin-left:30px;"><?php echo $orderform['Orderform']['lieulivraison']; ?></span>
+					<span style="margin-left:30px;"><?php echo $orderform['Orderform']['shipping_address']; ?></span>
 			<p>
 		</div>
 		<div class="cb"></div>

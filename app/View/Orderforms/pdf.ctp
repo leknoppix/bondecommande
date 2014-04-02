@@ -86,7 +86,7 @@ ob_start(); ?>
 				</td>
 				<td>
 					<strong class="bold"><?php echo __('Lieu de livraison:'); ?></strong><br />
-					<span style="margin-left:30mm;"><?php echo $orderform['Orderform']['lieulivraison']; ?></span>
+					<span style="margin-left:30mm;"><?php echo $orderform['Orderform']['shipping_address']; ?></span>
 				</td>
 			</tr>
 		</table>

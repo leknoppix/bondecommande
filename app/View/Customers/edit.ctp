@@ -37,7 +37,7 @@
 			?>
 			<div class="cb"></div>
 			<?php
-				echo $this->Form->input('zipcode', array('label' => __('Code postal'), 'class' => 'w30'));
+				echo $this->Form->input('postal', array('label' => __('Code postal'), 'class' => 'w30'));
 			?>
 			<div class="cb"></div>
 			<?php
@@ -46,10 +46,10 @@
 		</div>
 		<div class="tab-pane" id="correspondance">
 			<?php
-				echo $this->Form->input('tel', array('label' => __('Téléphone'), 'required' => false, 'class' => 'w30'));
+				echo $this->Form->input('phone', array('label' => __('Téléphone'), 'required' => false, 'class' => 'w30'));
 				echo $this->Form->input('fax', array('label' => __('Fax'), 'required' => false, 'class' => 'w30'));
-				echo $this->Form->input('mail', array('label' => __('Adresse mail'), 'required' => false, 'class' => 'w30'));
-				echo $this->Form->input('siteinternet', array('label' => __('Site internet'), 'required' => false, 'class' => 'w30'));
+				echo $this->Form->input('email', array('label' => __('Adresse mail'), 'required' => false, 'class' => 'w30'));
+				echo $this->Form->input('website', array('label' => __('Site internet'), 'required' => false, 'class' => 'w30'));
 			?>
 		</div>
 	</div>

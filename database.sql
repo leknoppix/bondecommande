@@ -146,7 +146,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `phone_office` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `phone_mobile` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `addresss` text COLLATE utf8_unicode_ci NOT NULL,
+  `addresst` text COLLATE utf8_unicode_ci NOT NULL,
   `postal` varchar(6) COLLATE utf8_unicode_ci NOT NULL,
   `city` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `signature` text COLLATE utf8_unicode_ci NOT NULL,

@@ -14,7 +14,7 @@ ob_start(); ?>
 			?>
 			<?php
 				echo $orderform['Orderform']['numorder'];
-			?> - Mairie de xxx <br /><br />
+			?> - <?php echo Configure::read('Default.entity'); ?><br /><br />
 			<?php
 				echo __('Date de la commande');
 			?> 
@@ -40,7 +40,7 @@ ob_start(); ?>
 							echo Configure::read('Default.address');
 						?><br />
 						<?php
-							echo Configure::read('Default.complementaddress');
+							echo Configure::read('Default.complementadress');
 						?><br />
 						<?php
 							echo Configure::read('Default.zipcode');
@@ -129,7 +129,7 @@ ob_start(); ?>
 									?> &euro;
 								</td>
 								<td style="border: 1px solid black;text-align:right;padding-right:10px;height:6mm">
-									<?php echo $produits['tva']; ?> %
+									<?php echo number_format($produits['tva'], 2, ',', ''); ?> %
 								</td>
 								<td style="border: 1px solid black;text-align:right;padding-right:10px;height:6mm">
 									<?php

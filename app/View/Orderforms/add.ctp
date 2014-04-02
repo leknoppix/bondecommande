@@ -89,7 +89,7 @@
 					<p><?php echo $this->Html->link('<i class="icon-white icon-plus-sign"></i>&nbsp;&nbsp;' . __('Ajouter un fournisseur'), array('controller' => 'customers', 'action' => 'addiframe'), array('escape' => false, 'class' => 'fancybox fancybox.iframe btn btn_add w30')); ?></p>
 				</div>
 				<div class="tab-pane" id="products">
-					<div class="orderforms">
+					<div class="orderforms w100">
 						<div class="head w100">
 							<div class="w58 inline"><?php echo __('Nom du produit'); ?></div>
 							<div class="w10 inline"><?php echo __('Quantité'); ?></div>

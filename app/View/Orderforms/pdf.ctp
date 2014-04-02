@@ -19,7 +19,7 @@ ob_start(); ?>
 				echo __('Date de la commande');
 			?> 
 			<?php
-				echo $this->Time->format('d/m/Y', $orderform['Orderform']['date']);
+				echo $this->Time->format('d/m/Y', $orderform['Orderform']['invoice']);
 			?>
 		</p>
 	</page_header>
@@ -150,13 +150,14 @@ ob_start(); ?>
 					</tr>
 				</tbody>
 			</table>
-			<br /><br />
+			<br /><br /><br />
 		<hr />
 		<table>
         	<tr>
-        		<td style="text-align:center;width:60mm;"><?php echo __('Directeur du service'); ?></td>
-        		<td style="text-align:center;width:60mm;"><?php echo __('Le secrétaire général'); ?></td>
-        		<td style="text-align:center;width:60mm"><?php echo __('Service comptabilité'); ?></td>
+        		<td style="text-align:center;width:45mm;"><?php echo __('Directeur du service'); ?></td>
+        		<td style="text-align:center;width:45mm;"><?php echo __('Adjoint délégué'); ?></td>
+        		<td style="text-align:center;width:45mm;"><?php echo __('Le secrétaire général'); ?></td>
+        		<td style="text-align:center;width:45mm"><?php echo __('Service comptabilité'); ?></td>
        		</tr>
         </table>
 </page>

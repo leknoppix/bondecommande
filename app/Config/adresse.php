@@ -1,8 +1,8 @@
 <?php
 $config['Default'] = array(
-	'entity'=>'GITHUB',
-	'address'=>'street github',
-	'complementadress'=>' ',
-	'zipcode'=>'00000',
-	'city'=>'City'
+	'entity'=>'Mairie de Mirande',
+	'address'=>'Boulevard Clémenceau',
+	'complementadress'=>'BP53',
+	'zipcode'=>'32300',
+	'city'=>'Mirande'
 );

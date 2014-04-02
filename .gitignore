@@ -31,3 +31,5 @@ Thumbs.db
 # IDE Generated #
 #################
 *.komodoproject
+
+app/Config/adresse.php

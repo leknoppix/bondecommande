@@ -32,8 +32,8 @@
 		<td>
 			<?php echo $orderform['Orderform']['numorder']; ?>
 		</td>
+		<td><?php echo $orderform['Orderform']['name']; ?></td>
 		<td><?php echo $this->Time->format('d/m/Y', $orderform['Orderform']['invoice']); ?></td>
-		<td><?php echo $this->Time->format('d/m/Y', $orderform['Orderform']['shipped']); ?></td>
 		<td>
 			<?php echo $orderform['Service']['name']; ?>
 		</td>

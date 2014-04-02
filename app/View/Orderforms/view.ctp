@@ -51,7 +51,7 @@
 			<p>
 				<?php echo $orderform['Customer']['name']; ?><br /><br />
 				<?php echo $orderform['Customer']['address']; ?><br /><br />
-				<?php echo $orderform['Customer']['zipcode']; ?> 
+				<?php echo $orderform['Customer']['postal']; ?> 
 				<?php echo $orderform['Customer']['city']; ?>
 		</div>
 		<div class="cb"></div>

@@ -94,7 +94,6 @@ class OrderformsController extends AppController {
 				$this->Session->setFlash(__('Une erreur est survenu. Merci de vérifier les informations et de valider à nouveau.'),	'notif',	array('type'	=>	'error'));
 			}
 		} else {
-			$users = $this->Orderform->User->find('list');
 			$customers = $this->Orderform->Customer->find('list',	array('order'	=>	'name'));
 			$services = $this->Orderform->Service->find('list',	array('order'	=>	'name'));
 			$products = $this->Orderform->Product->find('list');

@@ -64,7 +64,7 @@
 						?>
 						<div class="cb"></div>
 						<?php
-							echo $this->Form->input('addresss', array('label' => __('L\'adresse postale'), 'class' => 'w30'));
+							echo $this->Form->input('address', array('label' => __('L\'adresse postale'), 'class' => 'w30'));
 						?>
 						<div class="cb"></div>
 						<?php

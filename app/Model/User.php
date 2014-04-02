@@ -19,7 +19,7 @@ class User extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'name' => array(
+		'lastname' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
@@ -29,17 +29,7 @@ class User extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'nom' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'prenom' => array(
+		'firstname' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
@@ -71,7 +61,7 @@ class User extends AppModel {
 				'message' => 'Please re-enter your password twice so that the values match'
 			),
 		),
-		'mail' => array(
+		'email' => array(
 			'email' => array(
 				'rule' => array('email'),
 				//'message' => 'Your custom message here',
@@ -89,7 +79,7 @@ class User extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'telephone_fixe' => array(
+		'phone_office' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
@@ -99,7 +89,7 @@ class User extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			)
 		),
-		'telephone_mobile' => array(
+		'phone_mobile' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
@@ -109,7 +99,7 @@ class User extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			)
 		),
-		'adresse_postale' => array(
+		'address' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
@@ -119,7 +109,7 @@ class User extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'code_postal' => array(
+		'postal' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
@@ -129,7 +119,7 @@ class User extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'ville' => array(
+		'city' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
@@ -152,7 +142,6 @@ class User extends AppModel {
 	);
 
 	public function beforeSave($options = array()) {
-		$this->data['User']['name'] = $this->data['User']['username'];
 		if (!empty($this->data['User']['passwordmodif'])) {
 			$this->data['User']['password'] = Security::hash($this->data['User']['passwordmodif'], null, true);
 		}

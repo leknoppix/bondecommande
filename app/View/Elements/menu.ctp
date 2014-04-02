@@ -9,7 +9,7 @@
 	&nbsp;
 	&nbsp;
 	<?php echo __('Bonjour'); ?>,
-	<?php echo $user['nom'] . ' ' . $user['prenom']; ?>&nbsp;&nbsp;|&nbsp;&nbsp;
+	<?php echo $user['lastname'] . ' ' . $user['firstname']; ?>&nbsp;&nbsp;|&nbsp;&nbsp;
 	<?php echo $this->Html->link(
 		__('Mon profil'),
 		array(

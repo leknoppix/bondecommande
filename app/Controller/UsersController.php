@@ -130,15 +130,15 @@ class UsersController extends AppController {
 				'fields' =>
 					array(
 						'id',
-						'nom',
+						'lastname',
+						'firstname',
 						'username',
-						'prenom',
-						'mail',
-						'telephone_fixe',
-						'telephone_mobile',
-						'adresse_postale',
-						'code_postal',
-						'ville',
+						'email',
+						'phone_office',
+						'phone_mobile',
+						'address',
+						'postal',
+						'city',
 						'signature'
 					)
 			);

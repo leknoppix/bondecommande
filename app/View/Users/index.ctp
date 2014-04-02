@@ -30,8 +30,8 @@
 	<tbody>
 		<?php foreach ($users as $user): ?>
 		<tr>
-			<td class="texte"><?php echo h($user['User']['firstname']); ?>&nbsp;</td>
 			<td class="texte"><?php echo h($user['User']['lastname']); ?>&nbsp;</td>
+			<td class="texte"><?php echo h($user['User']['firstname']); ?>&nbsp;</td>
 			<td class="texte"><?php echo h($user['User']['username']); ?>&nbsp;</td>
 			<td class="texte"><?php echo h($user['User']['email']); ?>&nbsp;</td>
 			<td class="texte"><?php echo h($user['User']['phone_office']); ?>&nbsp;</td>
@@ -43,7 +43,7 @@
 			</td>
 			<td>
 				<?php
-					echo $this->Form->postLink('<i class="icon-trash icon-white"></i>&nbsp;&nbsp;' . __('Suppression'), array('action' => 'delete', $user['User']['id']), array('escape' => false, 'class' => "btn btn-danger"), __('Êtes-vous sûr de supprimer l\'entrée %s?', $user['User']['nom'] . ' ' . $user['User']['prenom']));
+					echo $this->Form->postLink('<i class="icon-trash icon-white"></i>&nbsp;&nbsp;' . __('Suppression'), array('action' => 'delete', $user['User']['id']), array('escape' => false, 'class' => "btn btn-danger"), __('Êtes-vous sûr de supprimer l\'entrée %s?', $user['User']['lastname'] . ' ' . $user['User']['firstname']));
 				?>
 			</td>
 		</tr>

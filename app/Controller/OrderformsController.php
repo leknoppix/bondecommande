@@ -89,15 +89,15 @@ class OrderformsController extends AppController {
 			$this->Orderform->create();
 			
 			// Change date format
-			if $this->request->data['Orderform']['invoice'] != '' {
-				$datetime_invoice = Datetime::createFromFormat('j-M-Y', $this->request->data['Orderform']['invoice']);
+			if ($this->request->data['Orderform']['invoice'] != '') {
+				$datetime_invoice = Datetime::createFromFormat('d-m-Y', $this->request->data['Orderform']['invoice']);
 				$this->request->data['Orderform']['invoice'] = $datetime_invoice->format('Y-m-d H:i:s');
 			}
 			
 			// Change date format
-			if $this->request->data['Orderform']['shipped'] {
-				$datetime_shipped = Datetime::createFromFormat('j-M-Y', $this->request->data['Orderform']['shipped']);
-				$this->request->data['Orderform']['invoice'] = $datetime_shipped->format('Y-m-d H:i:s');
+			if ($this->request->data['Orderform']['shipped'] != '') {
+				$datetime_shipped = Datetime::createFromFormat('d-m-Y', $this->request->data['Orderform']['shipped']);
+				$this->request->data['Orderform']['shipped'] = $datetime_shipped->format('Y-m-d H:i:s');
 			}
 			
 			if ($this->Orderform->saveAssociated($this->request->data)) {
@@ -126,6 +126,16 @@ class OrderformsController extends AppController {
 			throw new NotFoundException(__('Ce bon de commande n\'existe pas.'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
+			// Change date format
+			if ($this->request->data['Orderform']['invoice'] != '') {
+				$datetime_invoice = Datetime::createFromFormat('d-m-Y', $this->request->data['Orderform']['invoice']);
+				$this->request->data['Orderform']['invoice'] = $datetime_invoice->format('Y-m-d H:i:s');
+			}
+			// Change date format
+			if ($this->request->data['Orderform']['shipped'] != '') {
+				$datetime_shipped = Datetime::createFromFormat('d-m-Y', $this->request->data['Orderform']['shipped']);
+				$this->request->data['Orderform']['shipped'] = $datetime_shipped->format('Y-m-d H:i:s');
+			}
 			if ($this->Orderform->saveAssociated($this->request->data)) {
 				$this->Session->setFlash(__('Le bon de commande a été modifié.'),	'notif',	array('type'	=>	'success'));
 				return $this->redirect(array('action' => 'index'));
@@ -136,6 +146,10 @@ class OrderformsController extends AppController {
 			$options = array('conditions' => array('Orderform.' . $this->Orderform->primaryKey => $id));
 			$this->request->data = $this->Orderform->find('first', $options);
 		}
+		$datetime_invoice = Datetime::createFromFormat('Y-m-d', $this->request->data['Orderform']['invoice']);
+		$this->request->data['Orderform']['invoice'] = $datetime_invoice->format('d-m-Y');
+		$datetime_invoice = Datetime::createFromFormat('Y-m-d', $this->request->data['Orderform']['shipped']);
+		$this->request->data['Orderform']['shipped'] = $datetime_invoice->format('d-m-Y');
 		$customers = $this->Orderform->Customer->find('list');
 		$services = $this->Orderform->Service->find('list');
 		$products = $this->Orderform->Product->find('all',

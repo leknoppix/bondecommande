@@ -48,8 +48,8 @@
 	if ($this->request->is('post') == true) {
 	$this->Html->scriptStart(array('inline' => false));
 		echo "$(function() {\n";
-		echo 'parent.$("#OpenformCustomerId").append(new Option("' . $this->request->data['Customer']['name'] . '","' . $this->request->data['Customer']['id'] . '"));' . "\n";
-		echo 'parent.$(\'#OpenformCustomerId option[value=' . $this->request->data['Customer']['id'] . ']\').attr(\'selected\',\'selected\');' . "\n";
+		echo 'parent.$("#OrderformCustomerId").append(new Option("' . $this->request->data['Customer']['name'] . '","' . $this->request->data['Customer']['id'] . '"));' . "\n";
+		echo 'parent.$(\'#OrderformCustomerId option[value=' . $this->request->data['Customer']['id'] . ']\').attr(\'selected\',\'selected\');' . "\n";
 		echo "\tparent.$.fancybox.close(true);\n";
 		echo "});\n";
 	$this->Html->scriptEnd();

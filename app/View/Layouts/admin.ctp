@@ -69,10 +69,15 @@
 						<?php echo $this->fetch('content'); ?>
 						<div class="cb"></div>
 					</div>
+				</div>
+				<div class="bloc">
+					<div class="content">
+						<?php echo $this->element('sql_dump'); ?>
+						<div class="cb"></div>
+					</div>
 				</div> 
 			</div>
 		</div>
-	<?php echo $this->element('sql_dump'); ?>
 	<?php echo $this->Html->script(
 		array(
 			"jquery.min.js",

@@ -22,12 +22,7 @@ class OrderformsController extends AppController {
  */
 	public function index() {
 		$this->Orderform->recursive = 0;
-		$this->set('orderforms',	$this->Orderform->find('all',
-				array(
-					'order'	=>	'Orderform.id DESC'
-				)
-			)
-		);
+		$this->set('orderforms', $this->Orderform->find('all', array('order' => 'Orderform.id DESC')));
 	}
 
 /**
@@ -41,6 +36,7 @@ class OrderformsController extends AppController {
 		if (!$this->Orderform->exists($id)) {
 			throw new NotFoundException(__('Ce bon de commande n\'existe pas.'));
 		}
+		
 		$options = array('conditions' => array('Orderform.' . $this->Orderform->primaryKey => $id));
 		$this->set('orderform', $this->Orderform->find('first', $options));
 	}
@@ -63,13 +59,11 @@ class OrderformsController extends AppController {
  */
 	public function add() {
 		$this->loadModel('Numberorder');
-		$numbers	=	$this->Numberorder->find(
+		$numbers = $this->Numberorder->find(
 				'first',
 				array(
-					'fields'	=>	array('id','year',	'num', 'new_num'),
-					'conditions'	=>	array(
-						'year'	=>	date('Y')
-					)
+					'fields' => array('id','year', 'num', 'new_num'),
+					'conditions' => array('year' => date('Y'))
 				)
 			);
 		//Cas d'une nouvelle année
@@ -93,6 +87,19 @@ class OrderformsController extends AppController {
 				)
 			);
 			$this->Orderform->create();
+			
+			// Change date format
+			if $this->request->data['Orderform']['invoice'] != '' {
+				$datetime_invoice = Datetime::createFromFormat('j-M-Y', $this->request->data['Orderform']['invoice']);
+				$this->request->data['Orderform']['invoice'] = $datetime_invoice->format('Y-m-d H:i:s');
+			}
+			
+			// Change date format
+			if $this->request->data['Orderform']['shipped'] {
+				$datetime_shipped = Datetime::createFromFormat('j-M-Y', $this->request->data['Orderform']['shipped']);
+				$this->request->data['Orderform']['invoice'] = $datetime_shipped->format('Y-m-d H:i:s');
+			}
+			
 			if ($this->Orderform->saveAssociated($this->request->data)) {
 				$this->Session->setFlash(__('Le bon de commande a été enregistré. Vous pouvez générer le bon de commande'),	'notif',	array('type'	=>	'success'));
 				return $this->redirect(array('action' => 'index'));

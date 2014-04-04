@@ -1,7 +1,7 @@
 <?php echo $this->Html->addCrumb(__('Gestion des bons de commande'), array('controller' => 'orderforms', 'action' => 'index')); ?>
 <?php echo $this->Html->addCrumb(__('Listage des bons de commande'), array('controller' => 'orderforms', 'action' => 'listbon', $this->request->pass[0])); ?>
 <div class="title">
-	<h2><i class="icon-white icon-barcode"></i>&nbsp;&nbsp;<?php echo __('Gestion des bons de commande'); ?></h2>
+	<h2><i class="icon-white icon-barcode"></i>&nbsp;&nbsp;<?php echo __('Listage des bons de commande'); ?></h2>
 </div>	
 <div class="action">
 	<table class="w100">

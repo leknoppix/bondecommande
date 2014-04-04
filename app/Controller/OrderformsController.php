@@ -1,5 +1,6 @@
 <?php
 App::uses('AppController', 'Controller');
+App::uses('CakeEmail', 'Network/Email');
 /**
  * Orderforms Controller
  *
@@ -50,6 +51,18 @@ class OrderformsController extends AppController {
 		}
 		$options = array('conditions' => array('Orderform.' . $this->Orderform->primaryKey => $id));
 		$this->set('orderform', $this->Orderform->find('first', $options));
+	}
+
+	public function pdfviamail($id = null) {
+		Configure::write('debug',	0);
+		$this->response->type('pdf');
+		$this->layout	=	'pdf';
+		if (!$this->Orderform->exists($id)) {
+			throw new NotFoundException(__('Ce bon de commande n\'existe pas.'));
+		}
+		$options = array('conditions' => array('Orderform.' . $this->Orderform->primaryKey => $id));
+		$this->set('orderform', $this->Orderform->find('first', $options));
+		$this->render(false);
 	}
 
 /**
@@ -179,5 +192,29 @@ class OrderformsController extends AppController {
 			$this->Session->setFlash(__('Une erreur est survenu. Merci de vérifier les informations et de valider à nouveau.'),	'notif',	array('type'	=>	'error'));
 		}
 		return $this->redirect(array('action'	=>	'index'));
+	}
+
+	public function mail($id = null) {
+		//génération du pdf
+		$this->requestAction(array('controller' => "orderforms", 'action' => 'pdfviamail', $id));
+		$email = new CakeEmail();
+		$email->config('gmail');
+		$orderform = $this->Orderform->find('first', array(
+				'conditions' => array('Orderform.' . $this->Orderform->primaryKey => $id)
+			)
+		);
+		//emetteur de l'email
+		$email->from(array($orderform['User']['email'] => $orderform['User']['firstname'] . ' ' . $orderform['User']['lastname']));
+		//destinataire
+		$email->to($orderform['Customer']['email']);
+		//$email->attachments('files/tmp/' . $orderform['Orderform']['numorder'] . '.pdf');
+		$email->subject('Bon de commande n°' . $orderform['Orderform']['numorder']);
+		$email->send('Essaie d\'envoie'); // or use a template etc
+		//unlink('files/tmp/' . $orderform['Orderform']['numorder'] . '.pdf');
+	}
+
+	public function listbon($id = null) {
+		$options = array('conditions' => array('Orderform.customer_id' => $id));
+		$this->set('orderforms', $this->Orderform->find('all', $options));
 	}
 }

@@ -1,5 +1,5 @@
 <?php echo $this->Html->addCrumb(__('Gestion des bons de commande'), array('controller' => 'orderforms', 'action' => 'index')); ?>
-<?php echo $this->Html->addCrumb(__('Modifier un bon de commande'), array('controller' => 'orderforms', 'action' => 'add')); ?>
+<?php echo $this->Html->addCrumb(__('Modifier un bon de commande'), array('controller' => 'orderforms', 'action' => 'edit', $this->request->pass[0])); ?>
 <div class="title">
 	<h2><i class="icon-white icon-barcode"></i>&nbsp;&nbsp;<?php echo __('Modifier un bon de commande'); ?></h2>
 </div>	

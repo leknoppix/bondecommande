@@ -212,4 +212,9 @@ class OrderformsController extends AppController {
 		$email->send('Essaie d\'envoie'); // or use a template etc
 		//unlink('files/tmp/' . $orderform['Orderform']['numorder'] . '.pdf');
 	}
+
+	public function listbon($id = null) {
+		$options = array('conditions' => array('Orderform.customer_id' => $id));
+		$this->set('orderforms', $this->Orderform->find('all', $options));
+	}
 }

@@ -18,14 +18,14 @@
 		<?php 
 			echo $this->Form->create('Orderform');
 		?>
-			<div id="tabs" class="orderform">
+			<div id="tabs" class="orderform w100">
 				<ul class="tabs">
 					<li><a href="#internal"><?php echo __('Information interne'); ?></a></li>
 					<li><a href="#customers"><?php echo __('Information fournisseur'); ?></a></li>
 					<li><a href="#products"><?php echo __('Information fournitures'); ?></a></li>
 				</ul>
 				<div class="cb"></div>
-				<div class="tab-pane active" id="internal">
+				<div class="tab-pane active w100" id="internal">
 						<?php
 							//on indique le numéro provisoire du bon de commande
 							echo $this->Form->input('numbers.newnum',
@@ -88,18 +88,18 @@
 					?>
 					<p><?php echo $this->Html->link('<i class="icon-white icon-plus-sign"></i>&nbsp;&nbsp;' . __('Ajouter un fournisseur'), array('controller' => 'customers', 'action' => 'addiframe'), array('escape' => false, 'class' => 'fancybox fancybox.iframe btn btn_add w30')); ?></p>
 				</div>
-				<div class="tab-pane" id="products">
+				<div class="tab-pane w100" id="products">
 					<div class="orderforms w100">
 						<div class="head w100">
-							<div class="w58 inline"><?php echo __('Nom du produit'); ?></div>
+							<div class="w55 inline"><?php echo __('Nom du produit'); ?></div>
 							<div class="w10 inline"><?php echo __('Quantité'); ?></div>
 							<div class="w10 inline"><?php echo __('Prix en HT'); ?></div>
 							<div class="w10 inline"><?php echo __('TVA'); ?></div>
 							<div class="w10 inline"><?php echo __('Total TTC'); ?></div>
 						</div>
-						<div class="cb"></div>
-						<div class="body-0 w100">
-							<div class="w58 inline"><?php 
+						<div class="cb"><br /><br /></div>
+						<div class="body-0 w100 inline">
+							<div class="w55 inline"><?php 
 										echo $this->Form->input('Product.0.name',
 											array(
 												'label' => false,
@@ -163,6 +163,7 @@
 										);
 									?>
 							</div>
+							<div class="cb"><br /><br /></div>
 						</div>
 						<a href="#" class="addproduct"><?php echo __('Ajouter un produit'); ?></a>
 					</div>

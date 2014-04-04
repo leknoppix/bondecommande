@@ -94,7 +94,7 @@
 				<div class="tab-pane" id="products">
 					<div class="orderforms">
 						<div class="head w100">
-							<div class="w58 inline"><?php echo __('Nom du produit'); ?></div>
+							<div class="w55 inline"><?php echo __('Nom du produit'); ?></div>
 							<div class="w10 inline"><?php echo __('Quantité'); ?></div>
 							<div class="w10 inline"><?php echo __('Prix en HT'); ?></div>
 							<div class="w10 inline"><?php echo __('TVA'); ?></div>
@@ -106,7 +106,7 @@
 							foreach ($products as $k => $v) {
 							?>
 							<div class="body-<?php echo $k; ?> w100">
-								<div class="w58 inline"><?php 
+								<div class="w55 inline"><?php 
 											echo $this->Form->input('Product.' . $k . '.name',
 												array(
 													'label' => false,

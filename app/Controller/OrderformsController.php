@@ -55,13 +55,14 @@ class OrderformsController extends AppController {
 
 	public function pdfviamail($id = null) {
 		Configure::write('debug',	0);
-		//$this->response->type('pdf');
+		$this->response->type('pdf');
 		$this->layout	=	'pdf';
 		if (!$this->Orderform->exists($id)) {
 			throw new NotFoundException(__('Ce bon de commande n\'existe pas.'));
 		}
 		$options = array('conditions' => array('Orderform.' . $this->Orderform->primaryKey => $id));
 		$this->set('orderform', $this->Orderform->find('first', $options));
+		$this->render(false);
 	}
 
 /**
@@ -194,10 +195,10 @@ class OrderformsController extends AppController {
 	}
 
 	public function mail($id = null) {
+		//génération du pdf
+		$this->requestAction(array('controller' => "orderforms", 'action' => 'pdfviamail', $id));
 		$email = new CakeEmail();
 		$email->config('gmail');
-		//génération du pdf
-		$this->pdfviamail($id);
 		$orderform = $this->Orderform->find('first', array(
 				'conditions' => array('Orderform.' . $this->Orderform->primaryKey => $id)
 			)
@@ -206,8 +207,9 @@ class OrderformsController extends AppController {
 		$email->from(array($orderform['User']['email'] => $orderform['User']['firstname'] . ' ' . $orderform['User']['lastname']));
 		//destinataire
 		$email->to($orderform['Customer']['email']);
-		$email->attachments('files/tmp/' . $orderform['Orderform']['numorder'] . '.pdf');
+		//$email->attachments('files/tmp/' . $orderform['Orderform']['numorder'] . '.pdf');
 		$email->subject('Bon de commande n°' . $orderform['Orderform']['numorder']);
 		$email->send('Essaie d\'envoie'); // or use a template etc
+		//unlink('files/tmp/' . $orderform['Orderform']['numorder'] . '.pdf');
 	}
 }

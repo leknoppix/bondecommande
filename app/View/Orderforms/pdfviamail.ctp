@@ -169,7 +169,6 @@ ob_start(); ?>
 		$pdf->pdf->SetDisplayMode('fullpage');
 		$pdf->writeHTML($content);
 		$pdf->Output('files/tmp/' . $orderform['Orderform']['numorder'] . '.pdf', 'F');
-		return true;
 	}
 	catch(HTML2PDF_exception $e){
 		die($e);

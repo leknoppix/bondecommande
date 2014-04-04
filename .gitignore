@@ -10,7 +10,6 @@
 /build
 /dist
 /tags
-
 # OS generated files #
 ######################
 .DS_Store
@@ -18,18 +17,16 @@
 ._*
 .Spotlight-V100
 .Trashes
+sftp-config.json
 Icon?
 ehthumbs.db
 Thumbs.db
-
 # Application specific & automatically generated files #
 ########################################################
 /app/webroot/.sass-cache
 /app/webroot/config.rb
-
-
 # IDE Generated #
 #################
 *.komodoproject
-
 app/Config/adresse.php
+app/Config/email.php

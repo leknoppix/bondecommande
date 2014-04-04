@@ -26,11 +26,6 @@ Thumbs.db
 /app/webroot/.sass-cache
 /app/webroot/config.rb
 # IDE Generated #
-#################
-<<<<<<< HEAD
 *.komodoproject
-=======
-*.komodoproject
-app/Config/adresse.php
-app/Config/email.php
->>>>>>> 0.9_envoi_mail
+/app/Config/adresse.php
+/app/Config/email.php

@@ -1,6 +1,6 @@
 <?php
 $config['Default'] = array(
-	'entity'=>'Mairie de Mirande',
+	'entity'=>'',
 	'address'=>'',
 	'complementadress'=>'',
 	'zipcode'=>'',

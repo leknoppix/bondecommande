@@ -30,6 +30,13 @@ $primary:#428BCA;
 		@include box-sizing(border-box);
 	}
 }
+@for $i from 1 through 200 {
+	.h#{$i}
+	{
+		width: 1px * $i;
+		@include box-sizing(border-box);
+	}
+}
 /*clear both*/
 .cb
 {
@@ -108,7 +115,7 @@ header{
 #sidebar
 {
   	position:fixed;
-  	width: 200px;
+  	width: 250px;
   	top:40px;
 	left:0;
 	bottom:0;

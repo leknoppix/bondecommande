@@ -23,7 +23,7 @@
 			<th class="w15"><?php echo __('Service'); ?></th>
 			<th class="w10"><?php echo __('Aperçu'); ?></th>
 			<th class="w5"><?php echo __('PDF'); ?></th>
-			<!-- <th class="w5"><?php echo __('Email'); ?></th> -->
+			<th class="w5"><?php echo __('Email'); ?></th>
 			<th class="w10"><?php echo __('Edition'); ?></th>
 			<th class="w10"><?php echo __('Suppression'); ?></th>
 	</tr>
@@ -45,9 +45,9 @@
 		<td>
 			<?php echo $this->Html->link('<i class="icon-book icon-white"></i>&nbsp;' . __('PDF'), array('action' => 'pdf', $orderform['Orderform']['id']), array('escape' => false, 'class' => "btn btn-info")); ?>
 		</td>
-		<!-- <td>
+		<td>
 			<?php echo $this->Html->link('<i class="icon-envelope icon-white"></i>&nbsp;' . __('Email'), array('action' => 'mail', $orderform['Orderform']['id']), array('escape' => false, 'class' => "btn btn-info")); ?>
-		</td> -->
+		</td>
 		<td>
 			<?php echo $this->Html->link('<i class="icon-edit icon-white"></i>&nbsp;' . __('Edition'), array('action' => 'edit', $orderform['Orderform']['id']), array('escape' => false, 'class' => "btn btn-info")); ?>
 		</td>

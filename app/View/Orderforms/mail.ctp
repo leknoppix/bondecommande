@@ -51,7 +51,8 @@
 				)
 			);
 		?>
+		<a href="#" class="addpdf" id="bdc<?php echo $orderform['Orderform']['id']; ?>"><?php echo __('Générer le pdf'); ?></a>
 		<div class="cb"></div>
 	</div>
-	<?php echo $this->Form->end(array('label' => __('Envoyer ce mail'), 'class' => 'btn btn-primary submit w100','disabled'=>'disabled')); ?>
+	<?php echo $this->Form->end(array('label' => __('Envoyer ce mail'), 'class' => 'btn btn-primary submit w100 submitdisable')); ?>
 </div>

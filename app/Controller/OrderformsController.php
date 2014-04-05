@@ -55,13 +55,13 @@ class OrderformsController extends AppController {
 
 	public function pdfviamail($id = null) {
 		Configure::write('debug',	0);
-		$this->response->type('pdf');
 		$this->layout	=	'pdf';
 		if (!$this->Orderform->exists($id)) {
 			throw new NotFoundException(__('Ce bon de commande n\'existe pas.'));
 		}
 		$options = array('conditions' => array('Orderform.' . $this->Orderform->primaryKey => $id));
 		$this->set('orderform', $this->Orderform->find('first', $options));
+		
 	}
 
 /**
@@ -203,9 +203,11 @@ class OrderformsController extends AppController {
 			$email->from(array($orderform['User']['email'] => $orderform['User']['firstname'] . ' ' . $orderform['User']['lastname']));
 			//destinataire
 			$email->to($this->request->data['Orderform']['destinataire']);
+			$email->attachments('files/tmp/' . $orderform['Orderform']['numorder'] . '.pdf');
 			$email->subject($this->request->data['Orderform']['objet']);
 			$email->send($this->request->data['Orderform']['message']);
 			$this->Session->setFlash(__('Le bon de commande a été envoyé correctement'),	'notif',	array('type'	=>	'success'));
+			unlink('files/tmp/' . $orderform['Orderform']['numorder'] . '.pdf');
 			return $this->redirect(array('action'	=>	'index'));
 		}
 		else

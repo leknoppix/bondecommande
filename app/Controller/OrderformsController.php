@@ -62,7 +62,6 @@ class OrderformsController extends AppController {
 		}
 		$options = array('conditions' => array('Orderform.' . $this->Orderform->primaryKey => $id));
 		$this->set('orderform', $this->Orderform->find('first', $options));
-		$this->render(false);
 	}
 
 /**
@@ -195,22 +194,24 @@ class OrderformsController extends AppController {
 	}
 
 	public function mail($id = null) {
-		//génération du pdf
-		$this->requestAction(array('controller' => "orderforms", 'action' => 'pdfviamail', $id));
-		$email = new CakeEmail();
-		$email->config('gmail');
-		$orderform = $this->Orderform->find('first', array(
-				'conditions' => array('Orderform.' . $this->Orderform->primaryKey => $id)
-			)
-		);
-		//emetteur de l'email
-		$email->from(array($orderform['User']['email'] => $orderform['User']['firstname'] . ' ' . $orderform['User']['lastname']));
-		//destinataire
-		$email->to($orderform['Customer']['email']);
-		//$email->attachments('files/tmp/' . $orderform['Orderform']['numorder'] . '.pdf');
-		$email->subject('Bon de commande n°' . $orderform['Orderform']['numorder']);
-		$email->send('Essaie d\'envoie'); // or use a template etc
-		//unlink('files/tmp/' . $orderform['Orderform']['numorder'] . '.pdf');
+		$options = array('conditions' => array('Orderform.' . $this->Orderform->primaryKey => $id));
+		$orderform=$this->Orderform->find('first', $options);
+		if ($this->request->is(array('post', 'put'))) {
+			$email = new CakeEmail();
+			$email->config('gmail');
+			//emetteur de l'email
+			$email->from(array($orderform['User']['email'] => $orderform['User']['firstname'] . ' ' . $orderform['User']['lastname']));
+			//destinataire
+			$email->to($this->request->data['Orderform']['destinataire']);
+			$email->subject($this->request->data['Orderform']['objet']);
+			$email->send($this->request->data['Orderform']['message']);
+			$this->Session->setFlash(__('Le bon de commande a été envoyé correctement'),	'notif',	array('type'	=>	'success'));
+			return $this->redirect(array('action'	=>	'index'));
+		}
+		else
+		{
+			$this->set('orderform', $orderform);
+		}
 	}
 
 	public function listbon($id = null) {

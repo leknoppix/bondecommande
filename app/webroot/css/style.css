@@ -2672,3 +2672,7 @@ table.customers, table.users, table.services, table.orderforms {
 
 .autocomplete-selected {
   background: #F0F0F0; }
+
+table.orderforms tr.archived {
+  background-color: #dcedcf;
+  color: black; }

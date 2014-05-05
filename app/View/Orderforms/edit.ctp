@@ -80,6 +80,11 @@
 							echo $this->Form->input('shipping_address', array('label' => __('Adresse de livraison'), 'class' => 'w30', 'type' => 'textarea'));
 						?>
 						<div class="cb"></div>
+						<?php
+							$options = array('0' => __('Non Archivé'),'1' => __('Archivé'));
+							echo $this->Form->input('archived', array('label' => __('Bon de commande a archivé ?'), 'class' => 'w30','options' => $options));
+						?>
+						<div class="cb"></div>
 				</div>
 				<div class="tab-pane" id="customers">
 					<?php

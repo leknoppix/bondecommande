@@ -30,7 +30,7 @@
 	<?php
 		foreach ($orderforms as $orderform) {
 	?>
-	<tr>
+	<tr <?php if ($orderform['Orderform']['archived'] == 1) { echo "class=\"archived\""; } ?>>
 		<td>
 			<?php echo $orderform['Orderform']['numorder']; ?>
 		</td>

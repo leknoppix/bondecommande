@@ -53,6 +53,9 @@ class OrderformsController extends AppController {
 		$this->set('orderform', $this->Orderform->find('first', $options));
 	}
 
+	// TODO: Faut que cette méthode serve à écrire un fichier et non redirige vers une vue
+	// TODO: Faut binder la sortie, faire comme si c'était une requête Ajax
+	// TODO: Doit retourner True si le fichier est écrit et False si ça à fail, possibilité de lever une exception pour gérer d'autres codes de sortie
 	public function pdfviamail($id = null) {
 		Configure::write('debug',	0);
 		$this->layout	=	'pdf';
